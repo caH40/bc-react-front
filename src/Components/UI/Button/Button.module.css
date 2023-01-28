@@ -1,0 +1,21 @@
+.button {
+	background: #1e541b;
+	box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	font-family: 'Montserrat Alternates';
+	font-style: normal;
+	font-weight: bold;
+	font-size: 13px;
+	letter-spacing: 0.08em;
+	color: #f1f1f1;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 5px 25px;
+}
+
+.button:hover {
+	background-color: #30832b;
+}
+.button:active {
+	background: #ec9c07;
+}

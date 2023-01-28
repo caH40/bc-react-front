@@ -1,0 +1,24 @@
+.link {
+	display: block;
+	width: 465px;
+	height: 264px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.img {
+	width: 465px;
+	height: 264px;
+	object-fit: cover;
+	object-position: center center;
+}
+
+.title {
+	opacity: 30%;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	letter-spacing: 0.8px;
+	padding: 10px;
+	position: absolute;
+}
