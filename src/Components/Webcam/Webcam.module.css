@@ -1,3 +1,7 @@
+.webcam {
+	position: relative;
+}
+
 .screenShot {
 	display: block;
 	width: 465px;
@@ -23,4 +27,21 @@
 	letter-spacing: 0.8px;
 	padding: 10px;
 	position: absolute;
+}
+.arrow__left {
+	width: 10px;
+	height: 30px;
+	background-color: rgba(255, 255, 255, 0.158);
+	position: absolute;
+	left: 5px;
+	top: calc(50% - 15px);
+}
+.arrow__right {
+	width: 10px;
+	height: 30px;
+	background-color: rgba(255, 255, 255, 0.158);
+	position: absolute;
+	color: #ffffff25;
+	right: 5px;
+	top: calc(50% - 15px);
 }
