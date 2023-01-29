@@ -1,13 +1,13 @@
 import { useResize } from '../hooks/use-resize';
 
 export const Adaptive = ({ children, sizeScreen }) => {
-	const {
-		isScreenSm: sm,
-		isScreenMd: md,
-		isScreenLg: lg,
-		isScreenXl: xl,
-		isScreenXXl: xxl,
-	} = useResize();
-	const sizes = { sm, md, lg, xl, xxl };
+	const sizesScreen = useResize();
+	const sizes = {
+		sm: sizesScreen.isScreenSm,
+		md: sizesScreen.isScreenMd,
+		lg: sizesScreen.isScreenLg,
+		xl: sizesScreen.isScreenXl,
+		xxl: sizesScreen.isScreenXxl,
+	};
 	return sizes[sizeScreen] ? children : '';
 };
