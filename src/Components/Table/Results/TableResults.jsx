@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { Adaptive } from '../../../Hoc/Adaptive';
 import classes from '../Table.module.css';
 import ThSort from '../ThSort';
 
@@ -19,17 +20,19 @@ const TableResults = ({ results, setResults }) => {
 				<thead>
 					<tr>
 						<ThSort sort={sort} setSort={setSort} data={results} setData={setResults} field={'place'}>
-							Место
+							#
 						</ThSort>
-						<ThSort
-							sort={sort}
-							setSort={setSort}
-							data={results}
-							setData={setResults}
-							field={'number'}
-						>
-							Номер
-						</ThSort>
+						<Adaptive sizeScreen="lg">
+							<ThSort
+								sort={sort}
+								setSort={setSort}
+								data={results}
+								setData={setResults}
+								field={'number'}
+							>
+								Номер
+							</ThSort>
+						</Adaptive>
 						<ThSort
 							sort={sort}
 							setSort={setSort}
@@ -39,33 +42,37 @@ const TableResults = ({ results, setResults }) => {
 						>
 							Участник
 						</ThSort>
-						<ThSort
-							sort={sort}
-							setSort={setSort}
-							data={results}
-							setData={setResults}
-							field={'athleteCity'}
-						>
-							Город
-						</ThSort>
-						<ThSort
-							sort={sort}
-							setSort={setSort}
-							data={results}
-							setData={setResults}
-							field={'athleteTeam'}
-						>
-							Команда
-						</ThSort>
-						<ThSort
-							sort={sort}
-							setSort={setSort}
-							data={results}
-							setData={setResults}
-							field={'distance'}
-						>
-							Дистанция
-						</ThSort>
+						<Adaptive sizeScreen="sm">
+							<ThSort
+								sort={sort}
+								setSort={setSort}
+								data={results}
+								setData={setResults}
+								field={'athleteCity'}
+							>
+								Город
+							</ThSort>
+						</Adaptive>
+						<Adaptive sizeScreen="lg">
+							<ThSort
+								sort={sort}
+								setSort={setSort}
+								data={results}
+								setData={setResults}
+								field={'athleteTeam'}
+							>
+								Команда
+							</ThSort>
+							<ThSort
+								sort={sort}
+								setSort={setSort}
+								data={results}
+								setData={setResults}
+								field={'distance'}
+							>
+								Дистанция
+							</ThSort>
+						</Adaptive>
 						<ThSort
 							sort={sort}
 							setSort={setSort}
@@ -76,33 +83,47 @@ const TableResults = ({ results, setResults }) => {
 							Время
 						</ThSort>
 						<th scope="col">Отс.лид.</th>
-						<th scope="col">Отс.пр.</th>
-						<ThSort
-							sort={sort}
-							setSort={setSort}
-							data={results}
-							setData={setResults}
-							field={'birthday'}
-						>
-							Возр. гр.
-						</ThSort>
-						<th scope="col">Место гр</th>
+						<Adaptive sizeScreen="sm">
+							<th scope="col">Отс.пр.</th>
+						</Adaptive>
+						<Adaptive sizeScreen="lg">
+							<ThSort
+								sort={sort}
+								setSort={setSort}
+								data={results}
+								setData={setResults}
+								field={'birthday'}
+							>
+								Возр. гр.
+							</ThSort>
+							<th scope="col">Место гр</th>
+						</Adaptive>
 					</tr>
 				</thead>
 				<tbody>
 					{results.map(result => (
 						<tr key={result._id} onClick={() => toLink(result.athlete)}>
 							<td>{result.place}</td>
-							<td>{result.number}</td>
+							<Adaptive sizeScreen="lg">
+								<td>{result.number}</td>
+							</Adaptive>
 							<td className={classes.align__left}>{result.athlete}</td>
-							<td>{result.athleteCity}</td>
-							<td>{result.athleteTeam}</td>
-							<td>{result.distance}</td>
+							<Adaptive sizeScreen="sm">
+								<td>{result.athleteCity}</td>
+							</Adaptive>
+							<Adaptive sizeScreen="lg">
+								<td>{result.athleteTeam}</td>
+								<td>{result.distance}</td>
+							</Adaptive>
 							<td>{result.timeTotal}</td>
 							<td>{result.gap}</td>
-							<td>{result.gapPrev}</td>
-							<td>{result.birthday}</td>
-							<td></td>
+							<Adaptive sizeScreen="sm">
+								<td>{result.gapPrev}</td>
+							</Adaptive>
+							<Adaptive sizeScreen="lg">
+								<td>{result.birthday}</td>
+								<td></td>
+							</Adaptive>
 						</tr>
 					))}
 				</tbody>

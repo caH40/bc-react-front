@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Adaptive } from '../../../Hoc/Adaptive';
 import classes from '../Table.module.css';
 import ThSort from '../ThSort';
 
@@ -26,7 +27,9 @@ const TableDzhiliSuEvents = ({ events, setEvents }) => {
 						Дата
 					</ThSort>
 					<th scope="col">Соревнование</th>
-					<th scope="col">Город</th>
+					<Adaptive sizeScreen="lg">
+						<th scope="col">Город</th>
+					</Adaptive>
 					<ThSort
 						sort={sort}
 						setSort={setSort}
@@ -34,9 +37,11 @@ const TableDzhiliSuEvents = ({ events, setEvents }) => {
 						setData={setEvents}
 						field={'quantityRiders'}
 					>
-						Участники
+						Участ.
 					</ThSort>
-					<th scope="col">Сегмент в Страве</th>
+					<Adaptive sizeScreen="sm">
+						<th scope="col">Сегмент в Страве</th>
+					</Adaptive>
 				</tr>
 			</thead>
 			<tbody>
@@ -45,18 +50,22 @@ const TableDzhiliSuEvents = ({ events, setEvents }) => {
 						<td>{index + 1}</td>
 						<td>{event.eventDate}</td>
 						<td className={classes.align__left}>{event.eventName}</td>
-						<td>{event.eventCity}</td>
+						<Adaptive sizeScreen="lg">
+							<td>{event.eventCity}</td>
+						</Adaptive>
 						<td>{event.quantityRiders}</td>
-						<td>
-							<a
-								className={classes.link__btn}
-								href={event.segmentStrava}
-								target="_blank"
-								rel="noreferrer"
-							>
-								Strava
-							</a>
-						</td>
+						<Adaptive sizeScreen="sm">
+							<td>
+								<a
+									className={classes.link__btn}
+									href={event.segmentStrava}
+									target="_blank"
+									rel="noreferrer"
+								>
+									Strava
+								</a>
+							</td>
+						</Adaptive>
 					</tr>
 				))}
 			</tbody>
