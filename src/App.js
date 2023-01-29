@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Page from './Components/Layers/Page';
 import './css/App.css';
+import './css/App_mobile.css';
 import Dzhilsu from './Pages/Dzhilsu/Dzhilsu';
 import DzhilsuResults from './Pages/Dzhilsu/DzhilsuResults';
 import DzhilsuResultsAthlete from './Pages/Dzhilsu/DzhilsuResultsAthlete';

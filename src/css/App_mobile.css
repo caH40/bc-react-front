@@ -1,0 +1,24 @@
+@media screen and (max-width: 980px) {
+	.main__inner {
+		align-items: center;
+		flex-wrap: wrap;
+		flex-direction: column;
+		flex-flow: column-reverse;
+	}
+	.main__inner-news {
+		display: block;
+		width: 500px;
+	}
+}
+@media screen and (max-width: 510px) {
+	.title__page {
+		width: 400px;
+		margin: 0px auto;
+		padding-bottom: 15px;
+	}
+}
+@media screen and (max-width: 435px) {
+	.title__page {
+		width: 340px;
+	}
+}

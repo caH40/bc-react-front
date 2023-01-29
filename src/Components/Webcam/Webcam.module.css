@@ -1,10 +1,11 @@
 .webcam {
 	position: relative;
+	margin: 0px 10px 15px 10px;
 }
 
 .screenShot {
 	display: block;
-	width: 465px;
+	width: 470px;
 	height: 264px;
 	outline: 1px rgba(255, 255, 255, 0.068) solid;
 	border-radius: 10px;
@@ -12,7 +13,7 @@
 }
 
 .img {
-	width: 465px;
+	width: 470px;
 	height: 264px;
 	object-fit: cover;
 	object-position: center center;
@@ -27,4 +28,23 @@
 	letter-spacing: 0.8px;
 	padding: 10px;
 	position: absolute;
+}
+
+@media screen and (max-width: 510px) {
+	.screenShot,
+	.img {
+		width: 400px;
+		height: 220px;
+	}
+	.title {
+		font-size: 12px;
+		padding: 7px;
+	}
+}
+@media screen and (max-width: 435px) {
+	.screenShot,
+	.img {
+		width: 340px;
+		height: 180px;
+	}
 }
