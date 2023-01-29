@@ -22,6 +22,9 @@
 		height: 320px;
 		border-radius: 7px;
 	}
+	.trail__body {
+		max-width: 480px;
+	}
 }
 @media screen and (max-width: 510px) {
 	.title__page {
@@ -39,6 +42,9 @@
 		width: 380px;
 		height: 280px;
 	}
+	.trail__inner {
+		width: 380px;
+	}
 }
 @media screen and (max-width: 435px) {
 	.container {
@@ -53,6 +59,9 @@
 	.news__img {
 		width: 340px;
 		height: 250px;
+	}
+	.trail__inner {
+		width: 340px;
 	}
 }
 /* ===================================================================== */

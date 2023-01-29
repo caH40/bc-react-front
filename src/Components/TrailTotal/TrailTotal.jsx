@@ -1,4 +1,5 @@
 import React from 'react';
+import { Adaptive } from '../../Hoc/Adaptive';
 import classes from './TrailTotal.module.css';
 
 const server = process.env.REACT_APP_SERVER_EXPRESS;
@@ -33,7 +34,7 @@ const TrailTotal = ({ trail }) => {
 						href={trail.urlTrekGConnect}
 						rel="noreferrer"
 					>
-						{trail.urlTrekGConnect}
+						Открыть на сайте
 					</a>
 				</li>
 				<li className={classes.item} id="downloadTrek">
@@ -55,7 +56,9 @@ const TrailTotal = ({ trail }) => {
 					</span>
 				</li>
 			</ul>
-			<iframe title={trail.nameRoute} src={url} width="465" height="548"></iframe>
+			<Adaptive sizeScreen="sm">
+				<iframe title={trail.nameRoute} src={url} width="465" height="548"></iframe>
+			</Adaptive>
 		</div>
 	);
 };
