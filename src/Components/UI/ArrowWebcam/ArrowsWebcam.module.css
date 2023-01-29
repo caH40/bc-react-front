@@ -1,0 +1,23 @@
+.arrow {
+	position: absolute;
+	display: block;
+	cursor: pointer;
+	top: calc(50% - 14px);
+}
+
+.left {
+	left: 0px;
+}
+.right {
+	right: 0px;
+}
+
+.arrow:hover > svg > path {
+	stroke: #30832b;
+}
+.arrow:active > svg > path {
+	stroke: #ec9c07;
+}
+.arrow > svg {
+	pointer-events: none;
+}
