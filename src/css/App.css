@@ -9,6 +9,7 @@ body {
 .body {
 	background: linear-gradient(90.53deg, #0a233a 38.59%, #133810 99.51%);
 	min-height: calc(100vh - 80px);
+	padding-bottom: 5px;
 }
 
 .container {
@@ -112,7 +113,7 @@ a {
 
 .trails__cards {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-around;
 	flex-wrap: wrap;
 	padding-bottom: 30px;
 }

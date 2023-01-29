@@ -5,7 +5,6 @@ import NewsInteractive from '../NewsInteractive/NewsInteractive';
 import classes from './NewsCard.module.css';
 
 const News = ({ news }) => {
-	// console.log(news[0]);
 	return (
 		<div className={classes.content}>
 			{news.map(newsOne => (

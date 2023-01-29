@@ -58,7 +58,7 @@ const NewsInteractive = ({ newsOne }) => {
 				<Share newsId={newsOne._id} />
 				<Dislike newsId={newsOne._id} disliked={disliked} getLikes={getLikes} />
 			</div>
-			<div className="date">{new Date(newsOne.date).toLocaleString()}</div>
+			<div className="date">{new Date(newsOne.date).toLocaleDateString()}</div>
 		</div>
 	);
 };

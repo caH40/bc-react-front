@@ -89,3 +89,9 @@
 .frame_kudos__eye {
 	padding-top: 4px;
 }
+
+@media screen and (max-width: 510px) {
+	.card {
+		margin: 0px 0px 15px 0px;
+	}
+}

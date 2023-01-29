@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Adaptive } from '../../Hoc/Adaptive';
 
 import classes from './Footer.module.css';
 
@@ -8,12 +9,9 @@ const Footer = () => {
 		<footer className={classes.footer}>
 			<div className="container">
 				<div className={classes.column}>
-					<img className={classes.logo} src="./images/icons/logo.svg" alt="Logo" />
-					{/* <div className="social__mobile">
-						<a className="social__link" href="https://t.me/velokmv">
-							<img className="social__img" src="./images/icons/telegram.svg" alt="telegram" />
-						</a>
-					</div> */}
+					<Adaptive sizeScreen="sm">
+						<img className={classes.logo} src="./images/icons/logo.svg" alt="Logo" />
+					</Adaptive>
 					<ul className={classes.list}>
 						<li className={classes.item}>
 							<Link className={classes.link} to="/">

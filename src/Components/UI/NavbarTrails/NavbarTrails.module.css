@@ -90,3 +90,17 @@
 	border-radius: 50%;
 	background-color: #555555;
 }
+@media screen and (max-width: 680px) {
+	.menu {
+		justify-content: center;
+	}
+}
+@media screen and (max-width: 435px) {
+	.btn {
+		width: auto;
+		min-width: 120px;
+	}
+	.flashlight__off::after {
+		right: 20px;
+	}
+}
