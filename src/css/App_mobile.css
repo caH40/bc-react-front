@@ -9,6 +9,9 @@
 		display: block;
 		width: 500px;
 	}
+	.title__page__trails {
+		margin-bottom: 5px;
+	}
 }
 @media screen and (max-width: 510px) {
 	.title__page {
@@ -16,9 +19,13 @@
 		margin: 0px auto;
 		padding-bottom: 15px;
 	}
+	.title__page__trails {
+		margin-bottom: 0px;
+	}
 }
 @media screen and (max-width: 435px) {
 	.title__page {
 		width: 340px;
 	}
 }
+/* ===================================================================== */
