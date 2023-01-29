@@ -8,7 +8,7 @@ import News from '../Components/NewsCard/NewsCard';
 import Webcam from '../Components/Webcam/Webcam';
 
 const Home = () => {
-	const [screenShot, setScreenShot] = useState('');
+	const [screenShot, setScreenShot] = useState('./images/transparent800.png');
 	const [news, setNews] = useState([]);
 	const likes = useSelector(state => state.likesNews.value);
 
@@ -31,10 +31,14 @@ const Home = () => {
 	return (
 		<section className="home">
 			<h3 className="title__page">Новости, события и анонсы мероприятий. </h3>
-			<div className="main__inner">
-				<News news={news} />
-				<Webcam screenShot={screenShot} />
-			</div>
+			{news ? (
+				<div className="main__inner">
+					<News news={news} />
+					<Webcam screenShot={screenShot} />
+				</div>
+			) : (
+				'Loading...'
+			)}
 		</section>
 	);
 };

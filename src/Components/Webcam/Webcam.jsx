@@ -7,7 +7,7 @@ const Webcam = ({ screenShot }) => {
 		<div className={classes.webcam}>
 			<h4 className={classes.title}>Вебкамера на горе Шаджатмаз</h4>
 			<a
-				className={classes.link}
+				className={classes.screenShot}
 				href="https://gw.cmo.sai.msu.ru/webcam5.jpg"
 				target="_blank"
 				rel="noreferrer"
