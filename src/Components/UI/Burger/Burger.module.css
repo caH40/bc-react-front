@@ -1,0 +1,50 @@
+.burger {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	width: 30px;
+	height: 30px;
+	margin-right: 20px;
+}
+.bar {
+	width: 30px;
+	height: 4px;
+	border-radius: 2px;
+	background-color: #f1f1f1;
+}
+/* когда присутствуюьт оба класса */
+.bar.clicked:nth-child(1) {
+	transform: rotate(45deg) translate(9px, 9px);
+	transition: ease-out 0.4s;
+}
+.bar.clicked:nth-child(2) {
+	transform: scale(0.1);
+	transition: ease-out 0.5s;
+}
+.bar.clicked:nth-child(3) {
+	transform: rotate(-45deg) translate(9px, -9px);
+	transition: ease-out 0.4s;
+}
+
+.bar.unClicked {
+	transform: rotate(0deg) translate(0);
+	transition: ease-out 0.4s;
+}
+/* -----------------navbar mobile --------------------------- */
+.menu {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	top: 80px;
+	left: 0;
+	background: linear-gradient(90.53deg, #0a233a 38.59%, #133810 99.51%);
+	z-index: 10;
+	transition: ease-in-out 0.5s;
+}
+.hidden {
+	left: -100%;
+	transition: ease-in-out 0.5s;
+}
+.visible {
+	display: inherit;
+}

@@ -4,6 +4,8 @@ import classes from './Header.module.css';
 import Navbar from '../UI/Navbar/Navbar';
 import { Adaptive } from '../../Hoc/Adaptive';
 
+import NavbarMobile from '../UI/NavbarMobile/NavbarMobile';
+
 const Header = () => {
 	return (
 		<header className={classes.header}>
@@ -15,6 +17,9 @@ const Header = () => {
 					<div className={classes.navbar}>
 						<Adaptive sizeScreen="lg">
 							<Navbar />
+						</Adaptive>
+						<Adaptive sizeScreen="lg" visible={true}>
+							<NavbarMobile />
 						</Adaptive>
 						<div className="authorization"></div>
 					</div>
