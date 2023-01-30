@@ -25,6 +25,9 @@
 	.trail__body {
 		max-width: 480px;
 	}
+	.trails__cards {
+		justify-content: center;
+	}
 }
 @media screen and (max-width: 510px) {
 	.title__page {
