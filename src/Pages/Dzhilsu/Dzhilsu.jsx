@@ -11,7 +11,7 @@ const Dzhilsu = () => {
 
 	useEffect(() => {
 		getEvents().then(data => {
-			const dataSorted = mySort(data, 'eventDate', 'down');
+			const dataSorted = mySort(data, 'eventDate', 'up');
 			setEvents(dataSorted);
 		});
 	}, []);

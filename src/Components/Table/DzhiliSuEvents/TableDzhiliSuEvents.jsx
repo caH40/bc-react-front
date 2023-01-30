@@ -6,7 +6,7 @@ import ThSort from '../ThSort';
 
 const TableDzhiliSuEvents = ({ events, setEvents }) => {
 	const [sort, setSort] = useState({
-		sortDirection: 'down',
+		sortDirection: 'up',
 		sortField: 'eventDate',
 	});
 
