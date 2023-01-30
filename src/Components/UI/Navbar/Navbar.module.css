@@ -3,7 +3,7 @@
 	justify-content: space-between;
 	align-items: center;
 }
-.item + .item {
+.item {
 	margin-left: 50px;
 }
 .link {
@@ -25,4 +25,19 @@
 }
 .activeLink {
 	color: #39a034;
+}
+
+@media screen and (max-width: 980px) {
+	.list {
+		display: block;
+		margin-top: 50px;
+	}
+	.item {
+		margin-left: 30px;
+		margin-bottom: 45px;
+	}
+	.link {
+		font-size: 22px;
+		line-height: 25px;
+	}
 }

@@ -1,6 +1,6 @@
 import { useResize } from '../hooks/use-resize';
 
-export const Adaptive = ({ children, sizeScreen }) => {
+export const Adaptive = ({ children, sizeScreen, visible }) => {
 	const sizesScreen = useResize();
 	const sizes = {
 		sm: sizesScreen.isScreenSm,
@@ -9,5 +9,8 @@ export const Adaptive = ({ children, sizeScreen }) => {
 		xl: sizesScreen.isScreenXl,
 		xxl: sizesScreen.isScreenXxl,
 	};
-	return sizes[sizeScreen] ? children : '';
+	//если необходимо показывать элемент visible=true
+	const showElement = visible ? !sizes[sizeScreen] : sizes[sizeScreen];
+
+	return showElement ? children : '';
 };
