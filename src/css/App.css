@@ -4,10 +4,10 @@ body {
 	color: #f1f1f1;
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
+	background: linear-gradient(90.53deg, #0a233a 38.59%, #133810 99.51%);
 }
 
 .body {
-	background: linear-gradient(90.53deg, #0a233a 38.59%, #133810 99.51%);
 	min-height: calc(100vh - 80px);
 	padding-bottom: 5px;
 }
@@ -113,7 +113,7 @@ a {
 
 .trails__cards {
 	display: flex;
-	justify-content: space-around;
+	justify-content: flex-start;
 	flex-wrap: wrap;
 	padding-bottom: 30px;
 }
