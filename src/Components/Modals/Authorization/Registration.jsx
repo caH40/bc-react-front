@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import Modal from '../../Modal/Modal';
-import classes from './Authentication.module.css';
 import ButtonAuth from '../../UI/ButtonAuth/ButtonAuth';
 import InputAuth from '../../UI/InputAuth/InputAuth';
-import { validatePassword, validateUsername } from '../../../utils/validatorService';
+import classes from './Authentication.module.css';
+import {
+	validateUsername,
+	validateEmail,
+	validatePassword,
+} from '../../../utils/validatorService';
+import Modal from '../../Modal/Modal';
 
-const Authentication = () => {
+const Registration = () => {
 	const [validationAll, setValidationAll] = useState('');
 
 	const {
@@ -20,15 +24,22 @@ const Authentication = () => {
 		console.log(data);
 		setValidationAll('');
 	};
+
 	return (
 		<Modal>
 			<form onSubmit={handleSubmit(onSubmit)} className={classes.block}>
-				<h4 className={classes.title}>Вход на Bike-Caucasus</h4>
+				<h4 className={classes.title}>Регистрация аккаунта</h4>
 				<InputAuth
 					register={validateUsername(register)}
 					label="Логин"
 					validationText={errors.username ? errors.username.message : ''}
 					input={{ id: 'username', autoComplete: 'username', type: 'text' }}
+				/>
+				<InputAuth
+					register={validateEmail(register)}
+					label="Email"
+					validationText={errors.email ? errors.email.message : ''}
+					input={{ id: 'email', autoComplete: 'email', type: 'text' }}
 				/>
 				<InputAuth
 					register={validatePassword(register)}
@@ -38,16 +49,16 @@ const Authentication = () => {
 					input={{ id: 'password', autoComplete: 'current-password', type: 'password' }}
 				/>
 				<ButtonAuth
-					label="Первый раз на сайте?"
-					labelLink="Создать аккаунт!"
-					linkContent="Registration"
+					label="Уже есть аккаунт?"
+					labelLink="Вход!"
+					linkContent="Authentication"
 					validationText={validationAll}
 				>
-					Вход
+					Регистрация
 				</ButtonAuth>
 			</form>
 		</Modal>
 	);
 };
 
-export default Authentication;
+export default Registration;
