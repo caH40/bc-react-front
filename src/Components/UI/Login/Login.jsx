@@ -12,6 +12,7 @@ const Login = ({ isAuth }) => {
 
 	const getClick = () => {
 		if (isAuth) {
+			dispatch(getModal({ component: 'UnAuthentication' }));
 			console.log('Удаление токена из localStorage');
 			dispatch(getAuth(false));
 		} else {

@@ -21,7 +21,7 @@ const Authentication = () => {
 		setValidationAll('');
 	};
 	return (
-		<Modal>
+		<Modal buttonClose={true}>
 			<form onSubmit={handleSubmit(onSubmit)} className={classes.block}>
 				<h4 className={classes.title}>Вход на Bike-Caucasus</h4>
 				<InputAuth

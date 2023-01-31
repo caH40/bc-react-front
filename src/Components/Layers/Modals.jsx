@@ -11,6 +11,7 @@ const Modals = () => {
 		<>
 			{modal === 'Authentication' ? <Authentication /> : undefined}
 			{modal === 'Registration' ? <Registration /> : undefined}
+			{modal === 'UnAuthentication' ? <Message>Выход из авторизации...</Message> : undefined}
 			{modal === 'Logout' ? 'Logout' : undefined}
 			{modal === 'NeedAuthentication' ? <Message>Необходима авторизация</Message> : undefined}
 		</>

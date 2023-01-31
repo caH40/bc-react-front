@@ -26,7 +26,7 @@ const Registration = () => {
 	};
 
 	return (
-		<Modal>
+		<Modal buttonClose={true}>
 			<form onSubmit={handleSubmit(onSubmit)} className={classes.block}>
 				<h4 className={classes.title}>Регистрация аккаунта</h4>
 				<InputAuth
