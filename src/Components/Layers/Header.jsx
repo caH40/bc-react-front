@@ -6,6 +6,7 @@ import { Adaptive } from '../../Hoc/Adaptive';
 
 import NavbarMobile from '../UI/NavbarMobile/NavbarMobile';
 import UserAccount from '../UI/UserAccount/UserAccount';
+import Login from '../UI/Login/Login';
 
 const Header = () => {
 	return (
@@ -20,6 +21,9 @@ const Header = () => {
 							<Navbar />
 							<div className={classes.item}>
 								<UserAccount />
+							</div>
+							<div className={classes.item__login}>
+								<Login />
 							</div>
 						</Adaptive>
 						<Adaptive sizeScreen="lg" visible={true}>
