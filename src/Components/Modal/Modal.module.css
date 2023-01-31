@@ -16,12 +16,13 @@
 }
 
 .block {
+	color: black;
 	position: relative;
 	padding: 25px;
 	background: #f9a527;
 	border-radius: 10px;
-	min-width: 315px;
+	max-width: 360px;
 	margin: 15px;
 	overflow: hidden;
-	text-align: center;
+	text-align: left;
 }

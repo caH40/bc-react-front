@@ -11,8 +11,13 @@ import {
 } from '../../../utils/validatorService';
 import Modal from '../../Modal/Modal';
 
-const Registration = () => {
+import { postRegistration } from '../../../api/registration';
+import { useDispatch } from 'react-redux';
+import { getModal } from '../../../redux/features/modalSlice';
+
+const Registration = ({ buttonClose }) => {
 	const [validationAll, setValidationAll] = useState('');
+	const dispatch = useDispatch();
 
 	const {
 		register,
@@ -20,13 +25,22 @@ const Registration = () => {
 		formState: { errors },
 	} = useForm({ mode: 'all' });
 
-	const onSubmit = async data => {
-		console.log(data);
-		setValidationAll('');
+	const onSubmit = async dataForm => {
+		const response = await postRegistration(dataForm);
+		if (response.status !== 201) {
+			setValidationAll(response.data);
+			return;
+		}
+		if (response.data.status === 'wrong') {
+			setValidationAll(response.data.message);
+			return;
+		}
+		dispatch(getModal({ component: 'Registered', email: response.data.email }));
+		console.log('control', response);
 	};
 
 	return (
-		<Modal buttonClose={true}>
+		<Modal buttonClose={buttonClose}>
 			<form onSubmit={handleSubmit(onSubmit)} className={classes.block}>
 				<h4 className={classes.title}>Регистрация аккаунта</h4>
 				<InputAuth

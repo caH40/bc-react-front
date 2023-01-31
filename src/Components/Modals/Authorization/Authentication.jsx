@@ -7,7 +7,7 @@ import ButtonAuth from '../../UI/ButtonAuth/ButtonAuth';
 import InputAuth from '../../UI/InputAuth/InputAuth';
 import { validatePassword, validateUsername } from '../../../utils/validatorService';
 
-const Authentication = () => {
+const Authentication = ({ buttonClose }) => {
 	const [validationAll, setValidationAll] = useState('');
 
 	const {
@@ -21,7 +21,7 @@ const Authentication = () => {
 		setValidationAll('');
 	};
 	return (
-		<Modal buttonClose={true}>
+		<Modal buttonClose={buttonClose}>
 			<form onSubmit={handleSubmit(onSubmit)} className={classes.block}>
 				<h4 className={classes.title}>Вход на Bike-Caucasus</h4>
 				<InputAuth
