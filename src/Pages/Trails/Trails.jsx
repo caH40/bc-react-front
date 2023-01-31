@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { getTrails } from '../../api/trail';
 import Card from '../../Components/Card/Card';
-import NavbarTrails from '../../Components/UI/NavbarTrails/NavbarTrails';
+import SortFilterTrails from '../../Components/UI/SortFilterTrails/SortFilterTrails';
 import { filterStart, sortStart } from './service';
 
 const Trails = () => {
@@ -68,7 +68,7 @@ const Trails = () => {
 	return (
 		<section className="trails__body">
 			<h3 className="title__page title__page__trails">Велосипедные маршруты</h3>
-			<NavbarTrails
+			<SortFilterTrails
 				getSorting={getSorting}
 				getFilter={getFilter}
 				filter={filter}

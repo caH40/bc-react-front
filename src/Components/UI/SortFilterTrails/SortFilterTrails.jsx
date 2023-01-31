@@ -1,9 +1,9 @@
 import React from 'react';
 import CheckboxTrails from './Checkbox/CheckboxTrails';
-import classes from './NavbarTrails.module.css';
+import classes from './SortFilterTrails.module.css';
 import SelectTrails from './Select/SelectTrails';
 
-const NavbarTrails = ({ getSorting, getFilter, filter, isVisible, getVisible }) => {
+const SortFilterTrails = ({ getSorting, getFilter, filter, isVisible, getVisible }) => {
 	return (
 		<nav className={classes.menu}>
 			<SelectTrails getSorting={getSorting} />
@@ -17,4 +17,4 @@ const NavbarTrails = ({ getSorting, getFilter, filter, isVisible, getVisible }) 
 	);
 };
 
-export default NavbarTrails;
+export default SortFilterTrails;

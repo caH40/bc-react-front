@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from '../NavbarTrails.module.css';
+import classes from '../SortFilterTrails.module.css';
 
 const CheckboxTrails = ({ getFilter, filter, isVisible, getVisible }) => {
 	const flashlight = filter.length === 6 ? classes.flashlight__off : classes.flashlight__on;

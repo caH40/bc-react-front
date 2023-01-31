@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from '../NavbarTrails.module.css';
+import classes from '../SortFilterTrails.module.css';
 
 const SelectTrails = ({ getSorting }) => {
 	return (
