@@ -5,6 +5,7 @@ import Navbar from '../UI/Navbar/Navbar';
 import { Adaptive } from '../../Hoc/Adaptive';
 
 import NavbarMobile from '../UI/NavbarMobile/NavbarMobile';
+import UserAccount from '../UI/UserAccount/UserAccount';
 
 const Header = () => {
 	return (
@@ -17,11 +18,13 @@ const Header = () => {
 					<div className={classes.navbar}>
 						<Adaptive sizeScreen="lg">
 							<Navbar />
+							<div className={classes.item}>
+								<UserAccount />
+							</div>
 						</Adaptive>
 						<Adaptive sizeScreen="lg" visible={true}>
 							<NavbarMobile />
 						</Adaptive>
-						<div className="authorization"></div>
 					</div>
 				</div>
 			</div>
