@@ -1,15 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getAuth } from '../../../redux/features/authSlice';
+import { getModal } from '../../../redux/features/modalSlice';
 
 import classes from './Login.module.css';
 
-const Login = () => {
+const Login = ({ isAuth }) => {
+	const dispatch = useDispatch();
+
+	const srcIcon = isAuth ? './images/icons/logout.svg' : './images/icons/login.svg';
+
+	const getClick = () => {
+		if (isAuth) {
+			console.log('Удаление токена из localStorage');
+			dispatch(getAuth(false));
+		} else {
+			dispatch(getModal({ component: 'Authentication' }));
+		}
+	};
 	return (
-		<Link to="/login">
-			<div className={classes.box}>
-				<img src="./images/icons/logout.svg" alt="login" />
-			</div>
-		</Link>
+		<div className={classes.box} onClick={getClick}>
+			<img src={srcIcon} alt="login" />
+		</div>
 	);
 };
 

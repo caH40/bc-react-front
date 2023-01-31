@@ -7,8 +7,10 @@ import { Adaptive } from '../../Hoc/Adaptive';
 import NavbarMobile from '../UI/NavbarMobile/NavbarMobile';
 import UserAccount from '../UI/UserAccount/UserAccount';
 import Login from '../UI/Login/Login';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+	const isAuth = useSelector(state => state.checkAuth.value);
 	return (
 		<header className={classes.header}>
 			<div className="container">
@@ -23,7 +25,7 @@ const Header = () => {
 								<UserAccount />
 							</div>
 							<div className={classes.item__login}>
-								<Login />
+								<Login isAuth={isAuth} />
 							</div>
 						</Adaptive>
 						<Adaptive sizeScreen="lg" visible={true}>
