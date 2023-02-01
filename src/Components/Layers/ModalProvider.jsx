@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ActivateAccount from '../Authorization/ActivateAccount';
-import Authentication from '../Authorization/Authentication';
+import Authorization from '../Authorization/Authorization';
 import Registration from '../Authorization/Registration';
 
 const ModalProvider = () => {
@@ -9,7 +9,7 @@ const ModalProvider = () => {
 
 	return (
 		<>
-			{modal.component === 'Authentication' ? <Authentication /> : undefined}
+			{modal.component === 'Authentication' ? <Authorization /> : undefined}
 			{modal.component === 'Registration' ? <Registration /> : undefined}
 			{modal.component === 'Registered' ? <ActivateAccount email={modal.email} /> : undefined}
 		</>

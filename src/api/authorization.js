@@ -1,11 +1,11 @@
 import { myAxios } from './axios';
 
-export async function postRegistration(dataForm) {
+export async function postAuthorization(dataForm) {
 	try {
 		const response = await myAxios({
 			method: 'post',
-			url: '/api/registration',
-			data: { username: dataForm.username, email: dataForm.email, password: dataForm.password },
+			url: '/api/authorization',
+			data: { username: dataForm.username, password: dataForm.password },
 		});
 
 		return response;

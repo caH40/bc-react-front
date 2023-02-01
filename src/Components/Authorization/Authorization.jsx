@@ -6,9 +6,13 @@ import ButtonAuth from '../UI/ButtonAuth/ButtonAuth';
 import InputAuth from '../UI/InputAuth/InputAuth';
 import { validatePassword, validateUsername } from '../../utils/validatorService';
 import Modal from '../Modal/Modal';
+import { postAuthorization } from '../../api/authorization';
+import { useDispatch } from 'react-redux';
+import { getModal } from '../../redux/features/modalSlice';
 
-const Authentication = () => {
+const Authorization = () => {
 	const [validationAll, setValidationAll] = useState('');
+	const dispatch = useDispatch();
 
 	const {
 		register,
@@ -16,9 +20,18 @@ const Authentication = () => {
 		formState: { errors },
 	} = useForm({ mode: 'all' });
 
-	const onSubmit = async data => {
-		console.log(data);
-		setValidationAll('');
+	const onSubmit = async dataForm => {
+		const response = await postAuthorization(dataForm);
+		if (response.status !== 201) {
+			setValidationAll(response.data);
+			return;
+		}
+		if (response.data.status === 'wrong') {
+			setValidationAll(response.data.message);
+			return;
+		}
+		dispatch(getModal({ component: '' }));
+		console.log('control', response);
 	};
 	return (
 		<Modal>
@@ -50,4 +63,4 @@ const Authentication = () => {
 	);
 };
 
-export default Authentication;
+export default Authorization;

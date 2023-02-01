@@ -36,7 +36,6 @@ const Registration = () => {
 			return;
 		}
 		dispatch(getModal({ component: 'Registered', email: response.data.email }));
-		console.log('control', response);
 	};
 
 	return (
