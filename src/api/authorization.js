@@ -4,7 +4,7 @@ export async function postAuthorization(dataForm) {
 	try {
 		const response = await myAxios({
 			method: 'post',
-			url: '/api/authorization',
+			url: '/api/auth/authorization',
 			data: { username: dataForm.username, password: dataForm.password },
 		});
 

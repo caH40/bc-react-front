@@ -1,17 +1,16 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getModal } from '../../../redux/features/modalSlice';
 
 import classes from './UserAccount.module.css';
 
-const UserAccount = () => {
+const UserAccount = ({ isAuth }) => {
 	const dispatch = useDispatch();
-	const isAuth = useSelector(state => state.checkAuth.value);
 	const navigate = useNavigate();
 
 	const getClick = () => {
-		if (isAuth) {
+		if (isAuth.status) {
 			navigate('/profile');
 		} else {
 			dispatch(getModal({ component: 'NeedAuthentication' }));

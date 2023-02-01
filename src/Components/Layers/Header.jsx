@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 
 const Header = () => {
 	const isAuth = useSelector(state => state.checkAuth.value);
+	console.log(isAuth);
 	return (
 		<header className={classes.header}>
 			<div className="container">
@@ -22,7 +23,7 @@ const Header = () => {
 						<Adaptive sizeScreen="lg">
 							<Navbar />
 							<div className={classes.item}>
-								<UserAccount />
+								<UserAccount isAuth={isAuth} />
 							</div>
 							<div className={classes.item__login}>
 								<Login isAuth={isAuth} />

@@ -4,7 +4,7 @@ export async function postRegistration(dataForm) {
 	try {
 		const response = await myAxios({
 			method: 'post',
-			url: '/api/registration',
+			url: '/api/auth/registration',
 			data: { username: dataForm.username, email: dataForm.email, password: dataForm.password },
 		});
 

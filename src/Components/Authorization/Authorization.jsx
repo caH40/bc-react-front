@@ -10,6 +10,7 @@ import { postAuthorization } from '../../api/authorization';
 import { useDispatch } from 'react-redux';
 import { getModal } from '../../redux/features/modalSlice';
 import { getAuth } from '../../redux/features/authSlice';
+import { getAlert } from '../../redux/features/alertMessageSlice';
 
 const Authorization = () => {
 	const [validationAll, setValidationAll] = useState('');
@@ -35,7 +36,8 @@ const Authorization = () => {
 
 		if (response.data.accessToken) {
 			localStorage.setItem('accessToken', response.data.accessToken);
-			dispatch(getAuth(true));
+			dispatch(getAuth({ status: true, user: response.data.user }));
+			dispatch(getAlert({ message: 'Успешная авторизация!', type: 'success', isOpened: true }));
 		}
 	};
 	return (
