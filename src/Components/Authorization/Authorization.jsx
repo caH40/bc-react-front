@@ -9,6 +9,7 @@ import Modal from '../Modal/Modal';
 import { postAuthorization } from '../../api/authorization';
 import { useDispatch } from 'react-redux';
 import { getModal } from '../../redux/features/modalSlice';
+import { getAuth } from '../../redux/features/authSlice';
 
 const Authorization = () => {
 	const [validationAll, setValidationAll] = useState('');
@@ -31,7 +32,11 @@ const Authorization = () => {
 			return;
 		}
 		dispatch(getModal({ component: '' }));
-		console.log('control', response);
+
+		if (response.data.accessToken) {
+			localStorage.setItem('accessToken', response.data.accessToken);
+			dispatch(getAuth(true));
+		}
 	};
 	return (
 		<Modal>

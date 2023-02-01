@@ -9,7 +9,6 @@ export const myAxios = axios.create({
 });
 
 myAxios.interceptors.request.use(config => {
-	config.headers.Authorization = 'Bearer sdsdsd';
-	// config.headers.Authorization = ` Bearer ${localStorage.getItem('tokenBikeCaucasus')}`
+	config.headers.Authorization = ` Bearer ${localStorage.getItem('accessToken')}`;
 	return config;
 });
