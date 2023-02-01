@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import Modal from '../../Modal/Modal';
 import classes from './Authentication.module.css';
-import ButtonAuth from '../../UI/ButtonAuth/ButtonAuth';
-import InputAuth from '../../UI/InputAuth/InputAuth';
-import { validatePassword, validateUsername } from '../../../utils/validatorService';
+import ButtonAuth from '../UI/ButtonAuth/ButtonAuth';
+import InputAuth from '../UI/InputAuth/InputAuth';
+import { validatePassword, validateUsername } from '../../utils/validatorService';
+import Modal from '../Modal/Modal';
 
-const Authentication = ({ buttonClose }) => {
+const Authentication = () => {
 	const [validationAll, setValidationAll] = useState('');
 
 	const {
@@ -21,7 +21,7 @@ const Authentication = ({ buttonClose }) => {
 		setValidationAll('');
 	};
 	return (
-		<Modal buttonClose={buttonClose}>
+		<Modal>
 			<form onSubmit={handleSubmit(onSubmit)} className={classes.block}>
 				<h4 className={classes.title}>Вход на Bike-Caucasus</h4>
 				<InputAuth
@@ -38,7 +38,7 @@ const Authentication = ({ buttonClose }) => {
 					input={{ id: 'password', autoComplete: 'current-password', type: 'password' }}
 				/>
 				<ButtonAuth
-					label="Первый раз на сайте?"
+					label="Впервые на сайте?"
 					labelLink="Создать аккаунт!"
 					linkContent="Registration"
 					validationText={validationAll}

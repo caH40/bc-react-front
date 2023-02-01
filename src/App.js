@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import Authentication from './Components/Modals/Authorization/Authentication';
 import Page from './Components/Layers/Page';
 import './css/App.css';
 import './css/App_mobile.css';
@@ -23,7 +22,6 @@ function App() {
 					<Route path="/trails" element={<Trails />} />
 					<Route path="/trails/:trailId" element={<Trail />} />
 					<Route path="/gallery" element={<Gallery />} />
-					<Route path="/authentication" element={<Authentication />} />
 					<Route path="/dzhilsu" element={<Dzhilsu />} />
 					<Route path="/dzhilsu/results/:eventId" element={<DzhilsuResults />} />
 					<Route path="/dzhilsu/results/athlete/:athlete" element={<DzhilsuResultsAthlete />} />

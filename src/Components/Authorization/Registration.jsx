@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import ButtonAuth from '../../UI/ButtonAuth/ButtonAuth';
-import InputAuth from '../../UI/InputAuth/InputAuth';
+import ButtonAuth from '../UI/ButtonAuth/ButtonAuth';
+import InputAuth from '../UI/InputAuth/InputAuth';
 import classes from './Authentication.module.css';
 import {
-	validateUsername,
 	validateEmail,
 	validatePassword,
-} from '../../../utils/validatorService';
-import Modal from '../../Modal/Modal';
+	validateUsername,
+} from '../../utils/validatorService';
 
-import { postRegistration } from '../../../api/registration';
+import { postRegistration } from '../../api/registration';
 import { useDispatch } from 'react-redux';
-import { getModal } from '../../../redux/features/modalSlice';
+import { getModal } from '../../redux/features/modalSlice';
+import Modal from '../Modal/Modal';
 
-const Registration = ({ buttonClose }) => {
+const Registration = () => {
 	const [validationAll, setValidationAll] = useState('');
 	const dispatch = useDispatch();
 
@@ -40,7 +40,7 @@ const Registration = ({ buttonClose }) => {
 	};
 
 	return (
-		<Modal buttonClose={buttonClose}>
+		<Modal>
 			<form onSubmit={handleSubmit(onSubmit)} className={classes.block}>
 				<h4 className={classes.title}>Регистрация аккаунта</h4>
 				<InputAuth

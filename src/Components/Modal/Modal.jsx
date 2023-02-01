@@ -5,12 +5,7 @@ import ButtonClose from '../UI/ButtonClose/ButtonClose';
 
 import classes from './Modal.module.css';
 
-const Modal = ({ children, buttonClose, timer }) => {
-	if (timer) {
-		setTimeout(() => {
-			dispatch(getModal({ components: '' }));
-		}, 1500);
-	}
+const Modal = ({ children }) => {
 	const getClick = () => dispatch(getModal({ components: '' }));
 
 	const dispatch = useDispatch();
@@ -25,7 +20,7 @@ const Modal = ({ children, buttonClose, timer }) => {
 		<div className={classes.background}>
 			<div className={classes.inner}>
 				<div className={classes.block}>
-					{buttonClose ? <ButtonClose getClick={getClick} /> : undefined}
+					<ButtonClose getClick={getClick} />
 					{children}
 				</div>
 			</div>

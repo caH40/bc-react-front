@@ -1,16 +1,17 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+
 import Body from './Body';
 import Footer from './Footer';
 import Header from './Header';
-import Modals from './Modals';
+import ModalProvider from './ModalProvider';
 
 const Page = () => {
 	return (
 		<>
 			<Header />
 			<Body>
-				<Modals />
+				<ModalProvider />
 				<Outlet />
 			</Body>
 			<Footer />
