@@ -18,12 +18,15 @@ import { getAuth } from './redux/features/authSlice';
 
 function App() {
 	const dispatch = useDispatch();
+
 	useEffect(() => {
 		checkAuth().then(response => {
+			if (!response) return;
 			dispatch(getAuth({ status: true, user: response.data.user }));
 			localStorage.setItem('accessToken', response.data.accessToken);
 		});
 	}, [dispatch]);
+
 	return (
 		<div className="App">
 			<Routes>

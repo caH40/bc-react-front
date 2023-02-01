@@ -9,6 +9,8 @@ const UserAccount = ({ isAuth }) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
+	console.log(isAuth.user);
+	const avatar = isAuth?.user?.photoProfile ? isAuth.user.photoProfile : './images/avatar.svg';
 	const getClick = () => {
 		if (isAuth.status) {
 			navigate('/profile');
@@ -18,7 +20,7 @@ const UserAccount = ({ isAuth }) => {
 	};
 	return (
 		<>
-			<img className={classes.img} src="./images/avatar.svg" alt="avatar" onClick={getClick} />
+			<img className={classes.img} src={avatar} alt="avatar" onClick={getClick} />
 		</>
 	);
 };
