@@ -35,7 +35,8 @@ const Registration = () => {
 			setValidationAll(response.data.message);
 			return;
 		}
-		dispatch(getModal({ component: 'Registered', email: response.data.email }));
+
+		dispatch(getModal({ component: 'Registered', email: response.data.user.email }));
 	};
 
 	return (

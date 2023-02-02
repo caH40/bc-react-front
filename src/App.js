@@ -2,9 +2,11 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { checkAuth } from './api/auth-check';
+
 import Page from './Components/Layers/Page';
 import './css/App.css';
 import './css/App_mobile.css';
+import ConfirmEmail from './Pages/ConfirmEmail';
 import Dzhilsu from './Pages/Dzhilsu/Dzhilsu';
 import DzhilsuResults from './Pages/Dzhilsu/DzhilsuResults';
 import DzhilsuResultsAthlete from './Pages/Dzhilsu/DzhilsuResultsAthlete';
@@ -39,6 +41,7 @@ function App() {
 					<Route path="/dzhilsu" element={<Dzhilsu />} />
 					<Route path="/dzhilsu/results/:eventId" element={<DzhilsuResults />} />
 					<Route path="/dzhilsu/results/athlete/:athlete" element={<DzhilsuResultsAthlete />} />
+					<Route path="/confirm-email/:token" element={<ConfirmEmail />} />
 					<Route path="*" element={<Page404 />} />
 				</Route>
 			</Routes>
