@@ -32,6 +32,7 @@ a {
 }
 .page404__title {
 	font-size: 34px;
+	margin-bottom: 20px;
 }
 .page404__text-wrong {
 	color: red;
