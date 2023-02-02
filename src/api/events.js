@@ -6,6 +6,6 @@ export async function getEvents() {
 
 		return response.data.events;
 	} catch (error) {
-		console.log(error);
+		throw error;
 	}
 }
