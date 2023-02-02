@@ -1,11 +1,11 @@
-import axios from 'axios';
-const server = process.env.REACT_APP_SERVER_EXPRESS;
+import { myAxios } from './axios';
 
 export async function getEvents() {
 	try {
-		const response = await axios.get(`${server}/api/events`);
+		const response = await myAxios.get(`/api/events`);
+
 		return response.data.events;
 	} catch (error) {
-		console.log(error);
+		throw error;
 	}
 }

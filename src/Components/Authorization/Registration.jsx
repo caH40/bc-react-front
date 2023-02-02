@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import ButtonAuth from '../../UI/ButtonAuth/ButtonAuth';
-import InputAuth from '../../UI/InputAuth/InputAuth';
+import ButtonAuth from '../UI/ButtonAuth/ButtonAuth';
+import InputAuth from '../UI/InputAuth/InputAuth';
 import classes from './Authentication.module.css';
 import {
-	validateUsername,
 	validateEmail,
 	validatePassword,
-} from '../../../utils/validatorService';
-import Modal from '../../Modal/Modal';
+	validateUsername,
+} from '../../utils/validatorService';
+
+import { postRegistration } from '../../api/registration';
+import { useDispatch } from 'react-redux';
+import { getModal } from '../../redux/features/modalSlice';
+import Modal from '../Modal/Modal';
 
 const Registration = () => {
 	const [validationAll, setValidationAll] = useState('');
+	const dispatch = useDispatch();
 
 	const {
 		register,
@@ -20,13 +25,21 @@ const Registration = () => {
 		formState: { errors },
 	} = useForm({ mode: 'all' });
 
-	const onSubmit = async data => {
-		console.log(data);
-		setValidationAll('');
+	const onSubmit = async dataForm => {
+		const response = await postRegistration(dataForm);
+		if (response.status !== 201) {
+			setValidationAll(response.data);
+			return;
+		}
+		if (response.data.status === 'wrong') {
+			setValidationAll(response.data.message);
+			return;
+		}
+		dispatch(getModal({ component: 'Registered', email: response.data.email }));
 	};
 
 	return (
-		<Modal buttonClose={true}>
+		<Modal>
 			<form onSubmit={handleSubmit(onSubmit)} className={classes.block}>
 				<h4 className={classes.title}>Регистрация аккаунта</h4>
 				<InputAuth

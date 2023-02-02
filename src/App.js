@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import Authentication from './Components/Modals/Authorization/Authentication';
+import { checkAuth } from './api/auth-check';
 import Page from './Components/Layers/Page';
 import './css/App.css';
 import './css/App_mobile.css';
@@ -12,8 +14,19 @@ import NewsFull from './Pages/NewsFull';
 import Page404 from './Pages/Page404';
 import Trail from './Pages/Trail';
 import Trails from './Pages/Trails/Trails';
+import { getAuth } from './redux/features/authSlice';
 
 function App() {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		checkAuth().then(response => {
+			if (!response) return;
+			dispatch(getAuth({ status: true, user: response.data.user }));
+			localStorage.setItem('accessToken', response.data.accessToken);
+		});
+	}, []);
+
 	return (
 		<div className="App">
 			<Routes>
@@ -23,7 +36,6 @@ function App() {
 					<Route path="/trails" element={<Trails />} />
 					<Route path="/trails/:trailId" element={<Trail />} />
 					<Route path="/gallery" element={<Gallery />} />
-					<Route path="/authentication" element={<Authentication />} />
 					<Route path="/dzhilsu" element={<Dzhilsu />} />
 					<Route path="/dzhilsu/results/:eventId" element={<DzhilsuResults />} />
 					<Route path="/dzhilsu/results/athlete/:athlete" element={<DzhilsuResultsAthlete />} />

@@ -1,25 +1,25 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getModal } from '../../../redux/features/modalSlice';
+import { getAlert } from '../../../redux/features/alertMessageSlice';
 
 import classes from './UserAccount.module.css';
 
-const UserAccount = () => {
+const UserAccount = ({ isAuth }) => {
 	const dispatch = useDispatch();
-	const isAuth = useSelector(state => state.checkAuth.value);
 	const navigate = useNavigate();
 
+	const avatar = isAuth?.user?.photoProfile ? isAuth.user.photoProfile : './images/avatar.svg';
 	const getClick = () => {
-		if (isAuth) {
+		if (isAuth.status) {
 			navigate('/profile');
 		} else {
-			dispatch(getModal({ component: 'NeedAuthentication' }));
+			dispatch(getAlert({ message: 'Необходима авторизация', type: 'info', isOpened: true }));
 		}
 	};
 	return (
 		<>
-			<img className={classes.img} src="./images/avatar.svg" alt="avatar" onClick={getClick} />
+			<img className={classes.img} src={avatar} alt="avatar" onClick={getClick} />
 		</>
 	);
 };
