@@ -25,7 +25,7 @@ function App() {
 			dispatch(getAuth({ status: true, user: response.data.user }));
 			localStorage.setItem('accessToken', response.data.accessToken);
 		});
-	}, [dispatch]);
+	}, []);
 
 	return (
 		<div className="App">

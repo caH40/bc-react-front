@@ -11,6 +11,7 @@ const Dzhilsu = () => {
 
 	useEffect(() => {
 		getEvents().then(data => {
+			if (!data) return;
 			const dataSorted = mySort(data, 'eventDate', 'up');
 			setEvents(dataSorted);
 		});

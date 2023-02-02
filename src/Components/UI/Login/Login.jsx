@@ -16,7 +16,6 @@ const Login = ({ isAuth }) => {
 		if (isAuth.status) {
 			dispatch(getModal({ component: '' }));
 			postLogout().then(data => {
-				console.log('logout', data);
 				localStorage.removeItem('accessToken');
 				dispatch(getAuth({ status: false }));
 			});

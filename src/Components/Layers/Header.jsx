@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 
 const Header = () => {
 	const isAuth = useSelector(state => state.checkAuth.value);
-	console.log(isAuth);
+
 	return (
 		<header className={classes.header}>
 			<div className="container">
