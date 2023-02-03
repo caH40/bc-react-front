@@ -10,7 +10,7 @@ const ActivateAccount = ({ email }) => {
 				<p className={classes.bold}>Регистрация прошла успешно!</p>
 				<p>
 					На Вашу почту <span className={classes.bold}>{email}</span> отправлено письмо для активации
-					аккаунта. Ссылка активна в течении трех суток.
+					аккаунта. Ссылка активна в течении 3 суток.
 				</p>
 			</div>
 		</Modal>

@@ -12,6 +12,7 @@ import DzhilsuResults from './Pages/Dzhilsu/DzhilsuResults';
 import DzhilsuResultsAthlete from './Pages/Dzhilsu/DzhilsuResultsAthlete';
 import Gallery from './Pages/Gallery';
 import Home from './Pages/Home';
+import NewPassword from './Pages/NewPassword';
 import NewsFull from './Pages/NewsFull';
 import Page404 from './Pages/Page404';
 import Trail from './Pages/Trail';
@@ -27,7 +28,7 @@ function App() {
 			dispatch(getAuth({ status: true, user: response.data.user }));
 			localStorage.setItem('accessToken', response.data.accessToken);
 		});
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div className="App">
@@ -42,6 +43,7 @@ function App() {
 					<Route path="/dzhilsu/results/:eventId" element={<DzhilsuResults />} />
 					<Route path="/dzhilsu/results/athlete/:athlete" element={<DzhilsuResultsAthlete />} />
 					<Route path="/confirm-email/:token" element={<ConfirmEmail />} />
+					<Route path="/new-password/:token" element={<NewPassword />} />
 					<Route path="*" element={<Page404 />} />
 				</Route>
 			</Routes>

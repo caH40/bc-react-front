@@ -1,14 +1,20 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { getModal } from '../../../redux/features/modalSlice';
 
 import classes from './InputAuth.module.css';
 
-const InputAuth = ({ label, labelLink, validationText, input, register, setTypeAuth }) => {
+const InputAuth = ({ label, labelLink, validationText, input, register, linkContent }) => {
+	const dispatch = useDispatch();
+	const getClick = () => {
+		dispatch(getModal({ component: linkContent }));
+	};
 	return (
 		<div className={classes.block}>
 			<div className={classes.label}>
 				<label>{label}</label>
 				{labelLink ? (
-					<span onClick={setTypeAuth} className={classes.link}>
+					<span onClick={getClick} className={classes.link}>
 						{labelLink}
 					</span>
 				) : (

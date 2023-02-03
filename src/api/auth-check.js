@@ -11,7 +11,5 @@ export async function checkAuth() {
 			withCredentials: true,
 		});
 		return response;
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 }

@@ -4,7 +4,7 @@ import { getModal } from '../../../redux/features/modalSlice';
 
 import classes from './ButtonAuth.module.css';
 
-const ButtonAuth = ({ label, labelLink, validationText, children, linkContent }) => {
+const ButtonAuth = ({ label, labelLink, validationText = '', children, linkContent }) => {
 	const dispatch = useDispatch();
 	const getClick = () => {
 		dispatch(getModal({ component: linkContent }));
