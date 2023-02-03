@@ -23,7 +23,6 @@ function App() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		console.log('Изменение dispatch в компоненте APP');
 		checkAuth().then(response => {
 			if (!response) return;
 			dispatch(getAuth({ status: true, user: response.data.user }));

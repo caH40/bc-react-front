@@ -12,7 +12,7 @@ export async function resetPassword(dataForm) {
 
 		return response;
 	} catch (error) {
-		console.log(error);
+		// console.log(error);
 		return error.response || error;
 	}
 }
