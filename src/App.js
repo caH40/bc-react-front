@@ -23,12 +23,13 @@ function App() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
+		console.log('Изменение dispatch в компоненте APP');
 		checkAuth().then(response => {
 			if (!response) return;
 			dispatch(getAuth({ status: true, user: response.data.user }));
 			localStorage.setItem('accessToken', response.data.accessToken);
 		});
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div className="App">

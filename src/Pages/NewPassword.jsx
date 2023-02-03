@@ -17,7 +17,7 @@ const NewPassword = () => {
 			setMessage(response.data.message);
 			if (userId) dispatch(getModal({ component: 'AddNewPassword', userId }));
 		});
-	}, [token]);
+	}, [token, dispatch]);
 	return (
 		<section className="page404">
 			<h3 className="page404__title">Страница создания нового пароля</h3>

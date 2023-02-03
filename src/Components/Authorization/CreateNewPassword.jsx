@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import classes from './Authentication.module.css';
@@ -14,8 +14,6 @@ import { getModal } from '../../redux/features/modalSlice';
 import { getAlert } from '../../redux/features/alertMessageSlice';
 
 const CreateNewPassword = ({ userId }) => {
-	const [validationAll, setValidationAll] = useState('');
-
 	const dispatch = useDispatch();
 
 	const {
@@ -45,7 +43,7 @@ const CreateNewPassword = ({ userId }) => {
 					validationText={errors.password ? errors.password.message : ''}
 					input={{ id: 'new-password', autoComplete: 'new-password', type: 'password' }}
 				/>
-				<ButtonAuth validationText={validationAll}>Сохранить</ButtonAuth>
+				<ButtonAuth>Сохранить</ButtonAuth>
 			</form>
 		</Modal>
 	);
