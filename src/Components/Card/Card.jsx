@@ -11,32 +11,32 @@ const Card = ({ trail }) => {
 			<h4 className={`${classes.title} ${classes.title_sub}`}>{trail.state}</h4>
 			<div className={classes.text}>
 				<div className={classes.description}>
-					<img className={classes.ico} src="./images/icons/start-flag.svg" alt="start" />
+					<img className={classes.ico} src="/images/icons/start-flag.svg" alt="start" />
 					<span className={classes.names}>Старт:</span>
 					<span className={classes.names_data}>{trail.start}</span>
 				</div>
 				<div className={classes.description}>
-					<img className={classes.ico} src="./images/icons/turn-arrow.svg" alt="turn" />
+					<img className={classes.ico} src="/images/icons/turn-arrow.svg" alt="turn" />
 					<span className={classes.names}>Разворот:</span>
 					<span className={classes.names_data}>{trail.turn}</span>
 				</div>
 				<div className={classes.description}>
-					<img className={classes.ico} src="./images/icons/route-line.svg" alt="route" />
+					<img className={classes.ico} src="/images/icons/route-line.svg" alt="route" />
 					<span className={classes.names}>Дистанция:</span>
 					<span className={classes.names_data}>{trail.distance}км</span>
 				</div>
 				<div className={classes.description}>
-					<img className={classes.ico} src="./images/icons/mountain.svg" alt="ascent" />
+					<img className={classes.ico} src="/images/icons/mountain.svg" alt="ascent" />
 					<span className={classes.names}>Набор высоты:</span>
 					<span className={classes.names_data}>{trail.ascent}м</span>
 				</div>
 				<div className={classes.description}>
-					<img className={classes.ico} src="./images/icons/finish-flag.svg" alt="finish" />
+					<img className={classes.ico} src="/images/icons/finish-flag.svg" alt="finish" />
 					<span className={classes.names}>Финиш:</span>
 					<span className={classes.names_data}>{trail.finish}</span>
 				</div>
 				<div className={classes.description}>
-					<img className={classes.ico} src="./images/icons/bike.svg" alt="bike" />
+					<img className={classes.ico} src="/images/icons/bike.svg" alt="bike" />
 					<span className={classes.names}>Тип:</span>
 					<span className={classes.names_data}>{trail.bikeType}</span>
 				</div>
@@ -44,13 +44,13 @@ const Card = ({ trail }) => {
 
 			<div className={`${classes.card__frame_kudos} ${classes.frame_kudos}`}>
 				<div className={classes.frame_kudos__kudos}>
-					<img className={classes.frame_kudus__kudos_img} src="./images/icons/kudos.svg" alt="" />
+					<img className={classes.frame_kudus__kudos_img} src="/images/icons/kudos.svg" alt="" />
 				</div>
 				<div className={classes.frame_kudos__number}>
 					<span className={classes.frame_kudos__number_text}>{trail.likes}</span>
 				</div>
 				<div className={classes.frame_kudos__eye}>
-					<img className={classes.frame_kudus__eye_img} src="./images/icons/eye.svg" alt="" />
+					<img className={classes.frame_kudus__eye_img} src="/images/icons/eye.svg" alt="" />
 				</div>
 				<div className={classes.frame_kudos__number}>
 					<span className={classes.frame_kudos__number_text}>{trail.kudoses.views}</span>

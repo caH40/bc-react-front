@@ -10,7 +10,7 @@ const Footer = () => {
 			<div className="container">
 				<div className={classes.column}>
 					<Adaptive sizeScreen="sm">
-						<img className={classes.logo} src="./images/icons/logo.svg" alt="Logo" />
+						<img className={classes.logo} src="/images/icons/logo.svg" alt="Logo" />
 					</Adaptive>
 					<ul className={classes.list}>
 						<li className={classes.item}>
@@ -41,11 +41,7 @@ const Footer = () => {
 						<li className={classes.item}>
 							<div className={classes.social}>
 								<a className={classes.social__link} href="https://t.me/velokmv">
-									<img
-										className={classes.social__img}
-										src="./images/icons/telegram.svg"
-										alt="telegram"
-									/>
+									<img className={classes.social__img} src="/images/icons/telegram.svg" alt="telegram" />
 								</a>
 							</div>
 						</li>

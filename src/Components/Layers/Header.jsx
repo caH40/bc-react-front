@@ -17,7 +17,7 @@ const Header = () => {
 			<div className="container">
 				<div className={classes.inner}>
 					<div>
-						<img className={classes.logo} src="./images/icons/logo.svg" alt="Logo" />
+						<img className={classes.logo} src="images/icons/logo.svg" alt="Logo" />
 					</div>
 					<div className={classes.navbar}>
 						<Adaptive sizeScreen="lg">
