@@ -5,7 +5,7 @@ import ArrowsWebcam from '../UI/ArrowWebcam/ArrowsWebcam';
 import classes from './Webcam.module.css';
 
 const Webcam = () => {
-	const [webcam, setWebcam] = useState('./images/transparent800.png');
+	const [webcam, setWebcam] = useState('/images/transparent800.png');
 	const [numberWebcam, setNumberWebcam] = useState(1);
 	useEffect(() => {
 		getWebcam('/api/webcam', numberWebcam).then(data => {
