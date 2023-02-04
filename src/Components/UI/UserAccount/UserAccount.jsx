@@ -9,7 +9,7 @@ const UserAccount = ({ isAuth }) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	const avatar = isAuth?.user?.photoProfile ? isAuth.user.photoProfile : './images/avatar.svg';
+	const avatar = isAuth?.user?.photoProfile ? isAuth.user.photoProfile : '/images/avatar.svg';
 	const getClick = () => {
 		if (isAuth.status) {
 			navigate('/profile');
