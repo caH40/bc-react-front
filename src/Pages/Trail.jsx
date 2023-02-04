@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 import { getTrail } from '../api/trail';
 import TrailDescription from '../Components/TrailDescription/TrailDescription';
@@ -18,6 +19,18 @@ const Trail = () => {
 		<>
 			{trail.nameRoute ? (
 				<section className="trail__body">
+					<Helmet>
+						<meta
+							name="description"
+							content={`Велосипедный маршрут "${trail.nameRoute}" (${trail.state}), тип велосипеда - ${trail.bikeType}`}
+						/>
+						<meta property="og:title" content={`Описание маршрута "${trail.nameRoute}"`} />
+						<meta
+							property="og:description"
+							content={`Велосипедный маршрут "${trail.nameRoute}" (${trail.state}), тип велосипеда - ${trail.bikeType}`}
+						/>
+						<meta property="og:image" content="/images/b.jpg" />
+					</Helmet>
 					<h3 className="title__page align__center">
 						{trail?.nameRoute}
 						<br />({trail?.state})

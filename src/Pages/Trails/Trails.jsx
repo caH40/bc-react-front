@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+
 import { getTrails } from '../../api/trail';
 import Card from '../../Components/Card/Card';
 import SortFilterTrails from '../../Components/UI/SortFilterTrails/SortFilterTrails';
@@ -67,6 +69,12 @@ const Trails = () => {
 
 	return (
 		<section className="trails__body">
+			<Helmet>
+				<meta
+					name="description"
+					content="Велосипедные маршруты по Кавказу для шоссейный и МТБ велосипедов."
+				/>
+			</Helmet>
 			<h3 className="title__page title__page__trails">Велосипедные маршруты</h3>
 			<SortFilterTrails
 				getSorting={getSorting}

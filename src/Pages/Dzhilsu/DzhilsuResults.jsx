@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getResults } from '../../api/results';
 import TableResults from '../../Components/Table/Results/TableResults';
@@ -23,6 +24,15 @@ const DzhilsuResults = () => {
 		<>
 			{results.length !== 0 ? (
 				<div>
+					<Helmet>
+						<meta name="description" content={`Результаты ${results[0].eventName}`} />
+						<meta property="og:title" content={`${results[0].eventName}`} />
+						<meta
+							property="og:description"
+							content={`Результаты ${results[0].eventName}. Гонка-тренировка проходит в Карачаево-Черкесской и Кабардино-Балкарской республиках.`}
+						/>
+						<meta property="og:image" content="/images/b.jpg" />
+					</Helmet>
 					<h3 className="title__page">Результаты: {results[0]?.eventName}</h3>
 					<TableResults results={results} setResults={setResults} />
 					<div className="box__align-right">
