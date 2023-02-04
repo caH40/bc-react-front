@@ -38,7 +38,6 @@ const Dzhilsu = () => {
 					property="og:description"
 					content="Высокогорные соревнования на Джилы-Су. Ежегодная гонка-тренировка шоссейный велоспорт."
 				/>
-				<meta property="og:image" content="/images/b.jpg" />
 			</Helmet>
 			<h3 className="title__page">Высокогорные соревнования на Джилы-Су</h3>
 			<TableDzhiliSuEvents events={events} setEvents={setEvents} />

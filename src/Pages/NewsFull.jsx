@@ -23,7 +23,6 @@ const NewsFull = () => {
 							property="og:description"
 							content={`Описание новости, события "${news.newsTitle}"`}
 						/>
-						<meta property="og:image" content="/images/b.jpg" />
 					</Helmet>
 					<h2 className="title__page title__page__news">{news.newsTitle}</h2>
 					<div className="news__date">{new Date(news.date).toLocaleString()}</div>

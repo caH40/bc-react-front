@@ -31,7 +31,6 @@ const DzhilsuResults = () => {
 							property="og:description"
 							content={`Результаты ${results[0].eventName}. Гонка-тренировка проходит в Карачаево-Черкесской и Кабардино-Балкарской республиках.`}
 						/>
-						<meta property="og:image" content="/images/b.jpg" />
 					</Helmet>
 					<h3 className="title__page">Результаты: {results[0]?.eventName}</h3>
 					<TableResults results={results} setResults={setResults} />

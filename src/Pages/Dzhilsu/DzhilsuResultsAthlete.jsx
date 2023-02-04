@@ -33,7 +33,6 @@ const DzhilsuResultsAthlete = () => {
 							property="og:description"
 							content={`Гонка-тренировка Джилы-Су. Заезды в которых принимал участие спортсмен ${results[0].athlete}`}
 						/>
-						<meta property="og:image" content="/images/b.jpg" />
 					</Helmet>
 					<h3 className="title__page">Результаты: {results[0]?.athlete}</h3>
 					<TableResultsAthlete results={results} setResults={setResults} />

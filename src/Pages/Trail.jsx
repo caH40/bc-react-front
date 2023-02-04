@@ -29,7 +29,6 @@ const Trail = () => {
 							property="og:description"
 							content={`Велосипедный маршрут "${trail.nameRoute}" (${trail.state}), тип велосипеда - ${trail.bikeType}`}
 						/>
-						<meta property="og:image" content="/images/b.jpg" />
 					</Helmet>
 					<h3 className="title__page align__center">
 						{trail?.nameRoute}
