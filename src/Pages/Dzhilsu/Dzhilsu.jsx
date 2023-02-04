@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useDispatch } from 'react-redux';
 import { getEvents } from '../../api/events';
 import TableDzhiliSuEvents from '../../Components/Table/DzhiliSuEvents/TableDzhiliSuEvents';
@@ -23,10 +24,22 @@ const Dzhilsu = () => {
 					dispatch(getAuth({ state: false }));
 				}
 			});
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<section>
+			<Helmet>
+				<meta
+					name="description"
+					content="Высокогорные соревнования на Джилы-Су. Ежегодная гонка-тренировка шоссейный велоспорт."
+				/>
+				<meta property="og:title" content="Список прошедших гонок-тренировок на Джилы-Су" />
+				<meta
+					property="og:description"
+					content="Высокогорные соревнования на Джилы-Су. Ежегодная гонка-тренировка шоссейный велоспорт."
+				/>
+				<meta property="og:image" content="/images/b.jpg" />
+			</Helmet>
 			<h3 className="title__page">Высокогорные соревнования на Джилы-Су</h3>
 			<TableDzhiliSuEvents events={events} setEvents={setEvents} />
 		</section>
