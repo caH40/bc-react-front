@@ -1,7 +1,3 @@
-/* .footer {
-	background: linear-gradient(90.53deg, #0a233a 38.59%, #133810 99.51%);
-} */
-
 .column {
 	display: flex;
 	justify-content: space-between;
@@ -52,6 +48,8 @@
 	padding-bottom: 30px;
 }
 @media screen and (max-width: 510px) {
-}
-@media screen and (max-width: 435px) {
+	.footer {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
 }
