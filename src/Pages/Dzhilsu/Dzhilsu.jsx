@@ -39,7 +39,7 @@ const Dzhilsu = () => {
 					content="Высокогорные соревнования на Джилы-Су. Ежегодная гонка-тренировка шоссейный велоспорт."
 				/>
 			</Helmet>
-			<h3 className="title__page">Высокогорные соревнования на Джилы-Су</h3>
+			<h1 className="title__page">Высокогорные соревнования на Джилы-Су</h1>
 			<TableDzhiliSuEvents events={events} setEvents={setEvents} />
 		</section>
 	);

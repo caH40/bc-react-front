@@ -20,7 +20,7 @@ const NewPassword = () => {
 	}, [token, dispatch]);
 	return (
 		<section className="page404">
-			<h3 className="page404__title">Страница создания нового пароля</h3>
+			<h1 className="page404__title">Страница создания нового пароля</h1>
 			<p className="page404__text">{message}</p>
 		</section>
 	);

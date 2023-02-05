@@ -30,10 +30,10 @@ const Trail = () => {
 							content={`Велосипедный маршрут "${trail.nameRoute}" (${trail.state}), тип велосипеда - ${trail.bikeType}`}
 						/>
 					</Helmet>
-					<h3 className="title__page align__center">
+					<h1 className="title__page align__center">
 						{trail?.nameRoute}
 						<br />({trail?.state})
-					</h3>
+					</h1>
 					<div className="trail__inner">
 						<TrailDescription trail={trail} />
 						{trail.urlVideo ? <TrailVideo url={trail.urlVideo} /> : ''}

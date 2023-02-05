@@ -8,7 +8,7 @@ const Page404 = () => {
 
 	return (
 		<section className="page404">
-			<h3 className="page404__title">Ошибка 404</h3>
+			<h1 className="page404__title">Ошибка 404</h1>
 			<p className="page404__text">
 				Мы не смогли найти страницу{' '}
 				<span className="page404__text-wrong">{`${urlServer}/${wrongUrl}`}</span>

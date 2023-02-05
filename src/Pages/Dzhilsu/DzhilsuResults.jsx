@@ -32,7 +32,7 @@ const DzhilsuResults = () => {
 							content={`Результаты ${results[0].eventName}. Гонка-тренировка проходит в Карачаево-Черкесской и Кабардино-Балкарской республиках.`}
 						/>
 					</Helmet>
-					<h3 className="title__page">Результаты: {results[0]?.eventName}</h3>
+					<h1 className="title__page">Результаты: {results[0]?.eventName}</h1>
 					<TableResults results={results} setResults={setResults} />
 					<div className="box__align-right">
 						<Button getClick={goBack}>назад</Button>

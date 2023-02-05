@@ -23,7 +23,7 @@ const Home = () => {
 
 	return (
 		<section className={classes.wrapper}>
-			<h3 className={classes.title}>Новости, события и анонсы мероприятий. </h3>
+			<h1 className={classes.title}>Новости, события и анонсы мероприятий. </h1>
 			{news ? (
 				<div className={classes.inner}>
 					<News news={news} />

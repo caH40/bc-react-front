@@ -34,7 +34,7 @@ const DzhilsuResultsAthlete = () => {
 							content={`Гонка-тренировка Джилы-Су. Заезды в которых принимал участие спортсмен ${results[0].athlete}`}
 						/>
 					</Helmet>
-					<h3 className="title__page">Результаты: {results[0]?.athlete}</h3>
+					<h1 className="title__page">Результаты: {results[0]?.athlete}</h1>
 					<TableResultsAthlete results={results} setResults={setResults} />
 					<div className="box__align-right">
 						<Button getClick={goBack}>назад</Button>

@@ -26,7 +26,7 @@ const NewsFull = () => {
 						/>
 					</Helmet>
 
-					<h2 className={classes.title}>{news.newsTitle}</h2>
+					<h1 className={classes.title}>{news.newsTitle}</h1>
 					<div className={classes.date}>{new Date(news.date).toLocaleString()}</div>
 					<img className={classes.img} src={news.newsImage} alt={news.newsTitle} />
 					<div className={classes.text} dangerouslySetInnerHTML={{ __html: news.newsText }}></div>

@@ -15,7 +15,7 @@ const ConfirmEmail = () => {
 	}, [token]);
 	return (
 		<section className="page404">
-			<h3 className="page404__title">Страница активации аккаунта</h3>
+			<h1 className="page404__title">Страница активации аккаунта</h1>
 			<p className="page404__text">{message}</p>
 		</section>
 	);

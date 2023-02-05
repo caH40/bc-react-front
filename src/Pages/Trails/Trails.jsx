@@ -75,7 +75,7 @@ const Trails = () => {
 					content="Велосипедные маршруты по Кавказу для шоссейный и МТБ велосипедов."
 				/>
 			</Helmet>
-			<h3 className="title__page title__page__trails">Велосипедные маршруты</h3>
+			<h1 className="title__page title__page__trails">Велосипедные маршруты</h1>
 			<SortFilterTrails
 				getSorting={getSorting}
 				getFilter={getFilter}
