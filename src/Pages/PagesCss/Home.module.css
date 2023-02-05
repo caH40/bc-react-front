@@ -14,3 +14,14 @@
 	margin-bottom: 20px;
 	text-align: left;
 }
+@media screen and (max-width: 992px) {
+	.inner {
+		justify-content: center;
+	}
+	.title {
+		font-size: 22px;
+		padding: 10px 0px;
+		margin: 0px;
+		text-align: center;
+	}
+}
