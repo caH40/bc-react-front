@@ -72,7 +72,15 @@ const Trails = () => {
 			<Helmet>
 				<meta
 					name="description"
-					content="Велосипедные маршруты по Кавказу для шоссейный и МТБ велосипедов."
+					content="Велосипедные маршруты по Кавказу для шоссейный и МТБ велосипедов"
+				/>
+				<link rel="canonical" href="https://bike-caucasus.ru/trails" />
+				<meta property="og:title" content="Велосипедные маршруты по Кавказу" />
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://bike-caucasus.ru/trails" />
+				<meta
+					property="og:description"
+					content="Страница выбора велосипедных маршрутов по Кавказу для шоссейный и МТБ велосипедов"
 				/>
 			</Helmet>
 			<h1 className="title__page title__page__trails">Велосипедные маршруты</h1>

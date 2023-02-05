@@ -7,8 +7,8 @@ const Card = ({ trail }) => {
 	return (
 		<Link to={trail._id} className={[classes.card, styleMtb].join(' ')}>
 			<img className={classes.img} src={trail.cardPhoto} alt="background-trail" />
-			<h4 className={classes.title}>{trail.nameRoute}</h4>
-			<h4 className={`${classes.title} ${classes.title_sub}`}>{trail.state}</h4>
+			<h2 className={classes.title}>{trail.nameRoute}</h2>
+			<h3 className={`${classes.title} ${classes.title_sub}`}>{trail.state}</h3>
 			<div className={classes.text}>
 				<div className={classes.description}>
 					<img className={classes.ico} src="/images/icons/start-flag.svg" alt="start" />

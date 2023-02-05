@@ -29,14 +29,17 @@ const Dzhilsu = () => {
 	return (
 		<section>
 			<Helmet>
+				<link rel="canonical" href="https://bike-caucasus.ru/dzhilsu" />
 				<meta
 					name="description"
-					content="Высокогорные соревнования на Джилы-Су. Ежегодная гонка-тренировка шоссейный велоспорт."
+					content="Высокогорные соревнования на Джилы-Су. Гонка-тренировка шоссейный велоспорт."
 				/>
 				<meta property="og:title" content="Список прошедших гонок-тренировок на Джилы-Су" />
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://bike-caucasus.ru/dzhilsu" />
 				<meta
 					property="og:description"
-					content="Высокогорные соревнования на Джилы-Су. Ежегодная гонка-тренировка шоссейный велоспорт."
+					content="Высокогорные соревнования на Джилы-Су. Гонка-тренировка шоссейный велоспорт."
 				/>
 			</Helmet>
 			<h1 className="title__page">Высокогорные соревнования на Джилы-Су</h1>

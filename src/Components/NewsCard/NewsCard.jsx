@@ -14,7 +14,7 @@ const News = ({ news }) => {
 						<div className={classes.box__news}>
 							<div className={classes.box__text}>
 								<div className={classes.truncate}>
-									<h3 className={classes.title}>{newsOne.newsTitle}</h3>
+									<h2 className={classes.title}>{newsOne.newsTitle}</h2>
 									<p className={classes.text} dangerouslySetInnerHTML={{ __html: newsOne.newsText }}></p>
 								</div>
 								<Link to={`/news/${newsOne._id}`} className={classes.link}>
