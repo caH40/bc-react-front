@@ -16,20 +16,21 @@ const Webcam = () => {
 
 	return (
 		<div className={classes.webcam}>
-			<ArrowsWebcam numberWebcam={numberWebcam} setNumberWebcam={setNumberWebcam} />
-			<h4 className={classes.title}>Гора Шаджатмаз</h4>
-			<a
-				className={classes.screenShot}
-				href={`https://gw.cmo.sai.msu.ru/webcam${numberWebcam}.jpg`}
-				target="_blank"
-				rel="noreferrer"
-			>
-				<img
-					className={classes.img}
-					src={webcam}
-					alt={`Вебкамера на горе Шаджатмаз webcam${numberWebcam}`}
-				/>
-			</a>
+			<h2 className={classes.title}>Вебкамеры на горе Шаджатмаз</h2>
+			<div className={classes.screenShot}>
+				<ArrowsWebcam numberWebcam={numberWebcam} setNumberWebcam={setNumberWebcam} />
+				<a
+					href={`https://gw.cmo.sai.msu.ru/webcam${numberWebcam}.jpg`}
+					target="_blank"
+					rel="noreferrer"
+				>
+					<img
+						className={classes.img}
+						src={webcam}
+						alt={`Вебкамера на горе Шаджатмаз webcam${numberWebcam}`}
+					/>
+				</a>
+			</div>
 		</div>
 	);
 };

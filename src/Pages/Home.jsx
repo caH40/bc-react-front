@@ -5,6 +5,8 @@ import { postLikeNews } from '../api/likes';
 import { getNews } from '../api/news';
 import News from '../Components/NewsCard/NewsCard';
 import Webcam from '../Components/Webcam/Webcam';
+import { Adaptive } from '../Hoc/Adaptive';
+import classes from './PagesCss/Home.module.css';
 
 const Home = () => {
 	const [news, setNews] = useState([]);
@@ -20,12 +22,14 @@ const Home = () => {
 	}, [likes]);
 
 	return (
-		<section className="home">
-			<h3 className="title__page">Новости, события и анонсы мероприятий. </h3>
+		<section className={classes.wrapper}>
+			<h3 className={classes.title}>Новости, события и анонсы мероприятий. </h3>
 			{news ? (
-				<div className="main__inner">
+				<div className={classes.inner}>
 					<News news={news} />
-					<Webcam />
+					<Adaptive sizeScreen="lg" visible={false}>
+						<Webcam />
+					</Adaptive>
 				</div>
 			) : (
 				'Loading...'

@@ -1,0 +1,16 @@
+/* ======================================================= */
+.inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.title {
+	font-family: 'Montserrat Alternates';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 26px;
+	letter-spacing: 0.05em;
+	padding-top: 10px;
+	margin-bottom: 20px;
+	text-align: left;
+}

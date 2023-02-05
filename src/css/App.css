@@ -139,18 +139,6 @@ a {
 .align__center {
 	text-align: center;
 }
-/* ======================================================= */
-.main__inner {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-}
-.main__inner-news {
-	display: flex;
-	width: 1100px;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-}
 
 /* ======================================================= */
 .fixed {

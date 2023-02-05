@@ -3,6 +3,7 @@
 	display: block;
 	cursor: pointer;
 	top: calc(50% - 14px);
+	z-index: 6;
 }
 
 .left {

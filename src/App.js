@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { checkAuth } from './api/auth-check';
 
 import Page from './Components/Layers/Page';
+import Webcam from './Components/Webcam/Webcam';
 import './css/App.css';
 import './css/App_mobile.css';
 import ConfirmEmail from './Pages/ConfirmEmail';
@@ -36,6 +37,7 @@ function App() {
 				<Route path="/" element={<Page />}>
 					<Route index element={<Home />} />
 					<Route path="/news/:newsId" element={<NewsFull />} />
+					<Route path="/webcam" element={<Webcam />} />
 					<Route path="/trails" element={<Trails />} />
 					<Route path="/trails/:trailId" element={<Trail />} />
 					<Route path="/gallery" element={<Gallery />} />

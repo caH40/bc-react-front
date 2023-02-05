@@ -1,7 +1,12 @@
+.wrapper {
+	max-width: 980px;
+}
 .content {
 	display: flex;
 	justify-self: flex-start;
 	flex-wrap: wrap;
+	/* flex-grow: 0; */
+	/* flex-shrink: 0; */
 }
 
 .block {
