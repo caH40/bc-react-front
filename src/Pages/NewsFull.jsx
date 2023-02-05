@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { getNewsOne } from '../api/news';
 import NewsInteractive from '../Components/NewsInteractive/NewsInteractive';
+import classes from './PagesCss/NewsFull.module.css';
 
 const NewsFull = () => {
 	const [news, setNews] = useState({});
@@ -15,7 +16,7 @@ const NewsFull = () => {
 	return (
 		<>
 			{news._id ? (
-				<div className="container__news">
+				<div className={classes.container}>
 					<Helmet>
 						<meta name="description" content={`Описание новости, события ${news.newsTitle}`} />
 						<meta property="og:title" content={news.newsTitle} />
@@ -24,10 +25,11 @@ const NewsFull = () => {
 							content={`Описание новости, события "${news.newsTitle}"`}
 						/>
 					</Helmet>
-					<h2 className="title__page title__page__news">{news.newsTitle}</h2>
-					<div className="news__date">{new Date(news.date).toLocaleString()}</div>
-					<img className="news__img" src={news.newsImage} alt={news.newsTitle} />
-					<div className="news__text" dangerouslySetInnerHTML={{ __html: news.newsText }}></div>
+
+					<h2 className={classes.title}>{news.newsTitle}</h2>
+					<div className={classes.date}>{new Date(news.date).toLocaleString()}</div>
+					<img className={classes.img} src={news.newsImage} alt={news.newsTitle} />
+					<div className={classes.text} dangerouslySetInnerHTML={{ __html: news.newsText }}></div>
 					<NewsInteractive newsOne={news} />
 				</div>
 			) : (
