@@ -60,37 +60,43 @@ const Trails = () => {
 	}, [filter, sort, page]);
 
 	return (
-		<section className="trails__body">
-			<Helmet>
-				<meta
-					name="description"
-					content="Велосипедные маршруты по Кавказу для шоссейный и МТБ велосипедов"
-				/>
-				<link rel="canonical" href="https://bike-caucasus.ru/trails" />
-				<meta property="og:title" content="Велосипедные маршруты по Кавказу" />
-				<meta property="og:type" content="website" />
-				<meta property="og:url" content="https://bike-caucasus.ru/trails" />
-				<meta
-					property="og:description"
-					content="Страница выбора велосипедных маршрутов по Кавказу для шоссейный и МТБ велосипедов"
-				/>
-			</Helmet>
-			<h1 className="title__page title__page__trails">Велосипедные маршруты</h1>
-			<SortFilterTrails
-				sort={sort}
-				getSorting={getSorting}
-				getFilter={getFilter}
-				filter={filter}
-				isVisible={isVisible}
-				getVisible={getVisible}
-			/>
-			<div className="trails__cards">
-				{trails.map(trail => (
-					<Card trail={trail} key={trail._id} />
-				))}
-			</div>
-			<Pagination quantityPages={quantityPages} page={page} setPage={setPage} />
-		</section>
+		<>
+			{trails.length ? (
+				<section className="trails__body">
+					<Helmet>
+						<meta
+							name="description"
+							content="Велосипедные маршруты по Кавказу для шоссейный и МТБ велосипедов"
+						/>
+						<link rel="canonical" href="https://bike-caucasus.ru/trails" />
+						<meta property="og:title" content="Велосипедные маршруты по Кавказу" />
+						<meta property="og:type" content="website" />
+						<meta property="og:url" content="https://bike-caucasus.ru/trails" />
+						<meta
+							property="og:description"
+							content="Страница выбора велосипедных маршрутов по Кавказу для шоссейный и МТБ велосипедов"
+						/>
+					</Helmet>
+					<h1 className="title__page title__page__trails">Велосипедные маршруты</h1>
+					<SortFilterTrails
+						sort={sort}
+						getSorting={getSorting}
+						getFilter={getFilter}
+						filter={filter}
+						isVisible={isVisible}
+						getVisible={getVisible}
+					/>
+					<div className="trails__cards">
+						{trails.map(trail => (
+							<Card trail={trail} key={trail._id} />
+						))}
+					</div>
+					<Pagination quantityPages={quantityPages} page={page} setPage={setPage} />
+				</section>
+			) : (
+				'Loading...'
+			)}
+		</>
 	);
 };
 
