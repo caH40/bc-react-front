@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 
 import { getNewsOne } from '../api/news';
+import HNewsFull from '../Components/Helmets/HNewsFull';
 import NewsInteractive from '../Components/NewsInteractive/NewsInteractive';
 import classes from './PagesCss/NewsFull.module.css';
 
@@ -17,18 +17,7 @@ const NewsFull = () => {
 		<>
 			{news._id ? (
 				<div className={classes.container}>
-					<Helmet>
-						<link rel="canonical" href={`https://bike-caucasus.ru/news/${news._id}`} />
-						<meta name="description" content={`Описание новости, события ${news.newsTitle}`} />
-						<meta property="og:title" content={news.newsTitle} />
-						<meta property="og:type" content="website" />
-						<meta property="og:url" content={`https://bike-caucasus.ru/news/${news._id}`} />
-						<meta
-							property="og:description"
-							content={`Описание новости, события "${news.newsTitle}"`}
-						/>
-					</Helmet>
-
+					<HNewsFull news={news} />
 					<h1 className={classes.title}>{news.newsTitle}</h1>
 					<div className={classes.date}>{new Date(news.date).toLocaleString()}</div>
 					<img className={classes.img} src={news.newsImage} alt={news.newsTitle} />

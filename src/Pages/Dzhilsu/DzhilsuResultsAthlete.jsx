@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getResultsAthlete } from '../../api/results';
+import HDzhilsuResultsAthlete from '../../Components/Helmets/HDzhilsuResultsAthlete';
 import TableResultsAthlete from '../../Components/Table/ResultsAthlete/TableResultsAthlete';
 import Button from '../../Components/UI/Button/Button';
 import { mySort } from '../../utils/mysort';
@@ -23,26 +23,7 @@ const DzhilsuResultsAthlete = () => {
 		<>
 			{results.length !== 0 ? (
 				<div>
-					<Helmet>
-						<link
-							rel="canonical"
-							href={`https://bike-caucasus.ru/dzhilsu/results/athlete/${results[0].athlete}`}
-						/>
-						<meta
-							name="description"
-							content={`Гонка-тренировка Джилы-Су. Заезды в которых принимал участие спортсмен ${results[0].athlete}`}
-						/>
-						<meta property="og:title" content={`Результаты ${results[0].athlete}`} />
-						<meta property="og:type" content="website" />
-						<meta
-							property="og:url"
-							content={`https://bike-caucasus.ru/dzhilsu/results/athlete/${results[0].athlete}`}
-						/>
-						<meta
-							property="og:description"
-							content={`Гонка-тренировка Джилы-Су. Заезды в которых принимал участие спортсмен ${results[0].athlete}`}
-						/>
-					</Helmet>
+					<HDzhilsuResultsAthlete results={results} />
 					<h1 className="title__page">Результаты: {results[0]?.athlete}</h1>
 					<TableResultsAthlete results={results} setResults={setResults} />
 					<div className="box__align-right">

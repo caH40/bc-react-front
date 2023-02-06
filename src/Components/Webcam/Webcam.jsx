@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getWebcam } from '../../api/webcam';
+import HWebcam from '../Helmets/HWebcam';
 import ArrowsWebcam from '../UI/ArrowWebcam/ArrowsWebcam';
 
 import classes from './Webcam.module.css';
@@ -16,6 +17,7 @@ const Webcam = () => {
 
 	return (
 		<div className={classes.webcam}>
+			<HWebcam />
 			<h2 className={classes.title}>Вебкамеры на горе Шаджатмаз</h2>
 			<div className={classes.screenShot}>
 				<ArrowsWebcam numberWebcam={numberWebcam} setNumberWebcam={setNumberWebcam} />
