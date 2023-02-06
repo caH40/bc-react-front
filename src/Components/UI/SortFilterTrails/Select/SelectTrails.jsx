@@ -2,13 +2,14 @@ import React from 'react';
 
 import classes from '../SortFilterTrails.module.css';
 
-const SelectTrails = ({ getSorting }) => {
+const SelectTrails = ({ sort, getSorting }) => {
 	return (
 		<div className={classes.item}>
 			<select
 				className={[classes.btn, classes.select].join(' ')}
 				name="filter-card"
 				onChange={getSorting}
+				defaultValue={JSON.stringify(sort)}
 			>
 				<option
 					className={classes.option}

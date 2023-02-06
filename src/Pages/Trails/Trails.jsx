@@ -1,34 +1,31 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 import { getTrails } from '../../api/trail';
 import Card from '../../Components/Card/Card';
+import Pagination from '../../Components/UI/Pagination/Pagination';
 import SortFilterTrails from '../../Components/UI/SortFilterTrails/SortFilterTrails';
 import { filterStart, sortStart } from './service';
 
+const cardsOnPage = 10;
+
 const Trails = () => {
 	const [trails, setTrails] = useState([]);
-	const sortState = useRef(sortStart);
 	const [filter, setFilter] = useState(filterStart);
+	const [sort, setSort] = useState(sortStart);
 	const [isVisible, setIsVisible] = useState(false);
+	const [quantityPages, setQuantityPages] = useState(1);
+	const [page, setPage] = useState(1);
 
 	const getSorting = e => {
 		const sortFromSelect = JSON.parse(e.target.value);
+
 		localStorage.setItem('sortField', sortFromSelect.sortField);
 		localStorage.setItem('sortDirection', sortFromSelect.sortDirection);
-		const sortedTrails = sortTrail(sortFromSelect, trails);
-		setTrails(sortedTrails);
-		sortState.current = sortFromSelect;
-	};
 
-	const sortTrail = (sortFromSelect, cards) => {
-		if (sortFromSelect.sortDirection === 'up') {
-			return [...cards].sort((a, b) => a[sortFromSelect.sortField] - b[sortFromSelect.sortField]);
-		} else {
-			return [...cards].sort((a, b) => b[sortFromSelect.sortField] - a[sortFromSelect.sortField]);
-		}
+		setSort(sortFromSelect);
 	};
 
 	const getFilter = (isChecked, field) => {
@@ -38,18 +35,14 @@ const Trails = () => {
 				localStorage.setItem('filterFields', newState);
 				return newState;
 			});
-		} else
+		} else {
+			setPage(1);
 			setFilter(prev => {
 				const newState = prev.filter(element => element !== field);
 				localStorage.setItem('filterFields', newState);
 				return newState;
 			});
-	};
-
-	const filterTrail = (filterFromSelect, cards) => {
-		return [...cards].filter(
-			card => filterFromSelect.includes(card.state) && filterFromSelect.includes(card.bikeType)
-		);
+		}
 	};
 
 	const getVisible = () => {
@@ -60,12 +53,11 @@ const Trails = () => {
 	};
 
 	useEffect(() => {
-		getTrails(filter).then(data => {
-			const dataSorted = sortTrail(sortState.current, data);
-			const dataSortedFiltered = filterTrail(filter, dataSorted);
-			setTrails(dataSortedFiltered);
+		getTrails(filter, sort, cardsOnPage, page).then(data => {
+			setQuantityPages(data.quantityPages);
+			setTrails(data.cards);
 		});
-	}, [filter]);
+	}, [filter, sort, page]);
 
 	return (
 		<section className="trails__body">
@@ -85,6 +77,7 @@ const Trails = () => {
 			</Helmet>
 			<h1 className="title__page title__page__trails">Велосипедные маршруты</h1>
 			<SortFilterTrails
+				sort={sort}
 				getSorting={getSorting}
 				getFilter={getFilter}
 				filter={filter}
@@ -96,6 +89,7 @@ const Trails = () => {
 					<Card trail={trail} key={trail._id} />
 				))}
 			</div>
+			<Pagination quantityPages={quantityPages} page={page} setPage={setPage} />
 		</section>
 	);
 };
