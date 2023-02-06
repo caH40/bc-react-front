@@ -1,10 +1,10 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 
 import { getTrails } from '../../api/trail';
 import Card from '../../Components/Card/Card';
+import HTrails from '../../Components/Helmets/HTrails';
 import Pagination from '../../Components/UI/Pagination/Pagination';
 import SortFilterTrails from '../../Components/UI/SortFilterTrails/SortFilterTrails';
 import { filterStart, sortStart } from './service';
@@ -63,20 +63,7 @@ const Trails = () => {
 		<>
 			{trails.length ? (
 				<section className="trails__body">
-					<Helmet>
-						<meta
-							name="description"
-							content="Велосипедные маршруты по Кавказу для шоссейный и МТБ велосипедов"
-						/>
-						<link rel="canonical" href="https://bike-caucasus.ru/trails" />
-						<meta property="og:title" content="Велосипедные маршруты по Кавказу" />
-						<meta property="og:type" content="website" />
-						<meta property="og:url" content="https://bike-caucasus.ru/trails" />
-						<meta
-							property="og:description"
-							content="Страница выбора велосипедных маршрутов по Кавказу для шоссейный и МТБ велосипедов"
-						/>
-					</Helmet>
+					<HTrails />
 					<h1 className="title__page title__page__trails">Велосипедные маршруты</h1>
 					<SortFilterTrails
 						sort={sort}
