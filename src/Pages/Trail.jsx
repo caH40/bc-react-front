@@ -21,8 +21,7 @@ const Trail = () => {
 				<section className="trail__body">
 					<HTrail trail={trail} />
 					<h1 className="title__page align__center">
-						{trail?.nameRoute}
-						<br />({trail?.state})
+						{trail?.nameRoute} ({trail?.state})
 					</h1>
 					<div className="trail__inner">
 						<TrailDescription trail={trail} />

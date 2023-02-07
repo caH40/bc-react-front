@@ -7,7 +7,7 @@ const HWebcam = () => {
 			<link rel="canonical" href="https://bike-caucasus.ru/webcam" />
 			<meta
 				name="description"
-				content="Вебкамеры на горе Шаджатмаз. Вид на Эльбрус, КМВ, Учкекен, Канжол"
+				content="Вебкамеры на горе Шаджатмаз. Вид на Эльбрус, КМВ, Учкекен, Канжол."
 			/>
 			<meta property="og:title" content="Вебкамеры на горе Шаджатмаз" />
 			<meta property="og:type" content="website" />
