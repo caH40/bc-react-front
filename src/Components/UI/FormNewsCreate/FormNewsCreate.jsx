@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import { postNews } from '../../../api/news';
 import { getAlert } from '../../../redux/features/alertMessageSlice';
 import ImageBox from '../../ImageBox/ImageBox';
-import Button from '../Button/Button';
 import ButtonInput from '../ButtonInput/ButtonInput';
+import ButtonSendBox from '../ButtonSendBox/ButtonSendBox';
 import InputBox from '../InputBox/InputBox';
 import TextArea from '../TextArea/TextArea';
 
@@ -59,13 +59,7 @@ const FormNewsCreate = () => {
 				<ImageBox picture={picture} />
 			</div>
 			<TextArea value={form.textBody} setForm={setForm} title="Текст новости:" />
-
-			<div className={classes.box__input}>
-				<h2 className={classes.box__title}>Сохранение новости на сервере!</h2>
-				<Button getClick={sendForm} type="submit">
-					Отправить
-				</Button>
-			</div>
+			<ButtonSendBox sendForm={sendForm} title="Сохранение новости на сервере!" />
 		</form>
 	);
 };
