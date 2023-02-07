@@ -18,11 +18,25 @@ const FormNewsCreate = () => {
 
 	const sendForm = event => {
 		event.preventDefault();
-		if (!form.source || !form.textBody || !form.textBody) {
+		if (!form.source || !form.textBody || !form.title) {
 			dispatch(getAlert({ message: 'Не все поля заполнены!', type: 'warning', isOpened: true }));
 			return;
 		}
-		postNews(form.source).then(data => console.log(data));
+
+		const formData = new FormData();
+		formData.append('files', form.source);
+		formData.append('title', form.title);
+		formData.append('textBody', form.textBody);
+
+		postNews(formData)
+			.then(data => {
+				if (data?.status === 200) {
+					dispatch(getAlert({ message: data.data.message, type: 'success', isOpened: true }));
+				}
+			})
+			.catch(error =>
+				dispatch(getAlert({ message: error.response.data.message, type: 'error', isOpened: true }))
+			);
 
 		setForm({ title: '', textBody: '', source: '' });
 		setPicture({});
@@ -33,12 +47,7 @@ const FormNewsCreate = () => {
 			<div className={classes.inner__picture}>
 				<div className={classes.block__picture}>
 					<InputBox value={form.title} setForm={setForm} title="Заголовок новости:" />
-					<InputFileBox
-						form={form}
-						setForm={setForm}
-						setPicture={setPicture}
-						title="Картинка для новости:"
-					/>
+					<InputFileBox setForm={setForm} setPicture={setPicture} title="Картинка для новости:" />
 				</div>
 				<ImageBox picture={picture} />
 			</div>

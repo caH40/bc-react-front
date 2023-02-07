@@ -18,14 +18,14 @@ export async function getNewsOne(newsId) {
 		console.log(error);
 	}
 }
-export async function postNews(dataForm) {
+export async function postNews(formData) {
 	try {
 		const response = await myAxios(`/api/postnews`, {
 			method: 'POST',
-			data: dataForm,
+			data: formData,
 		});
 		return response;
 	} catch (error) {
-		console.log(error);
+		throw error;
 	}
 }
