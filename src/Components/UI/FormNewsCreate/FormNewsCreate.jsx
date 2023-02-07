@@ -7,6 +7,7 @@ import ImageBox from '../../ImageBox/ImageBox';
 import ButtonInput from '../ButtonInput/ButtonInput';
 import ButtonSendBox from '../ButtonSendBox/ButtonSendBox';
 import InputBox from '../InputBox/InputBox';
+import InputFileBox from '../InputFileBox/InputFileBox';
 import TextArea from '../TextArea/TextArea';
 
 import classes from './FormNewsCreate.module.css';
@@ -28,33 +29,17 @@ const FormNewsCreate = () => {
 		setPicture({});
 	};
 
-	const getPicture = event => {
-		const file = event.target.files[0];
-		const size = Math.trunc(file.size / 8000);
-
-		const reader = new FileReader();
-		reader.readAsDataURL(file);
-
-		reader.onload = async () => {
-			setPicture({ source: reader.result, name: file.name, size });
-		};
-
-		const formData = new FormData();
-		formData.append('files', file);
-		formData.append('title', form.title);
-		formData.append('textBody', form.textBody);
-		setForm(prev => ({ ...prev, source: formData }));
-	};
-
 	return (
 		<form className={classes.form}>
 			<div className={classes.inner__picture}>
 				<div className={classes.block__picture}>
 					<InputBox value={form.title} setForm={setForm} title="Заголовок новости:" />
-					<div className={classes.box__input}>
-						<h2 className={classes.box__title}>Картинка для новости:</h2>
-						<ButtonInput getClick={getPicture}>Выбрать файл</ButtonInput>
-					</div>
+					<InputFileBox
+						form={form}
+						setForm={setForm}
+						setPicture={setPicture}
+						title="Картинка для новости:"
+					/>
 				</div>
 				<ImageBox picture={picture} />
 			</div>
