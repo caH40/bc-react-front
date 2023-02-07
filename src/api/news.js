@@ -20,7 +20,7 @@ export async function getNewsOne(newsId) {
 }
 export async function postNews(dataForm) {
 	try {
-		const response = await axios(`${server}/api/postnews`, {
+		const response = await myAxios(`/api/postnews`, {
 			method: 'POST',
 			data: dataForm,
 		});

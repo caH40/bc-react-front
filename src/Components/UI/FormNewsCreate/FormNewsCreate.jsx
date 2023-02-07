@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { postNews } from '../../../api/news';
+import ImageBox from '../../ImageBox/ImageBox';
 
 import Button from '../Button/Button';
 import ButtonInput from '../ButtonInput/ButtonInput';
@@ -53,13 +54,7 @@ const FormNewsCreate = () => {
 						<ButtonInput getClick={getPicture}>Выбрать файл</ButtonInput>
 					</div>
 				</div>
-				<div className={classes.block__picture}>
-					<div className={classes.box__img}>
-						{picture.source ? (
-							<img className={classes.img} src={picture.source} alt="news" />
-						) : undefined}
-					</div>
-				</div>
+				<ImageBox picture={picture} />
 			</div>
 			<div className={classes.box__textarea}>
 				<h2 className={classes.box__title}>Текст новости:</h2>
