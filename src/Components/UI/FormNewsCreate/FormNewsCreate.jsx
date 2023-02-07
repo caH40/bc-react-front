@@ -1,20 +1,31 @@
 import React, { useState } from 'react';
-import { postNews } from '../../../api/news';
-import ImageBox from '../../ImageBox/ImageBox';
+import { useDispatch } from 'react-redux';
 
+import { postNews } from '../../../api/news';
+import { getAlert } from '../../../redux/features/alertMessageSlice';
+import ImageBox from '../../ImageBox/ImageBox';
 import Button from '../Button/Button';
 import ButtonInput from '../ButtonInput/ButtonInput';
+import InputBox from '../InputBox/InputBox';
+import TextArea from '../TextArea/TextArea';
 
 import classes from './FormNewsCreate.module.css';
 
 const FormNewsCreate = () => {
-	const [form, setForm] = useState({ title: '', textBody: '' });
+	const [form, setForm] = useState({ title: '', textBody: '', source: '' });
 	const [picture, setPicture] = useState({});
+	const dispatch = useDispatch();
 
 	const sendForm = e => {
 		e.preventDefault();
+		if (!form.source || !form.textBody || !form.textBody) {
+			dispatch(getAlert({ message: 'Не все поля заполнены!', type: 'warning', isOpened: true }));
+			return console.log('empty');
+		}
 		postNews(form.source).then(data => console.log(data));
+		//очистка формы
 		setForm({ title: '', textBody: '', source: '' });
+		setPicture({});
 	};
 
 	const getPicture = event => {
@@ -39,16 +50,7 @@ const FormNewsCreate = () => {
 		<form className={classes.form}>
 			<div className={classes.inner__picture}>
 				<div className={classes.block__picture}>
-					<div className={classes.box__input}>
-						<h2 className={classes.box__title}>Заголовок новости:</h2>
-						<input
-							value={form.title}
-							onChange={e => setForm(prev => ({ ...prev, title: e.target.value }))}
-							className={classes.input}
-							type="text"
-							name="title"
-						/>
-					</div>
+					<InputBox value={form.title} setForm={setForm} title="Заголовок новости:" />
 					<div className={classes.box__input}>
 						<h2 className={classes.box__title}>Картинка для новости:</h2>
 						<ButtonInput getClick={getPicture}>Выбрать файл</ButtonInput>
@@ -56,14 +58,8 @@ const FormNewsCreate = () => {
 				</div>
 				<ImageBox picture={picture} />
 			</div>
-			<div className={classes.box__textarea}>
-				<h2 className={classes.box__title}>Текст новости:</h2>
-				<textarea
-					value={form.textBody}
-					onChange={e => setForm(prev => ({ ...prev, textBody: e.target.value }))}
-					className={classes.textarea}
-				/>
-			</div>
+			<TextArea value={form.textBody} setForm={setForm} title="Текст новости:" />
+
 			<div className={classes.box__input}>
 				<h2 className={classes.box__title}>Сохранение новости на сервере!</h2>
 				<Button getClick={sendForm} type="submit">
