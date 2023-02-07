@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { postNews } from '../../../api/news';
 import { getAlert } from '../../../redux/features/alertMessageSlice';
 import ImageBox from '../../ImageBox/ImageBox';
-import ButtonInput from '../ButtonInput/ButtonInput';
 import ButtonSendBox from '../ButtonSendBox/ButtonSendBox';
 import InputBox from '../InputBox/InputBox';
 import InputFileBox from '../InputFileBox/InputFileBox';
@@ -17,14 +16,14 @@ const FormNewsCreate = () => {
 	const [picture, setPicture] = useState({});
 	const dispatch = useDispatch();
 
-	const sendForm = e => {
-		e.preventDefault();
+	const sendForm = event => {
+		event.preventDefault();
 		if (!form.source || !form.textBody || !form.textBody) {
 			dispatch(getAlert({ message: 'Не все поля заполнены!', type: 'warning', isOpened: true }));
-			return console.log('empty');
+			return;
 		}
 		postNews(form.source).then(data => console.log(data));
-		//очистка формы
+
 		setForm({ title: '', textBody: '', source: '' });
 		setPicture({});
 	};
