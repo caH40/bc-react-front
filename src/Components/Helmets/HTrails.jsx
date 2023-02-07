@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 const HTrails = () => {
 	return (
 		<Helmet>
+			<link rel="canonical" href="https://bike-caucasus.ru/trails" />
 			<meta
 				name="description"
 				content="Велосипедные маршруты по Кавказу для шоссейный и МТБ велосипедов"

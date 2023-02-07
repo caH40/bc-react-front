@@ -14,6 +14,7 @@ import DzhilsuResultsAthlete from './Pages/Dzhilsu/DzhilsuResultsAthlete';
 import Gallery from './Pages/Gallery';
 import Home from './Pages/Home';
 import NewPassword from './Pages/NewPassword';
+import NewsCreate from './Pages/NewsCreate';
 import NewsFull from './Pages/NewsFull';
 import Page404 from './Pages/Page404';
 import Trail from './Pages/Trail';
@@ -46,6 +47,7 @@ function App() {
 					<Route path="/dzhilsu/results/athlete/:athlete" element={<DzhilsuResultsAthlete />} />
 					<Route path="/confirm-email/:token" element={<ConfirmEmail />} />
 					<Route path="/new-password/:token" element={<NewPassword />} />
+					<Route path="/create-news" element={<NewsCreate />} />
 					<Route path="*" element={<Page404 />} />
 				</Route>
 			</Routes>
