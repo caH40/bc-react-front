@@ -8,6 +8,7 @@ import Webcam from './Components/Webcam/Webcam';
 import './css/App.css';
 import './css/App_mobile.css';
 import Admin from './Pages/Admin/Admin';
+import NewsCreate from './Pages/Admin/NewsCreate';
 import ConfirmEmail from './Pages/ConfirmEmail';
 import Dzhilsu from './Pages/Dzhilsu/Dzhilsu';
 import DzhilsuResults from './Pages/Dzhilsu/DzhilsuResults';
@@ -15,7 +16,6 @@ import DzhilsuResultsAthlete from './Pages/Dzhilsu/DzhilsuResultsAthlete';
 import Gallery from './Pages/Gallery';
 import Home from './Pages/Home';
 import NewPassword from './Pages/NewPassword';
-import NewsCreate from './Pages/NewsCreate';
 import NewsFull from './Pages/NewsFull';
 import Page404 from './Pages/Page404';
 import Trail from './Pages/Trail';
@@ -54,8 +54,9 @@ function App() {
 					<Route path="/new-password/:token" element={<NewPassword />} />
 					{isModerator ? (
 						<>
-							<Route path="/admin" element={<Admin />} />
-							<Route path="/admin/create-news" element={<NewsCreate />} />
+							<Route path="/admin" element={<Admin />}>
+								<Route path="create-news" element={<NewsCreate />} />
+							</Route>
 						</>
 					) : (
 						''
