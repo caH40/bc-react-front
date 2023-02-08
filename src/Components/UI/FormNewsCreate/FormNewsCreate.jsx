@@ -49,7 +49,7 @@ const FormNewsCreate = () => {
 					<InputBox value={form.title} setForm={setForm} title="Заголовок новости:" />
 					<InputFileBox setForm={setForm} setPicture={setPicture} title="Картинка для новости:" />
 				</div>
-				<ImageBox picture={picture} />
+				<ImageBox picture={picture} setPicture={setPicture} />
 			</div>
 			<TextArea value={form.textBody} setForm={setForm} title="Текст новости:" />
 			<ButtonSendBox sendForm={sendForm} title="Сохранение новости на сервере!" />

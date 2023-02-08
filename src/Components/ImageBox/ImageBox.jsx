@@ -3,7 +3,8 @@ import ButtonClose from '../UI/ButtonClose/ButtonClose';
 
 import classes from './ImageBox.module.css';
 
-const ImageBox = ({ picture }) => {
+const ImageBox = ({ picture, setPicture }) => {
+	const closeImage = () => setPicture({});
 	return (
 		<div className={classes.block__picture}>
 			{picture.source ? (
@@ -14,7 +15,7 @@ const ImageBox = ({ picture }) => {
 						<span>{picture.size}kB</span>
 					</div>
 					<div className={classes.cross__info}>
-						<ButtonClose />
+						<ButtonClose getClick={closeImage} />
 					</div>
 				</div>
 			) : undefined}
