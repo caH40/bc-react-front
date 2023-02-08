@@ -1,39 +1,54 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import classes from './NavbarAdmin.module.css';
 
 const NavbarAdmin = () => {
+	const liClass = ({ isActive }) => (isActive ? classes.activeLink : '');
 	return (
 		<nav className={classes.nav}>
 			<h2 className={classes.title__list}>Новости</h2>
 			<ul className={classes.list}>
 				<li className={classes.item}>
-					<Link to="create-news">Создание;</Link>
+					<NavLink to="create-news" className={liClass}>
+						Создание;
+					</NavLink>
 				</li>
 				<li className={classes.item}>
-					<Link to="#">Редактирование;</Link>
+					<NavLink to="/" className={liClass}>
+						Редактирование;
+					</NavLink>
 				</li>
 				<li className={classes.item}>
-					<Link to="#">Удаление;</Link>
+					<NavLink to="/" className={liClass}>
+						Удаление;
+					</NavLink>
 				</li>
 			</ul>
 			<h2 className={classes.title__list}>Маршруты</h2>
 			<ul className={classes.list}>
 				<li className={classes.item}>
-					<Link to="#">Создание;</Link>
+					<NavLink to="/" className={liClass}>
+						Создание;
+					</NavLink>
 				</li>
 				<li className={classes.item}>
-					<Link to="#">Редактирование;</Link>
+					<NavLink to="/" className={liClass}>
+						Редактирование;
+					</NavLink>
 				</li>
 				<li className={classes.item}>
-					<Link to="#">Удаление;</Link>
+					<NavLink to="/" className={liClass}>
+						Удаление;
+					</NavLink>
 				</li>
 			</ul>
 			<h2 className={classes.title__list}>Пользователи</h2>
 			<ul className={classes.list}>
 				<li className={classes.item}>
-					<Link to="#">Управление правами;</Link>
+					<NavLink to="/" className={liClass}>
+						Управление правами;
+					</NavLink>
 				</li>
 			</ul>
 		</nav>

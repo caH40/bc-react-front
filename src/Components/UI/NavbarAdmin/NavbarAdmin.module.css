@@ -1,6 +1,6 @@
 .nav {
 	width: 250px;
-	padding-right: 10px;
+	padding-right: 50px;
 	margin-right: 20px;
 }
 .title__list {
@@ -31,4 +31,7 @@
 .item:active {
 	color: #39a034;
 	transition: ease-in-out 0.4s;
+}
+.activeLink {
+	color: #39a034;
 }
