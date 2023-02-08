@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { postNews } from '../../../api/news';
@@ -9,21 +9,31 @@ import InputBox from '../InputBox/InputBox';
 import InputFileBox from '../InputFileBox/InputFileBox';
 import TextArea from '../TextArea/TextArea';
 
-import classes from './FormNewsCreate.module.css';
+import classes from './FormNewsEdit.module.css';
 
-const FormNewsCreate = () => {
-	const [form, setForm] = useState({ title: '', textBody: '', source: '' });
-	const [picture, setPicture] = useState({});
+const FormNewsEdit = ({ newsOne, type }) => {
+	const [form, setForm] = useState(() => ({
+		title: newsOne?.newsTitle ?? '',
+		textBody: newsOne?.newsText ?? '',
+		image: newsOne?.image ?? '',
+		newsId: newsOne?._id ?? '',
+	}));
+	const [pictureSource, setPictureSource] = useState({});
+	const pictureUrl = useRef(newsOne?.image ?? '');
+
 	const dispatch = useDispatch();
 
 	const sendForm = event => {
 		event.preventDefault();
-		if (!form.source || !form.textBody || !form.title) {
+		const isCompleteSource = form.source || pictureUrl.current ? true : false;
+		if (!isCompleteSource || !form.textBody || !form.title) {
 			dispatch(getAlert({ message: 'Не все поля заполнены!', type: 'warning', isOpened: true }));
 			return;
 		}
 
 		const formData = new FormData();
+		formData.append('type', type);
+		formData.append('newsId', form.newsId);
 		formData.append('files', form.source);
 		formData.append('title', form.title);
 		formData.append('textBody', form.textBody);
@@ -39,7 +49,8 @@ const FormNewsCreate = () => {
 			);
 
 		setForm({ title: '', textBody: '', source: '' });
-		setPicture({});
+		setPictureSource({});
+		pictureUrl.current = '';
 	};
 
 	return (
@@ -47,9 +58,18 @@ const FormNewsCreate = () => {
 			<div className={classes.inner__picture}>
 				<div className={classes.block__picture}>
 					<InputBox value={form.title} setForm={setForm} title="Заголовок новости:" />
-					<InputFileBox setForm={setForm} setPicture={setPicture} title="Картинка для новости:" />
+					<InputFileBox
+						setForm={setForm}
+						pictureUrl={pictureUrl}
+						setPictureSource={setPictureSource}
+						title="Картинка для новости:"
+					/>
 				</div>
-				<ImageBox picture={picture} setPicture={setPicture} />
+				<ImageBox
+					pictureUrl={pictureUrl}
+					pictureSource={pictureSource}
+					setPictureSource={setPictureSource}
+				/>
 			</div>
 			<TextArea value={form.textBody} setForm={setForm} title="Текст новости:" />
 			<ButtonSendBox sendForm={sendForm} title="Сохранение новости на сервере!" />
@@ -57,4 +77,4 @@ const FormNewsCreate = () => {
 	);
 };
 
-export default FormNewsCreate;
+export default FormNewsEdit;
