@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { checkAuth } from './api/auth-check';
 
 import Page from './Components/Layers/Page';
@@ -42,16 +42,16 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Page />}>
 					<Route index element={<Home />} />
-					<Route path="/news/:newsId" element={<NewsFull />} />
-					<Route path="/webcam" element={<Webcam />} />
-					<Route path="/trails" element={<Trails />} />
-					<Route path="/trails/:trailId" element={<Trail />} />
-					<Route path="/gallery" element={<Gallery />} />
-					<Route path="/dzhilsu" element={<Dzhilsu />} />
-					<Route path="/dzhilsu/results/:eventId" element={<DzhilsuResults />} />
-					<Route path="/dzhilsu/results/athlete/:athlete" element={<DzhilsuResultsAthlete />} />
-					<Route path="/confirm-email/:token" element={<ConfirmEmail />} />
-					<Route path="/new-password/:token" element={<NewPassword />} />
+					<Route path="news/:newsId" element={<NewsFull />} />
+					<Route path="webcam" element={<Webcam />} />
+					<Route path="trails" element={<Trails />} />
+					<Route path="trails/:trailId" element={<Trail />} />
+					<Route path="gallery" element={<Gallery />} />
+					<Route path="dzhilsu" element={<Dzhilsu />} />
+					<Route path="dzhilsu/results/:eventId" element={<DzhilsuResults />} />
+					<Route path="dzhilsu/results/athlete/:athlete" element={<DzhilsuResultsAthlete />} />
+					<Route path="confirm-email/:token" element={<ConfirmEmail />} />
+					<Route path="new-password/:token" element={<NewPassword />} />
 					{isModerator ? (
 						<>
 							<Route path="/admin" element={<Admin />}>
@@ -59,7 +59,7 @@ function App() {
 							</Route>
 						</>
 					) : (
-						''
+						<Route path="/admin/*" element={<Navigate to="/" replace />} />
 					)}
 
 					<Route path="*" element={<Page404 />} />
