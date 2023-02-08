@@ -6,6 +6,7 @@ import NewsInteractive from '../NewsInteractive/NewsInteractive';
 import classes from './NewsCard.module.css';
 
 const newsOnPage = 2;
+const server = process.env.REACT_APP_SERVER_EXPRESS;
 
 const News = () => {
 	const [news, setNews] = useState([]);
@@ -51,7 +52,7 @@ const News = () => {
 					<div className={classes.content}>
 						{news.map(newsOne => (
 							<div className={classes.block} key={newsOne._id}>
-								<img className={classes.img} src={newsOne.newsImage} alt="news" />
+								<img className={classes.img} src={`${server}/${newsOne?.image}`} alt="news" />
 								<div className={classes.box__news}>
 									<div className={classes.box__text}>
 										<div className={classes.truncate}>
