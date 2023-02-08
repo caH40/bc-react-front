@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { checkAuth } from './api/auth-check';
 
 import Page from './Components/Layers/Page';
@@ -9,6 +9,8 @@ import './css/App.css';
 import './css/App_mobile.css';
 import Admin from './Pages/Admin/Admin';
 import NewsCreate from './Pages/Admin/NewsCreate';
+import NewsAll from './Pages/Admin/NewsAll';
+// import NewsEdit from './Pages/Admin/NewsAll';
 import ConfirmEmail from './Pages/ConfirmEmail';
 import Dzhilsu from './Pages/Dzhilsu/Dzhilsu';
 import DzhilsuResults from './Pages/Dzhilsu/DzhilsuResults';
@@ -21,6 +23,7 @@ import Page404 from './Pages/Page404';
 import Trail from './Pages/Trail';
 import Trails from './Pages/Trails/Trails';
 import { getAuth } from './redux/features/authSlice';
+import NewsEdit from './Pages/Admin/NewsEdit';
 
 function App() {
 	const dispatch = useDispatch();
@@ -56,10 +59,12 @@ function App() {
 						<>
 							<Route path="/admin" element={<Admin />}>
 								<Route path="create-news" element={<NewsCreate />} />
+								<Route path="edit-news" element={<NewsAll />} />
+								<Route path="edit-news/:newsId" element={<NewsEdit />} />
 							</Route>
 						</>
 					) : (
-						<Route path="/admin/*" element={<Navigate to="/" replace />} />
+						'' // <Route path="/admin/*" element={<Navigate to="/" replace />} />
 					)}
 
 					<Route path="*" element={<Page404 />} />

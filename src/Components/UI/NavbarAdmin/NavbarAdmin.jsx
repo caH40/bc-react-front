@@ -15,7 +15,7 @@ const NavbarAdmin = () => {
 					</NavLink>
 				</li>
 				<li className={classes.item}>
-					<NavLink to="/" className={liClass}>
+					<NavLink to="edit-news" className={liClass}>
 						Редактирование;
 					</NavLink>
 				</li>

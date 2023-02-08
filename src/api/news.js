@@ -20,12 +20,32 @@ export async function getNewsOne(newsId) {
 }
 export async function postNews(formData) {
 	try {
-		const response = await myAxios(`/api/postnews`, {
+		const response = await myAxios(`/api/post-news`, {
 			method: 'POST',
 			data: formData,
 		});
 		return response;
 	} catch (error) {
 		throw error;
+	}
+}
+export async function editNews(formData) {
+	try {
+		const response = await myAxios(`/api/edit-news`, {
+			method: 'POST',
+			data: formData,
+		});
+		return response;
+	} catch (error) {
+		throw error;
+	}
+}
+
+export async function getNewsEdit() {
+	try {
+		const response = await myAxios(`${server}/api/news-all`, { method: 'GET' });
+		return response.data.news;
+	} catch (error) {
+		console.log(error);
 	}
 }
