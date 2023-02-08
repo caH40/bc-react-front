@@ -3,7 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 const authSlice = createSlice({
 	name: 'checkAuth',
 	initialState: {
-		value: { status: false, user: {} },
+		value: {
+			status: false,
+			user: { email: '', id: '', role: '', username: '', photoProfile: '' },
+		},
 	},
 	reducers: {
 		getAuth: (state, action) => {

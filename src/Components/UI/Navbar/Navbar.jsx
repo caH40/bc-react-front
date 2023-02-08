@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Adaptive } from '../../../Hoc/Adaptive';
+import RoleUser from '../../../Hoc/RoleUser';
 import classes from './Navbar.module.css';
 
 const Navbar = ({ updateMenu }) => {
@@ -36,6 +37,13 @@ const Navbar = ({ updateMenu }) => {
 					Джилы-Су
 				</NavLink>
 			</li>
+			<RoleUser forRole={['admin', 'moderator']}>
+				<li className={classes.item}>
+					<NavLink className={activeLink} to="/admin" onClick={updateMenu}>
+						Админ
+					</NavLink>
+				</li>
+			</RoleUser>
 		</ul>
 	);
 };

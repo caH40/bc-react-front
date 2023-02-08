@@ -27,6 +27,7 @@ function App() {
 	useEffect(() => {
 		checkAuth().then(response => {
 			if (!response) return;
+			console.log(response);
 			dispatch(getAuth({ status: true, user: response.data.user }));
 			localStorage.setItem('accessToken', response.data.accessToken);
 		});

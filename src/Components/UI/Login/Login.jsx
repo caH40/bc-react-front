@@ -17,7 +17,12 @@ const Login = ({ isAuth }) => {
 			dispatch(getModal({ component: '' }));
 			postLogout().then(data => {
 				localStorage.removeItem('accessToken');
-				dispatch(getAuth({ status: false }));
+				dispatch(
+					getAuth({
+						status: false,
+						user: { email: '', id: '', role: '', username: '', photoProfile: '' },
+					})
+				);
 			});
 			dispatch(getAlert({ message: 'Вы вышли из аккаунта!', type: 'warning', isOpened: true }));
 		} else {
