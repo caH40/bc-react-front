@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { checkAuth } from './api/auth-check';
 
@@ -7,6 +7,7 @@ import Page from './Components/Layers/Page';
 import Webcam from './Components/Webcam/Webcam';
 import './css/App.css';
 import './css/App_mobile.css';
+import Admin from './Pages/Admin/Admin';
 import ConfirmEmail from './Pages/ConfirmEmail';
 import Dzhilsu from './Pages/Dzhilsu/Dzhilsu';
 import DzhilsuResults from './Pages/Dzhilsu/DzhilsuResults';
@@ -23,11 +24,14 @@ import { getAuth } from './redux/features/authSlice';
 
 function App() {
 	const dispatch = useDispatch();
+	const userAuth = useSelector(state => state.checkAuth.value.user);
+
+	// const isAdmin = ['admin'].includes(userAuth.role);
+	const isModerator = ['admin', 'moderator'].includes(userAuth.role);
 
 	useEffect(() => {
 		checkAuth().then(response => {
 			if (!response) return;
-			console.log(response);
 			dispatch(getAuth({ status: true, user: response.data.user }));
 			localStorage.setItem('accessToken', response.data.accessToken);
 		});
@@ -48,7 +52,15 @@ function App() {
 					<Route path="/dzhilsu/results/athlete/:athlete" element={<DzhilsuResultsAthlete />} />
 					<Route path="/confirm-email/:token" element={<ConfirmEmail />} />
 					<Route path="/new-password/:token" element={<NewPassword />} />
-					<Route path="/create-news" element={<NewsCreate />} />
+					{isModerator ? (
+						<>
+							<Route path="/admin" element={<Admin />} />
+							<Route path="/admin/create-news" element={<NewsCreate />} />
+						</>
+					) : (
+						''
+					)}
+
 					<Route path="*" element={<Page404 />} />
 				</Route>
 			</Routes>
