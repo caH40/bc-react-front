@@ -1,18 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import Button from '../../UI/Button/Button';
 import classes from '../Table.module.css';
 
-const server = 'https://bike-caucasus.ru';
-// const server = process.env.REACT_APP_SERVER_EXPRESS;
+const server = process.env.REACT_APP_SERVER_EXPRESS;
 
-const TableNews = ({ news }) => {
-	console.log(news);
+const TableNews = ({ news, deleteNews }) => {
 	const navigate = useNavigate();
-
-	const deleteNews = newsId => {
-		console.log(newsId);
-	};
 
 	return (
 		<table>

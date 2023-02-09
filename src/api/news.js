@@ -49,3 +49,15 @@ export async function getNewsEdit() {
 		console.log(error);
 	}
 }
+
+export async function postDeleteNews(newsId) {
+	try {
+		const response = await myAxios(`${server}/api/news-delete`, {
+			method: 'POST',
+			data: { newsId },
+		});
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+}
