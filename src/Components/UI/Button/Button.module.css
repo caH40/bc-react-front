@@ -19,3 +19,14 @@
 .button:active {
 	background: #ec9c07;
 }
+.warning {
+	background-color: rgb(179, 0, 0);
+}
+.warning:hover {
+	background-color: rgb(255, 0, 0);
+}
+.link__btn__sm {
+	font-size: 12px;
+	line-height: auto;
+	padding: 4px 15px;
+}
