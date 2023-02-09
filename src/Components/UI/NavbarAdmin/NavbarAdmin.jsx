@@ -19,11 +19,6 @@ const NavbarAdmin = () => {
 						Редактирование;
 					</NavLink>
 				</li>
-				<li className={classes.item}>
-					<NavLink to="/" className={liClass}>
-						Удаление;
-					</NavLink>
-				</li>
 			</ul>
 			<h2 className={classes.title__list}>Маршруты</h2>
 			<ul className={classes.list}>
@@ -35,11 +30,6 @@ const NavbarAdmin = () => {
 				<li className={classes.item}>
 					<NavLink to="/" className={liClass}>
 						Редактирование;
-					</NavLink>
-				</li>
-				<li className={classes.item}>
-					<NavLink to="/" className={liClass}>
-						Удаление;
 					</NavLink>
 				</li>
 			</ul>

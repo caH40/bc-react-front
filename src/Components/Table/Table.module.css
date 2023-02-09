@@ -24,7 +24,7 @@ tr:nth-child(odd) {
 	background-color: rgba(255, 255, 255, 0.1);
 }
 tbody tr:hover {
-	cursor: pointer;
+	/* cursor: pointer; */
 	background: #b99036;
 	color: #f1f1f1;
 }
@@ -65,4 +65,10 @@ tbody tr:hover {
 }
 .link__btn:hover {
 	color: red;
+}
+.td__news__image {
+	width: 50px;
+	height: 30px;
+	object-fit: cover;
+	object-fit: center center;
 }

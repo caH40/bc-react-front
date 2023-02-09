@@ -1,9 +1,11 @@
 import React from 'react';
 import classes from './Button.module.css';
 
-const Button = ({ getClick, children, type }) => {
+const Button = ({ getClick, children, type, targetClass, addClass }) => {
+	let buttonClass = targetClass ? `${classes.button} ${classes[targetClass]}` : classes.button;
+	buttonClass = addClass ? `${buttonClass} ${classes[addClass]}` : buttonClass;
 	return (
-		<button className={classes.button} onClick={e => getClick(e)} type={type}>
+		<button className={buttonClass} onClick={e => getClick(e)} type={type}>
 			{children}
 		</button>
 	);
