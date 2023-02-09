@@ -56,7 +56,7 @@ const FormNewsEdit = ({ newsOne, type }) => {
 		<form className={classes.form}>
 			<div className={classes.inner__picture}>
 				<div className={classes.block__picture}>
-					<InputBox value={form.title} setForm={setForm} title="Заголовок новости:" />
+					<InputBox form={form} keyObject="title" setForm={setForm} title="Заголовок новости:" />
 					<InputFileBox
 						setForm={setForm}
 						pictureUrl={pictureUrl}
