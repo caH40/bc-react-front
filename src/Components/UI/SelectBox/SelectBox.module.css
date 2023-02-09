@@ -25,3 +25,7 @@
 .option {
 	background-color: #2a4347;
 }
+
+.select:focus {
+	box-shadow: 0 0 5px 4px #44bb3d;
+}
