@@ -6,6 +6,7 @@ import InputBox from '../InputBox/InputBox';
 import InputFilesURLBox from '../InputFilesURLBox/InputFilesURLBox';
 import InputFileURLBox from '../InputFileURLBox/InputFileURLBox';
 import SelectBox from '../SelectBox/SelectBox';
+import TextArea from '../TextArea/TextArea';
 
 import classes from './FormTrailEdit.module.css';
 
@@ -90,7 +91,15 @@ const FormTrailEdit = () => {
 					type="number"
 					boxStyle={{ marginRight: '15px' }}
 				/>
+				<TextArea
+					form={form}
+					setForm={setForm}
+					title="Блок подробного описание маршрута. Особенности, детали, достопримечательности, важные моменты на маршруте."
+					keyObject="descriptionArea"
+					boxStyle={{ marginRight: '15px' }}
+				/>
 			</div>
+
 			<div className={classes.block}>
 				<InputFileURLBox
 					setForm={setForm}

@@ -71,7 +71,7 @@ const FormNewsEdit = ({ newsOne, type }) => {
 					setPictureSource={setPictureSource}
 				/>
 			</div>
-			<TextArea value={form.textBody} setForm={setForm} title="Текст новости:" />
+			<TextArea form={form} setForm={setForm} title="Текст новости:" keyObject="textBody" />
 			<ButtonSendBox sendForm={sendForm} title="Сохранение новости на сервере!" />
 		</form>
 	);
