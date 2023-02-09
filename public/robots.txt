@@ -13,4 +13,6 @@ Disallow: */confirm-email/
 
 Disallow: */create-news
 
+Disallow: /admin*
+
 sitemap: https://bike-caucasus.ru/sitemap.xml

@@ -9,6 +9,7 @@ import ButtonSendBox from '../ButtonSendBox/ButtonSendBox';
 import InputBox from '../InputBox/InputBox';
 import InputFileBox from '../InputFileBox/InputFileBox';
 import TextArea from '../TextArea/TextArea';
+import { createFormData } from './service';
 
 import classes from './FormNewsEdit.module.css';
 
@@ -20,27 +21,20 @@ const FormNewsEdit = ({ newsOne, type }) => {
 		newsId: newsOne?._id ?? '',
 	}));
 	const [pictureSource, setPictureSource] = useState({});
-	const dispatch = useDispatch();
-
-	const navigate = useNavigate();
-
 	const pictureUrl = useRef(newsOne?.image ?? '');
+
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const sendForm = event => {
 		event.preventDefault();
 		const isCompleteSource = form.source || pictureUrl.current ? true : false;
 		if (!isCompleteSource || !form.textBody || !form.title) {
-			dispatch(getAlert({ message: 'Не все поля заполнены!', type: 'warning', isOpened: true }));
-			return;
+			return dispatch(
+				getAlert({ message: 'Не все поля заполнены!', type: 'warning', isOpened: true })
+			);
 		}
-
-		const formData = new FormData();
-		formData.append('type', type);
-		formData.append('newsId', form.newsId);
-		formData.append('files', form.source);
-		formData.append('title', form.title);
-		formData.append('textBody', form.textBody);
-
+		const formData = createFormData(form, type);
 		postNews(formData)
 			.then(data => {
 				if (data?.status === 200) {
@@ -50,11 +44,12 @@ const FormNewsEdit = ({ newsOne, type }) => {
 			})
 			.catch(error =>
 				dispatch(getAlert({ message: error.response.data.message, type: 'error', isOpened: true }))
-			);
-
-		setForm({ title: '', textBody: '', source: '' });
-		setPictureSource({});
-		pictureUrl.current = '';
+			)
+			.finally(() => {
+				setForm({ title: '', textBody: '', source: '' });
+				setPictureSource({});
+				pictureUrl.current = '';
+			});
 	};
 
 	return (
