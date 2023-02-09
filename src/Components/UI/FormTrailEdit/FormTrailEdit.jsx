@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
+import ImagesURLBox from '../../ImagesURLBox copy/ImagesURLBox';
 import ImageURLBox from '../../ImageURLBox/ImageURLBox';
 
 import InputBox from '../InputBox/InputBox';
+import InputFilesURLBox from '../InputFilesURLBox/InputFilesURLBox';
 import InputFileURLBox from '../InputFileURLBox/InputFileURLBox';
 import SelectBox from '../SelectBox/SelectBox';
 
 import classes from './FormTrailEdit.module.css';
 
 const FormTrailEdit = () => {
-	const [form, setForm] = useState({});
-	const [pictureUrl, setPictureUrl] = useState('');
-	const [pictureSource, setPictureSource] = useState('');
+	const [form, setForm] = useState({ descPhotos: [] });
 
 	console.log(form);
 
@@ -83,10 +83,11 @@ const FormTrailEdit = () => {
 					type="number"
 				/>
 			</div>
-			<div className={classes.block}>
-				<InputFileURLBox setForm={setForm} title="Картинка для новости:" />
-				<ImageURLBox form={form} setForm={setForm} />
-			</div>
+
+			<InputFileURLBox setForm={setForm} title="Картинка для новости:" keyObject="cardPhoto" />
+			<ImageURLBox form={form} setForm={setForm} keyObject="cardPhoto" />
+			<InputFilesURLBox setForm={setForm} title="Картинки для описания:" />
+			<ImagesURLBox form={form} setForm={setForm} />
 		</form>
 	);
 };

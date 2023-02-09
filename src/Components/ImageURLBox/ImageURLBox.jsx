@@ -3,19 +3,19 @@ import ButtonClose from '../UI/ButtonClose/ButtonClose';
 
 import classes from './ImageURLBox.module.css';
 
-const ImageURLBox = ({ form, setForm }) => {
+const ImageURLBox = ({ form, setForm, keyObject }) => {
 	const closeImage = () => {
-		setForm(prev => ({ ...prev, cardPhoto: {} }));
+		setForm(prev => ({ ...prev, [keyObject]: {} }));
 	};
 
 	return (
 		<div className={classes.block__picture}>
-			{form.cardPhoto?.source ? (
+			{form[keyObject]?.source ? (
 				<div className={classes.box__img}>
-					<img className={classes.img} src={form.cardPhoto.source} alt="news" />
+					<img className={classes.img} src={form[keyObject].source} alt="news" />
 					<div className={classes.img__info}>
-						<span>{form.cardPhoto.name}</span>
-						<span>{form.cardPhoto.size}kB</span>
+						<span>{form[keyObject].name}</span>
+						<span>{form[keyObject].size}kB</span>
 					</div>
 					<div className={classes.cross__info}>
 						<ButtonClose getClick={closeImage} />
