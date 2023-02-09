@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { postNews } from '../../../api/news';
 import { getAlert } from '../../../redux/features/alertMessageSlice';
@@ -19,9 +20,11 @@ const FormNewsEdit = ({ newsOne, type }) => {
 		newsId: newsOne?._id ?? '',
 	}));
 	const [pictureSource, setPictureSource] = useState({});
-	const pictureUrl = useRef(newsOne?.image ?? '');
-
 	const dispatch = useDispatch();
+
+	const navigate = useNavigate();
+
+	const pictureUrl = useRef(newsOne?.image ?? '');
 
 	const sendForm = event => {
 		event.preventDefault();
@@ -43,6 +46,7 @@ const FormNewsEdit = ({ newsOne, type }) => {
 				if (data?.status === 200) {
 					dispatch(getAlert({ message: data.data.message, type: 'success', isOpened: true }));
 				}
+				navigate(-1);
 			})
 			.catch(error =>
 				dispatch(getAlert({ message: error.response.data.message, type: 'error', isOpened: true }))
