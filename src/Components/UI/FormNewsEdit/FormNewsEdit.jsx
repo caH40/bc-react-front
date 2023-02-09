@@ -62,6 +62,7 @@ const FormNewsEdit = ({ newsOne, type }) => {
 						pictureUrl={pictureUrl}
 						setPictureSource={setPictureSource}
 						title="Картинка для новости:"
+						type="text"
 					/>
 				</div>
 				<ImageBox

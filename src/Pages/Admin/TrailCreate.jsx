@@ -8,7 +8,7 @@ const TrailCreate = () => {
 	return (
 		<section className={classes.wrapper}>
 			<HTrailCreate />
-			<h2 className={classes.title}>Создание Велосипедного маршрута</h2>
+			<h2 className={classes.title}>Создание велосипедного маршрута</h2>
 			<FormTrailEdit type="create" />
 		</section>
 	);
