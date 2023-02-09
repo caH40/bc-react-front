@@ -3,7 +3,7 @@ import ButtonClose from '../UI/ButtonClose/ButtonClose';
 
 import classes from './ImagesURLBox.module.css';
 
-const ImagesURLBox = ({ form, setForm }) => {
+const ImagesURLBox = ({ form, setForm, boxStyle }) => {
 	const closeImage = name => {
 		setForm(prev => ({
 			...prev,
@@ -15,7 +15,7 @@ const ImagesURLBox = ({ form, setForm }) => {
 		<div className={classes.block__picture}>
 			{form.descPhotos
 				? form.descPhotos.map((photo, index) => (
-						<div className={classes.box__img} key={index + photo.name}>
+						<div className={classes.box__img} style={boxStyle} key={index + photo.name}>
 							<img className={classes.img} src={photo.source} alt="news" />
 							<div className={classes.img__info}>
 								<span>{photo.name}</span>

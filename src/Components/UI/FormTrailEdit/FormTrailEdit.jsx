@@ -29,6 +29,7 @@ const FormTrailEdit = () => {
 						{ id: 4, name: 'Северная Осетия' },
 						{ id: 5, name: 'Адыгея' },
 					]}
+					boxStyle={{ marginRight: '15px' }}
 				/>
 				<SelectBox
 					form={form}
@@ -39,6 +40,7 @@ const FormTrailEdit = () => {
 						{ id: 1, name: 'Шоссейный' },
 						{ id: 2, name: 'Горный' },
 					]}
+					boxStyle={{ marginRight: '15px' }}
 				/>
 				<InputBox
 					form={form}
@@ -46,6 +48,7 @@ const FormTrailEdit = () => {
 					keyObject="name"
 					title="Название маршрута:"
 					type="text"
+					boxStyle={{ marginRight: '15px' }}
 				/>
 				<InputBox
 					form={form}
@@ -53,6 +56,7 @@ const FormTrailEdit = () => {
 					keyObject="start"
 					title="Место старта маршрута:"
 					type="text"
+					boxStyle={{ marginRight: '15px' }}
 				/>
 				<InputBox
 					form={form}
@@ -60,6 +64,7 @@ const FormTrailEdit = () => {
 					keyObject="turn"
 					title="Место разворота:"
 					type="text"
+					boxStyle={{ marginRight: '15px' }}
 				/>
 				<InputBox
 					form={form}
@@ -67,6 +72,7 @@ const FormTrailEdit = () => {
 					keyObject="finish"
 					title="Место финиша маршрута:"
 					type="text"
+					boxStyle={{ marginRight: '15px' }}
 				/>
 				<InputBox
 					form={form}
@@ -74,6 +80,7 @@ const FormTrailEdit = () => {
 					keyObject="distance"
 					title="Длина маршрута в километрах:"
 					type="number"
+					boxStyle={{ marginRight: '15px' }}
 				/>
 				<InputBox
 					form={form}
@@ -81,13 +88,24 @@ const FormTrailEdit = () => {
 					keyObject="ascent"
 					title="Общий набор в метрах на маршруте:"
 					type="number"
+					boxStyle={{ marginRight: '15px' }}
 				/>
 			</div>
-
-			<InputFileURLBox setForm={setForm} title="Картинка для новости:" keyObject="cardPhoto" />
-			<ImageURLBox form={form} setForm={setForm} keyObject="cardPhoto" />
-			<InputFilesURLBox setForm={setForm} title="Картинки для описания:" />
-			<ImagesURLBox form={form} setForm={setForm} />
+			<div className={classes.block}>
+				<InputFileURLBox
+					setForm={setForm}
+					title="Картинка для карточки:"
+					keyObject="cardPhoto"
+					boxStyle={{ marginRight: '15px' }}
+				/>
+				<ImageURLBox form={form} setForm={setForm} keyObject="cardPhoto" />
+			</div>
+			<InputFilesURLBox
+				setForm={setForm}
+				title="Картинки для описания:"
+				boxStyle={{ marginRight: '15px' }}
+			/>
+			<ImagesURLBox form={form} setForm={setForm} boxStyle={{ marginRight: '15px' }} />
 		</form>
 	);
 };

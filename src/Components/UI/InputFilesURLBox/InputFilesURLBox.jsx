@@ -3,7 +3,7 @@ import ButtonInput from '../ButtonInput/ButtonInput';
 
 import classes from './InputFilesURLBox.module.css';
 
-const InputFilesURLBox = ({ setForm, title }) => {
+const InputFilesURLBox = ({ setForm, title, boxStyle }) => {
 	const getPictures = event => {
 		const files = event.target.files;
 
@@ -22,7 +22,7 @@ const InputFilesURLBox = ({ setForm, title }) => {
 	};
 
 	return (
-		<div className={classes.box__input}>
+		<div className={classes.box__input} style={boxStyle}>
 			<h2 className={classes.box__title}>{title}</h2>
 			<ButtonInput getClick={getPictures} multiple={true}>
 				Выбрать файлы

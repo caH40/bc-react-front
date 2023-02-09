@@ -2,9 +2,9 @@ import React from 'react';
 
 import classes from './SelectBox.module.css';
 
-const SelectBox = ({ title, setForm, form, keyObject, values }) => {
+const SelectBox = ({ title, setForm, form, keyObject, values, boxStyle }) => {
 	return (
-		<div className={classes.box__input}>
+		<div className={classes.box__input} style={boxStyle}>
 			<h2 className={classes.box__title}>{title}</h2>
 			<select
 				className={classes.select}
