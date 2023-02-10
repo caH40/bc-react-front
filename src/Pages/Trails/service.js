@@ -15,6 +15,7 @@ export const filterStart = localStorage.getItem('filterFields')
 			'Карачаево-Черкессия',
 			'Кабардино-Балкария',
 			'Северная Осетия',
+			'Адыгея',
 			'Шоссейный',
 			'Горный',
 	  ];

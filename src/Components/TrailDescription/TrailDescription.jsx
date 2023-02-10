@@ -3,7 +3,6 @@ import React from 'react';
 import classes from './TrailDescription.module.css';
 
 const TrailDescription = ({ trail }) => {
-	console.log(trail);
 	return (
 		<div className={classes.block__description}>
 			{trail.descriptionArea.map((paragraph, index) => {

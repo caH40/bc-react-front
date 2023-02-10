@@ -3,7 +3,7 @@ import React from 'react';
 import classes from '../SortFilterTrails.module.css';
 
 const CheckboxTrails = ({ getFilter, filter, isVisible, getVisible }) => {
-	const flashlight = filter.length === 6 ? classes.flashlight__off : classes.flashlight__on;
+	const flashlight = filter.length === 7 ? classes.flashlight__off : classes.flashlight__on;
 	return (
 		<div id="trails__checkbox" className={classes.item} onClick={getVisible}>
 			<div className={[classes.btn, flashlight].join(' ')}>Фильтр</div>
@@ -43,6 +43,15 @@ const CheckboxTrails = ({ getFilter, filter, isVisible, getVisible }) => {
 						onChange={e => getFilter(e.target.checked, 'Северная Осетия')}
 					/>
 					Северная Осетия
+				</p>
+				<p className={classes.form__string}>
+					<input
+						type="checkbox"
+						value="Адыгея"
+						checked={filter.includes('Адыгея')}
+						onChange={e => getFilter(e.target.checked, 'Адыгея')}
+					/>
+					Адыгея
 				</p>
 				<p className={classes.form__string}>
 					<input
