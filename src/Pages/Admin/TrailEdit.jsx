@@ -20,14 +20,14 @@ const TrailEdit = () => {
 	return (
 		<section className={classes.wrapper}>
 			{' '}
-			{trail._id ? (
+			{trail?._id ? (
 				<>
 					<HTrailEdit />
 					<h2 className={classes.title}>Редактирование маршрута</h2>
 					<FormTrailEdit trail={trail} type="edit" />
 				</>
 			) : (
-				''
+				'Loading...'
 			)}
 		</section>
 	);

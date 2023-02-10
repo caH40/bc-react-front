@@ -17,7 +17,7 @@ const Trail = () => {
 	}, [trailId]);
 	return (
 		<>
-			{trail.nameRoute ? (
+			{trail?.nameRoute ? (
 				<section className="trail__body">
 					<HTrail trail={trail} />
 					<h1 className="title__page align__center">

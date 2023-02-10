@@ -25,11 +25,11 @@ const FormTrailEdit = ({ trail, type }) => {
 			source: photo,
 			name: `name-${index}`,
 		}));
-		return { ...newTrail, descPhotos };
+		return { ...newTrail, descPhoto: trail.descPhotos, descPhotos };
 	});
 
 	const fileTrek = useRef(trail ? { old: trail.fileTrekName } : '');
-	console.log(fileTrek);
+
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
