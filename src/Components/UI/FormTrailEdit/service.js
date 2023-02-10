@@ -16,7 +16,7 @@ export function validate(form) {
 		form.distance &&
 		form.fileTrekName &&
 		form.finish &&
-		form.name &&
+		form.nameRoute &&
 		form.start &&
 		form.state &&
 		form.turn &&

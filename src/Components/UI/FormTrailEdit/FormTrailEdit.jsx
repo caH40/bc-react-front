@@ -24,33 +24,30 @@ const FormTrailEdit = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	console.log(form);
-
 	const sendForm = event => {
 		event.preventDefault();
-		const isValidate = true;
-		// const isValidate = validate(form);
+
+		const isValidate = validate(form);
 		if (!isValidate)
 			return dispatch(
 				getAlert({ message: 'Не все поля заполнены!', type: 'warning', isOpened: true })
 			);
 		const formData = createFormData(fileTrek.current.source);
-		postTrek(formData)
+		postTrek(formData).catch(error => console.log(error));
+
+		postFromTrail(form)
 			.then(data => {
 				if (data?.status === 200) {
 					dispatch(
 						getAlert({ message: 'Маршрут сохранен на сервере!', type: 'success', isOpened: true })
 					);
 				}
-				// navigate(-1);
+				navigate(`/trails/${data.data.trailId}`);
 			})
-			.catch(error => console.log(error))
 			.finally(() => {
 				fileTrek.current = '';
 				setForm(resetForm);
 			});
-
-		postFromTrail(form);
 	};
 
 	return (
