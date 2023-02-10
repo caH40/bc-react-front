@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import ImagesURLBox from '../../ImagesURLBox copy/ImagesURLBox';
 import ImageURLBox from '../../ImageURLBox/ImageURLBox';
 
 import InputBox from '../InputBox/InputBox';
 import InputFilesURLBox from '../InputFilesURLBox/InputFilesURLBox';
+import InputFileTrekBox from '../InputFileTrekBox/InputFileTrekBox';
 import InputFileURLBox from '../InputFileURLBox/InputFileURLBox';
 import SelectBox from '../SelectBox/SelectBox';
 import TextArea from '../TextArea/TextArea';
@@ -12,8 +13,10 @@ import classes from './FormTrailEdit.module.css';
 
 const FormTrailEdit = () => {
 	const [form, setForm] = useState({ descPhotos: [] });
+	const fileTrek = useRef('');
 
 	console.log(form);
+	console.log(fileTrek.current);
 
 	return (
 		<form className={classes.form}>
@@ -89,6 +92,29 @@ const FormTrailEdit = () => {
 					keyObject="ascent"
 					title="Общий набор в метрах на маршруте:"
 					type="number"
+					boxStyle={{ marginRight: '15px' }}
+				/>
+				<InputBox
+					form={form}
+					setForm={setForm}
+					keyObject="urlTrekGConnect"
+					title="Ссылка на маршрут в GConnect:"
+					type="text"
+					boxStyle={{ marginRight: '15px' }}
+				/>
+				<InputBox
+					form={form}
+					setForm={setForm}
+					keyObject="urlVideo"
+					title="Ссылка на видео с маршрута:"
+					type="text"
+					boxStyle={{ marginRight: '15px' }}
+				/>
+				<InputFileTrekBox
+					fileRef={fileTrek}
+					keyObject="fileTrekName"
+					setForm={setForm}
+					title="Трек в формате FIT/GPX/TCX:"
 					boxStyle={{ marginRight: '15px' }}
 				/>
 				<TextArea
