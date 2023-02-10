@@ -18,7 +18,7 @@ const InputFileTrekBox = ({ fileRef, setForm, title, boxStyle, keyObject }) => {
 						Выбрать файл
 					</ButtonInput>
 				</div>
-				<Checkmark isCompleted={fileRef.current.source} />
+				<Checkmark isCompleted={fileRef.current} />
 			</div>
 		</div>
 	);

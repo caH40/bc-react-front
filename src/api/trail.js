@@ -34,12 +34,12 @@ export async function postTrek(trek) {
 	}
 }
 
-export async function postFromTrail(dataForm) {
+export async function postFromTrail(dataForm, type) {
 	try {
 		const response = await myAxios({
 			method: 'POST',
 			url: `/api/trail-post`,
-			data: { dataForm },
+			data: { dataForm, type },
 		});
 		return response;
 	} catch (error) {

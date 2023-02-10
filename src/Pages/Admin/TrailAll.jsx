@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { postDeleteNews } from '../../api/news';
 import { getTrailsEdit, postDeleteTrail } from '../../api/trail';
 
 import HTrailEdit from '../../Components/Helmets/HTrailEdit';

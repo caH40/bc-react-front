@@ -16,15 +16,15 @@ const TrailEdit = () => {
 			setTrail(data);
 		});
 	}, [trailId]);
-	console.log(trail);
+
 	return (
 		<section className={classes.wrapper}>
 			{' '}
 			{trail._id ? (
 				<>
 					<HTrailEdit />
-					<h2 className={classes.title}>Редактирование новости</h2>
-					{/* <FormTrailEdit trail={trail} type="edit" /> */}
+					<h2 className={classes.title}>Редактирование маршрута</h2>
+					<FormTrailEdit trail={trail} type="edit" />
 				</>
 			) : (
 				''
