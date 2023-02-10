@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
+import { postFromTrail, postTrek } from '../../../api/trail';
 import ImagesURLBox from '../../ImagesURLBox/ImagesURLBox';
 import ImageURLBox from '../../ImageURLBox/ImageURLBox';
+import ButtonSendBox from '../ButtonSendBox/ButtonSendBox';
 
 import InputBox from '../InputBox/InputBox';
 import InputFilesURLBox from '../InputFilesURLBox/InputFilesURLBox';
@@ -10,13 +12,19 @@ import SelectBox from '../SelectBox/SelectBox';
 import TextArea from '../TextArea/TextArea';
 
 import classes from './FormTrailEdit.module.css';
+import { createFormData } from './service';
 
 const FormTrailEdit = () => {
 	const [form, setForm] = useState({ descPhotos: [] });
 	const fileTrek = useRef('');
 
-	console.log(form);
-	console.log(fileTrek.current);
+	const sendForm = event => {
+		event.preventDefault();
+		const formData = createFormData(fileTrek.current.source);
+		postTrek(formData).catch(error => console.log(error));
+
+		// postFromTrail();
+	};
 
 	return (
 		<form className={classes.form}>
@@ -141,6 +149,7 @@ const FormTrailEdit = () => {
 				boxStyle={{ marginRight: '15px' }}
 			/>
 			<ImagesURLBox form={form} setForm={setForm} boxStyle={{ marginRight: '15px' }} />
+			<ButtonSendBox sendForm={sendForm} title="Отправка формы на сервер!" />
 		</form>
 	);
 };
