@@ -1,4 +1,5 @@
 import React from 'react';
+import { reduceImage } from '../../../utils/reduce-image';
 import ButtonInput from '../ButtonInput/ButtonInput';
 import Checkmark from '../Checkmark/Checkmark';
 
@@ -7,16 +8,18 @@ import classes from './InputFilesURLBox.module.css';
 const InputFilesURLBox = ({ form, setForm, title, boxStyle }) => {
 	const getPictures = event => {
 		const files = event.target.files;
+		if (!files.length) return;
 
 		for (let i = 0; i < files.length; i++) {
 			let size = Math.trunc(files[i].size / 8000);
 
 			let reader = new FileReader();
 			reader.readAsDataURL(files[i]);
-			reader.onload = () => {
+			reader.onload = async () => {
+				const reducedImage = await reduceImage(reader.result, 10 / 16, 800);
 				setForm(prev => ({
 					...prev,
-					descPhotos: [...prev.descPhotos, { source: reader.result, name: files[i].name, size }],
+					descPhotos: [...prev.descPhotos, { source: reducedImage, name: files[i].name, size }],
 				}));
 			};
 		}

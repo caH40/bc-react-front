@@ -1,4 +1,4 @@
-export async function reduceImage(base64Str, MAX_WIDTH = 640, MAX_HEIGHT = 480) {
+export async function reduceImage(base64Str, ratio, MAX_WIDTH = 640, MAX_HEIGHT = 480) {
 	let resized_base64 = await new Promise(resolve => {
 		let img = new Image();
 		img.src = base64Str;
@@ -19,10 +19,18 @@ export async function reduceImage(base64Str, MAX_WIDTH = 640, MAX_HEIGHT = 480) 
 				}
 			}
 
+			let centerHeight = 0;
 			canvas.width = width;
-			canvas.height = height;
-			let ctx = canvas.getContext('2d');
-			ctx.drawImage(img, 0, 0, width, height);
+			if (ratio) {
+				canvas.height = width * ratio;
+				centerHeight = (height - canvas.height) / 2;
+			} else {
+				canvas.height = height;
+			}
+
+			console.log({ centerHeight });
+			const ctx = canvas.getContext('2d');
+			ctx.drawImage(img, 0, -centerHeight, width, height);
 			resolve(canvas.toDataURL('image/jpeg')); // this will return base64 image results after resize
 		};
 	});
