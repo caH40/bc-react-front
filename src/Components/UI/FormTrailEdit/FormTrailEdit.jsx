@@ -17,9 +17,18 @@ import TextArea from '../TextArea/TextArea';
 import classes from './FormTrailEdit.module.css';
 import { createFormData, resetForm, validate } from './service';
 
-const FormTrailEdit = () => {
-	const [form, setForm] = useState(resetForm);
-	const fileTrek = useRef('');
+const FormTrailEdit = ({ trail, type }) => {
+	const [form, setForm] = useState(() => {
+		if (!trail) return resetForm;
+		const newTrail = { ...trail, cardPhoto: { source: trail.cardPhoto } };
+		const descPhotos = trail.descPhoto.map((photo, index) => ({
+			source: photo,
+			name: `name-${index}`,
+		}));
+		return { ...newTrail, descPhoto: trail.descPhotos, descPhotos };
+	});
+
+	const fileTrek = useRef(trail ? { old: trail.fileTrekName } : '');
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -32,10 +41,13 @@ const FormTrailEdit = () => {
 			return dispatch(
 				getAlert({ message: 'Не все поля заполнены!', type: 'warning', isOpened: true })
 			);
-		const formData = createFormData(fileTrek.current.source);
-		postTrek(formData).catch(error => console.log(error));
 
-		postFromTrail(form)
+		if (!fileTrek.old) {
+			const formData = createFormData(fileTrek.current.source);
+			postTrek(formData).catch(error => console.log(error));
+		}
+
+		postFromTrail(form, type)
 			.then(data => {
 				if (data?.status === 200) {
 					dispatch(

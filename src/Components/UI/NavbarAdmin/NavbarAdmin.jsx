@@ -28,7 +28,7 @@ const NavbarAdmin = () => {
 					</NavLink>
 				</li>
 				<li className={classes.item}>
-					<NavLink to="/" className={liClass}>
+					<NavLink to="edit-trail" className={liClass}>
 						Редактирование;
 					</NavLink>
 				</li>

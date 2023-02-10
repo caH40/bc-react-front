@@ -34,12 +34,32 @@ export async function postTrek(trek) {
 	}
 }
 
-export async function postFromTrail(dataForm) {
+export async function postFromTrail(dataForm, type) {
 	try {
 		const response = await myAxios({
 			method: 'POST',
 			url: `/api/trail-post`,
-			data: { dataForm },
+			data: { dataForm, type },
+		});
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+export async function getTrailsEdit() {
+	try {
+		const response = await myAxios(`${server}/api/trail-all`, { method: 'GET' });
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+}
+export async function postDeleteTrail(trailId) {
+	try {
+		const response = await myAxios(`${server}/api/trail-delete`, {
+			method: 'POST',
+			data: { trailId },
 		});
 		return response;
 	} catch (error) {
