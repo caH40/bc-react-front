@@ -1,24 +1,28 @@
 import React from 'react';
 import Checkmark from '../Checkmark/Checkmark';
 
-import classes from './InputBox.module.css';
+import classes from './SelectBox.module.css';
 
-const InputBox = ({ title, setForm, form, keyObject, type, boxStyle }) => {
+const SelectBox = ({ title, setForm, form, keyObject, values, boxStyle }) => {
 	return (
 		<div className={classes.box__input} style={boxStyle}>
 			<h2 className={classes.box__title}>{title}</h2>
 			<div className={classes.box__interactive}>
-				<input
+				<select
+					className={classes.select}
 					value={form[keyObject]}
 					onChange={e => setForm(prev => ({ ...prev, [keyObject]: e.target.value }))}
-					className={classes.input}
-					type={type}
-					name="title"
-				/>
+				>
+					{values.map(value => (
+						<option className={classes.option} value={value.name} key={value.id}>
+							{value.name}
+						</option>
+					))}
+				</select>
 				<Checkmark isCompleted={form[keyObject]} />
 			</div>
 		</div>
 	);
 };
 
-export default InputBox;
+export default SelectBox;

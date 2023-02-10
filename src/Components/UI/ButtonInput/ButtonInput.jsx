@@ -2,7 +2,12 @@ import React, { useRef } from 'react';
 
 import classes from './ButtonInput.module.css';
 
-const ButtonInput = ({ getClick }) => {
+const ButtonInput = ({
+	getClick,
+	children,
+	multiple = false,
+	accept = '.jpg, .jpeg, .png, .webp',
+}) => {
 	const refInput = useRef('');
 
 	return (
@@ -12,7 +17,8 @@ const ButtonInput = ({ getClick }) => {
 				className={classes.hidden}
 				onChange={getClick}
 				type="file"
-				accept=".jpg, .jpeg, .png, .webp"
+				multiple={multiple}
+				accept={accept}
 			/>
 			<button
 				className={classes.button}
@@ -21,7 +27,7 @@ const ButtonInput = ({ getClick }) => {
 					refInput.current.click();
 				}}
 			>
-				Выберите файл
+				{children}
 			</button>
 		</>
 	);

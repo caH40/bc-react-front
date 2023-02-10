@@ -25,6 +25,7 @@ import Trails from './Pages/Trails/Trails';
 import { getAuth } from './redux/features/authSlice';
 import NewsEdit from './Pages/Admin/NewsEdit';
 import AdminBG from './Pages/Admin/AdminBG';
+import TrailCreate from './Pages/Admin/TrailCreate';
 
 function App() {
 	const dispatch = useDispatch();
@@ -63,6 +64,7 @@ function App() {
 								<Route path="create-news" element={<NewsCreate />} />
 								<Route path="edit-news" element={<NewsAll />} />
 								<Route path="edit-news/:newsId" element={<NewsEdit />} />
+								<Route path="create-trail" element={<TrailCreate />} />
 							</Route>
 						</>
 					) : (

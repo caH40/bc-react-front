@@ -23,7 +23,7 @@ const NavbarAdmin = () => {
 			<h2 className={classes.title__list}>Маршруты</h2>
 			<ul className={classes.list}>
 				<li className={classes.item}>
-					<NavLink to="/" className={liClass}>
+					<NavLink to="create-trail" className={liClass}>
 						Создание;
 					</NavLink>
 				</li>

@@ -56,12 +56,13 @@ const FormNewsEdit = ({ newsOne, type }) => {
 		<form className={classes.form}>
 			<div className={classes.inner__picture}>
 				<div className={classes.block__picture}>
-					<InputBox value={form.title} setForm={setForm} title="Заголовок новости:" />
+					<InputBox form={form} keyObject="title" setForm={setForm} title="Заголовок новости:" />
 					<InputFileBox
 						setForm={setForm}
 						pictureUrl={pictureUrl}
 						setPictureSource={setPictureSource}
 						title="Картинка для новости:"
+						type="text"
 					/>
 				</div>
 				<ImageBox
@@ -70,7 +71,7 @@ const FormNewsEdit = ({ newsOne, type }) => {
 					setPictureSource={setPictureSource}
 				/>
 			</div>
-			<TextArea value={form.textBody} setForm={setForm} title="Текст новости:" />
+			<TextArea form={form} setForm={setForm} title="Текст новости:" keyObject="textBody" />
 			<ButtonSendBox sendForm={sendForm} title="Сохранение новости на сервере!" />
 		</form>
 	);
