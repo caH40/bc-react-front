@@ -20,13 +20,14 @@ const FormTrailEdit = () => {
 	const [form, setForm] = useState({ descPhotos: [] });
 	const fileTrek = useRef('');
 	const dispatch = useDispatch();
+	console.log(form);
 
 	const sendForm = event => {
 		event.preventDefault();
 		const isValidate = validate(form);
 		if (!isValidate)
 			return dispatch(
-				getAlert({ message: 'Не все поля заполнены', type: 'warning', isOpened: true })
+				getAlert({ message: 'Не все поля заполнены!', type: 'warning', isOpened: true })
 			);
 		const formData = createFormData(fileTrek.current.source);
 		postTrek(formData).catch(error => console.log(error));
@@ -144,6 +145,7 @@ const FormTrailEdit = () => {
 
 			<div className={classes.block}>
 				<InputFileURLBox
+					form={form}
 					setForm={setForm}
 					title="Картинка для карточки:"
 					keyObject="cardPhoto"
@@ -152,6 +154,7 @@ const FormTrailEdit = () => {
 				<ImageURLBox form={form} setForm={setForm} keyObject="cardPhoto" />
 			</div>
 			<InputFilesURLBox
+				form={form}
 				setForm={setForm}
 				title="Картинки для описания:"
 				boxStyle={{ marginRight: '15px' }}

@@ -6,20 +6,21 @@ export function createFormData(file) {
 }
 
 export function validate(form) {
+	console.log(form.fileTrekName);
 	if (
-		(form.ascent,
-		form.bikeType,
-		form.cardPhoto?.source,
-		form.descPhotos.length,
-		form.descriptionArea,
-		form.distance,
-		form.fileTrekName,
-		form.finish,
-		form.name,
-		form.start,
-		form.state,
-		form.turn,
-		form.urlTrekGConnect)
+		form.ascent &&
+		form.bikeType &&
+		form.cardPhoto?.source &&
+		form.descPhotos.length &&
+		form.descriptionArea &&
+		form.distance &&
+		form.fileTrekName &&
+		form.finish &&
+		form.name &&
+		form.start &&
+		form.state &&
+		form.turn &&
+		form.urlTrekGConnect
 	)
 		return true;
 	return false;

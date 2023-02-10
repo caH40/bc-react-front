@@ -5,7 +5,11 @@
 	padding: 15px 20px;
 	margin-bottom: 20px;
 }
-
+.box__interactive {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
 .box__title {
 	font-style: normal;
 	font-weight: 700;
