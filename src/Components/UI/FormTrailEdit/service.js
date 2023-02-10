@@ -25,3 +25,20 @@ export function validate(form) {
 		return true;
 	return false;
 }
+
+export const resetForm = {
+	nameRoute: '',
+	state: '',
+	bikeType: '',
+	start: '',
+	turn: '',
+	finish: '',
+	distance: '',
+	ascent: '',
+	descriptionArea: '',
+	cardPhoto: {},
+	fileTrekName: '',
+	urlVideo: '',
+	urlTrekGConnect: '',
+	descPhotos: [],
+};

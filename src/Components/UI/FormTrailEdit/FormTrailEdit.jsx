@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { postFromTrail, postTrek } from '../../../api/trail';
 import { getAlert } from '../../../redux/features/alertMessageSlice';
 import ImagesURLBox from '../../ImagesURLBox/ImagesURLBox';
@@ -14,23 +15,40 @@ import SelectBox from '../SelectBox/SelectBox';
 import TextArea from '../TextArea/TextArea';
 
 import classes from './FormTrailEdit.module.css';
-import { createFormData, validate } from './service';
+import { createFormData, resetForm, validate } from './service';
 
 const FormTrailEdit = () => {
-	const [form, setForm] = useState({ descPhotos: [] });
+	const [form, setForm] = useState(resetForm);
 	const fileTrek = useRef('');
+
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 	console.log(form);
 
 	const sendForm = event => {
 		event.preventDefault();
-		const isValidate = validate(form);
+		const isValidate = true;
+		// const isValidate = validate(form);
 		if (!isValidate)
 			return dispatch(
 				getAlert({ message: 'Не все поля заполнены!', type: 'warning', isOpened: true })
 			);
 		const formData = createFormData(fileTrek.current.source);
-		postTrek(formData).catch(error => console.log(error));
+		postTrek(formData)
+			.then(data => {
+				if (data?.status === 200) {
+					dispatch(
+						getAlert({ message: 'Маршрут сохранен на сервере!', type: 'success', isOpened: true })
+					);
+				}
+				// navigate(-1);
+			})
+			.catch(error => console.log(error))
+			.finally(() => {
+				fileTrek.current = '';
+				setForm(resetForm);
+			});
 
 		postFromTrail(form);
 	};
@@ -44,6 +62,7 @@ const FormTrailEdit = () => {
 					keyObject="state"
 					title="Республика маршрута:"
 					values={[
+						{ id: 0, name: '' },
 						{ id: 1, name: 'КавМинВоды' },
 						{ id: 2, name: 'Карачаево-Черкессия' },
 						{ id: 3, name: 'Кабардино-Балкария' },
@@ -58,6 +77,7 @@ const FormTrailEdit = () => {
 					keyObject="bikeType"
 					title="Тип активности:"
 					values={[
+						{ id: 0, name: '' },
 						{ id: 1, name: 'Шоссейный' },
 						{ id: 2, name: 'Горный' },
 					]}
@@ -66,7 +86,7 @@ const FormTrailEdit = () => {
 				<InputBox
 					form={form}
 					setForm={setForm}
-					keyObject="name"
+					keyObject="nameRoute"
 					title="Название маршрута:"
 					type="text"
 					boxStyle={{ marginRight: '15px' }}

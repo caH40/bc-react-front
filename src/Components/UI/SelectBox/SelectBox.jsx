@@ -10,9 +10,9 @@ const SelectBox = ({ title, setForm, form, keyObject, values, boxStyle }) => {
 			<div className={classes.box__interactive}>
 				<select
 					className={classes.select}
+					value={form[keyObject]}
 					onChange={e => setForm(prev => ({ ...prev, [keyObject]: e.target.value }))}
 				>
-					<option className={classes.option} defaultValue={' '}></option>
 					{values.map(value => (
 						<option className={classes.option} value={value.name} key={value.id}>
 							{value.name}
