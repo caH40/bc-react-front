@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { postFromTrail, postTrek } from '../../../api/trail';
+import { getAlert } from '../../../redux/features/alertMessageSlice';
 import ImagesURLBox from '../../ImagesURLBox/ImagesURLBox';
 import ImageURLBox from '../../ImageURLBox/ImageURLBox';
 import ButtonSendBox from '../ButtonSendBox/ButtonSendBox';
@@ -12,18 +14,24 @@ import SelectBox from '../SelectBox/SelectBox';
 import TextArea from '../TextArea/TextArea';
 
 import classes from './FormTrailEdit.module.css';
-import { createFormData } from './service';
+import { createFormData, validate } from './service';
 
 const FormTrailEdit = () => {
 	const [form, setForm] = useState({ descPhotos: [] });
 	const fileTrek = useRef('');
+	const dispatch = useDispatch();
 
 	const sendForm = event => {
 		event.preventDefault();
+		const isValidate = validate(form);
+		if (!isValidate)
+			return dispatch(
+				getAlert({ message: 'Не все поля заполнены', type: 'warning', isOpened: true })
+			);
 		const formData = createFormData(fileTrek.current.source);
 		postTrek(formData).catch(error => console.log(error));
 
-		// postFromTrail();
+		postFromTrail(form);
 	};
 
 	return (
