@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import ImagesURLBox from '../../ImagesURLBox copy/ImagesURLBox';
+import ImagesURLBox from '../../ImagesURLBox/ImagesURLBox';
 import ImageURLBox from '../../ImageURLBox/ImageURLBox';
 
 import InputBox from '../InputBox/InputBox';
