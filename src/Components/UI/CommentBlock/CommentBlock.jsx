@@ -1,18 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { postCommentNews } from '../../../api/comment';
 
 import classes from './CommentBlock.module.css';
 
-const CommentBlock = () => {
+const CommentBlock = ({ newsId }) => {
+	const [comment, setComment] = useState('');
+	const [comments, setComments] = useState([]);
+	const authUser = useSelector(state => state.checkAuth.value);
+	console.log(authUser);
+	console.log({ comment });
+
+	const sendComment = () => {
+		postCommentNews(comment, newsId);
+		setComment('');
+	};
+
 	return (
 		<div className={classes.wrapper}>
 			<div className={classes.create}>
 				<div className={classes.box__avatar}>
-					<img className={classes.avatar} src="/images/avatar.svg" alt="avatar" />
+					<img className={classes.avatar} src={authUser.user.photoProfile} alt="avatar" />
 				</div>
-				<textarea className={classes.textarea} placeholder="Комментарий"></textarea>
-				<div className={classes.box__send}>
-					<img className={classes.send} src="/images/icons/arrow-send.svg" alt="arrow-send" />
-				</div>
+				<textarea
+					value={comment}
+					onChange={e => setComment(e.target.value)}
+					className={classes.textarea}
+					placeholder="Комментарий"
+				/>
+				{comment ? (
+					<div onClick={sendComment} className={classes.box__send}>
+						<img className={classes.send} src="/images/icons/arrow-send.svg" alt="arrow-send" />
+					</div>
+				) : undefined}
 			</div>
 			<div className={classes.comment}>
 				<div className={classes.box__user}>

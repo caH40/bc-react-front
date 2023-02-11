@@ -27,7 +27,7 @@ const NewsFull = () => {
 					<img className={classes.img} src={`${server}/${news?.image}`} alt={news.newsTitle} />
 					<div className={classes.text} dangerouslySetInnerHTML={{ __html: news.newsText }}></div>
 					<NewsInteractive newsOne={news} />
-					<CommentBlock />
+					<CommentBlock newsId={newsId} />
 				</div>
 			) : (
 				'Loading...'
