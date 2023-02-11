@@ -12,3 +12,16 @@ export async function postCommentNews(comment, newsId) {
 		console.log(error);
 	}
 }
+
+export async function getComments(newsId) {
+	try {
+		const response = await myAxios({
+			method: 'get',
+			url: `/api/comments-get/${newsId}`,
+			data: { newsId },
+		});
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+}
