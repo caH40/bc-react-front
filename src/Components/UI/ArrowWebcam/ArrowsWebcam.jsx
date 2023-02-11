@@ -8,14 +8,16 @@ const ArrowsWebcam = ({ numberWebcam, setNumberWebcam }) => {
 		if (direction === 'left') {
 			if (webcams.indexOf(numberWebcam) === 0) {
 				setNumberWebcam(webcams[webcams.length - 1]);
+			} else {
+				setNumberWebcam(prev => webcams[webcams.indexOf(prev) - 1]);
 			}
-			setNumberWebcam(prev => webcams[webcams.indexOf(prev) - 1]);
 		}
 		if (direction === 'right') {
 			if (webcams.indexOf(numberWebcam) === webcams.length - 1) {
 				setNumberWebcam(webcams[0]);
+			} else {
+				setNumberWebcam(prev => webcams[webcams.indexOf(prev) + 1]);
 			}
-			setNumberWebcam(prev => webcams[webcams.indexOf(prev) + 1]);
 		}
 	};
 
