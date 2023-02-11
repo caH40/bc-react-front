@@ -60,30 +60,31 @@ const Trails = () => {
 	}, [filter, sort, page]);
 
 	return (
-		<>
+		<section className="trails__body">
+			<HTrails />
+			<h1 className="title__page title__page__trails">Велосипедные маршруты</h1>
+			<SortFilterTrails
+				sort={sort}
+				getSorting={getSorting}
+				getFilter={getFilter}
+				filter={filter}
+				isVisible={isVisible}
+				getVisible={getVisible}
+			/>
+
 			{trails.length ? (
-				<section className="trails__body">
-					<HTrails />
-					<h1 className="title__page title__page__trails">Велосипедные маршруты</h1>
-					<SortFilterTrails
-						sort={sort}
-						getSorting={getSorting}
-						getFilter={getFilter}
-						filter={filter}
-						isVisible={isVisible}
-						getVisible={getVisible}
-					/>
+				<>
 					<div className="trails__cards">
 						{trails.map(trail => (
 							<Card trail={trail} key={trail._id} />
 						))}
 					</div>
 					<Pagination quantityPages={quantityPages} page={page} setPage={setPage} />
-				</section>
+				</>
 			) : (
 				'Loading...'
 			)}
-		</>
+		</section>
 	);
 };
 

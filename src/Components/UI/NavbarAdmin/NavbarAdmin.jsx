@@ -11,12 +11,12 @@ const NavbarAdmin = () => {
 			<ul className={classes.list}>
 				<li className={classes.item}>
 					<NavLink to="create-news" className={liClass}>
-						Создание;
+						-Создание
 					</NavLink>
 				</li>
 				<li className={classes.item}>
 					<NavLink to="edit-news" className={liClass}>
-						Редактирование;
+						-Редактирование
 					</NavLink>
 				</li>
 			</ul>
@@ -24,12 +24,12 @@ const NavbarAdmin = () => {
 			<ul className={classes.list}>
 				<li className={classes.item}>
 					<NavLink to="create-trail" className={liClass}>
-						Создание;
+						-Создание
 					</NavLink>
 				</li>
 				<li className={classes.item}>
 					<NavLink to="edit-trail" className={liClass}>
-						Редактирование;
+						-Редактирование
 					</NavLink>
 				</li>
 			</ul>
@@ -37,7 +37,7 @@ const NavbarAdmin = () => {
 			<ul className={classes.list}>
 				<li className={classes.item}>
 					<NavLink to="/" className={liClass}>
-						Управление правами;
+						-Управление правами
 					</NavLink>
 				</li>
 			</ul>

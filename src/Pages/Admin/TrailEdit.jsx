@@ -12,7 +12,7 @@ const TrailEdit = () => {
 	const { trailId } = useParams({});
 
 	useEffect(() => {
-		getTrail(trailId).then(data => {
+		getTrail(trailId, 'edit').then(data => {
 			setTrail(data);
 		});
 	}, [trailId]);
