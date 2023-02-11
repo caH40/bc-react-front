@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { getNewsOne } from '../api/news';
 import HNewsFull from '../Components/Helmets/HNewsFull';
 import NewsInteractive from '../Components/NewsInteractive/NewsInteractive';
+import CommentBlock from '../Components/UI/CommentBlock/CommentBlock';
+
 import classes from './PagesCss/NewsFull.module.css';
 
 const server = process.env.REACT_APP_SERVER_EXPRESS;
@@ -25,6 +27,7 @@ const NewsFull = () => {
 					<img className={classes.img} src={`${server}/${news?.image}`} alt={news.newsTitle} />
 					<div className={classes.text} dangerouslySetInnerHTML={{ __html: news.newsText }}></div>
 					<NewsInteractive newsOne={news} />
+					<CommentBlock />
 				</div>
 			) : (
 				'Loading...'
