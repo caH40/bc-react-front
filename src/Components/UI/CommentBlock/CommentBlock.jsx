@@ -7,9 +7,9 @@ const CommentBlock = () => {
 		<div className={classes.wrapper}>
 			<div className={classes.create}>
 				<div className={classes.box__avatar}>
-					<img className={classes.img} src="/images/avatar.svg" alt="avatar" />
+					<img className={classes.avatar} src="/images/avatar.svg" alt="avatar" />
 				</div>
-				<textarea className={classes.textarea} placeholder="Комментарий" />
+				<textarea className={classes.textarea} placeholder="Комментарий"></textarea>
 				<div className={classes.box__send}>
 					<img className={classes.send} src="/images/icons/arrow-send.svg" alt="arrow-send" />
 				</div>
@@ -17,7 +17,7 @@ const CommentBlock = () => {
 			<div className={classes.comment}>
 				<div className={classes.box__user}>
 					<div className={classes.box__avatar}>
-						<img className={classes.img} src="/images/avatar.svg" alt="avatar" />
+						<img className={classes.avatar} src="/images/avatar.svg" alt="avatar" />
 					</div>
 					<p className={classes.name} src="" alt="avatar">
 						Александр
