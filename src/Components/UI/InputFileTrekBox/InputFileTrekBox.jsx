@@ -9,6 +9,7 @@ const InputFileTrekBox = ({ fileRef, setForm, title, boxStyle, keyObject }) => {
 		fileRef.current = { source: event.target.files[0] };
 		setForm(prev => ({ ...prev, [keyObject]: event.target.files[0].name }));
 	};
+
 	return (
 		<div className={classes.box__input} style={boxStyle}>
 			<h2 className={classes.box__title}>{title}</h2>
@@ -17,6 +18,7 @@ const InputFileTrekBox = ({ fileRef, setForm, title, boxStyle, keyObject }) => {
 					<ButtonInput getClick={getFile} accept=".gpx, .fit, .tcx">
 						Выбрать файл
 					</ButtonInput>
+					<span className={classes.file}>{fileRef.current.source?.name}</span>
 				</div>
 				<Checkmark isCompleted={fileRef.current} />
 			</div>
