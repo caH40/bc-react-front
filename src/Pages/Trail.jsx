@@ -9,7 +9,7 @@ import TrailVideo from '../Components/TrailVideo/TrailVideo';
 const Trail = () => {
 	const [trail, setTrail] = useState({});
 	const { trailId } = useParams();
-	console.log(trail);
+
 	useEffect(() => {
 		getTrail(trailId).then(data => {
 			setTrail(data);
