@@ -6,6 +6,7 @@ import classes from './CommentCreate.module.css';
 
 const CommentCreate = ({ authUser, setTrigger, newsId }) => {
 	const [comment, setComment] = useState('');
+	const [popupSend, setPopupSend] = useState(false);
 	const textAreaRef = useRef();
 
 	useEffect(() => {
@@ -15,8 +16,15 @@ const CommentCreate = ({ authUser, setTrigger, newsId }) => {
 	const sendComment = () => {
 		postCommentNews(comment, newsId);
 		setComment('');
+		setPopupSend(false);
 		setTrigger(prev => !prev);
 	};
+
+	const listenKeys = event => {
+		if (!(event.ctrlKey && event.keyCode === 13)) return;
+		sendComment();
+	};
+
 	return (
 		<div className={classes.create}>
 			<div className={classes.box__avatar}>
@@ -30,11 +38,17 @@ const CommentCreate = ({ authUser, setTrigger, newsId }) => {
 				ref={textAreaRef}
 				value={comment}
 				onChange={e => setComment(e.target.value)}
+				onKeyDown={listenKeys}
 				className={classes.textarea}
 				placeholder="Комментарий"
 			/>
 			{comment ? (
-				<div onClick={sendComment} className={classes.box__send}>
+				<div
+					onClick={sendComment}
+					className={classes.box__send}
+					onMouseEnter={() => setPopupSend(true)}
+					onMouseLeave={() => setPopupSend(false)}
+				>
 					<svg
 						className={classes.send}
 						width="28"
@@ -50,6 +64,11 @@ const CommentCreate = ({ authUser, setTrigger, newsId }) => {
 							strokeWidth="2"
 						/>
 					</svg>
+				</div>
+			) : undefined}
+			{popupSend ? (
+				<div className={classes.popup__menu}>
+					<div className={classes.popup__button}>Отправить (Ctrl+Enter)</div>
 				</div>
 			) : undefined}
 		</div>

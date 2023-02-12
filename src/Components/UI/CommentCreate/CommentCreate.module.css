@@ -1,8 +1,8 @@
 .create {
+	position: relative;
 	display: flex;
 	width: 100%;
 	margin-bottom: 40px;
-	position: relative;
 }
 
 .box__avatar {
@@ -37,7 +37,7 @@
 	color: #f1f1f1;
 }
 .textarea::placeholder {
-	color: f1f1f154;
+	color: #f1f1f154;
 }
 .textarea:focus {
 	box-shadow: 0 0 5px 4px #44bb3d;
@@ -52,5 +52,16 @@
 	cursor: pointer;
 }
 .box__send:hover > svg > path {
-	fill: #44bb3d;
+	fill: #c76c05;
+}
+.popup__menu {
+	position: absolute;
+	padding: 7px 15px;
+	min-width: 140px;
+	border-radius: 10px;
+	top: -47px;
+	right: 0px;
+	font-size: 13px;
+	color: #070707;
+	background-color: #ff8c06;
 }
