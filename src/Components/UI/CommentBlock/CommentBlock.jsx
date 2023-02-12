@@ -1,25 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getComments, postCommentNews, postCommentDelete } from '../../../api/comment';
-import autosize from 'autosize';
+import { getComments, postCommentDelete } from '../../../api/comment';
 
 import classes from './CommentBlock.module.css';
 import CommentCreate from '../CommentCreate/CommentCreate';
 
 const CommentBlock = ({ newsId }) => {
-	const [comment, setComment] = useState('');
 	const [comments, setComments] = useState([]);
 	const [popupId, setPopupId] = useState('');
 	const [trigger, setTrigger] = useState(false);
-	const textAreaRef = useRef();
 
 	const authUser = useSelector(state => state.checkAuth.value);
-
-	const sendComment = () => {
-		postCommentNews(comment, newsId);
-		setComment('');
-		setTrigger(prev => !prev);
-	};
 
 	useEffect(() => {
 		getComments(newsId).then(data => setComments(data?.data?.comments || []));
@@ -36,19 +27,9 @@ const CommentBlock = ({ newsId }) => {
 		});
 	};
 
-	useEffect(() => {
-		autosize(textAreaRef.current);
-	}, []);
-
 	return (
 		<div className={classes.wrapper}>
-			<CommentCreate
-				textAreaRef={textAreaRef}
-				authUser={authUser}
-				sendComment={sendComment}
-				comment={comment}
-				setComment={setComment}
-			/>
+			<CommentCreate authUser={authUser} setTrigger={setTrigger} newsId={newsId} />
 
 			{comments.map(commentOne => {
 				const id = commentOne._id;

@@ -47,7 +47,7 @@
 	width: 26px;
 	height: 19px;
 	right: 10px;
-	top: 5px;
+	top: calc(-10px + 50%);
 	z-index: 2000;
 	cursor: pointer;
 }

@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { postCommentNews } from '../../../api/comment';
+import autosize from 'autosize';
 
 import classes from './CommentCreate.module.css';
 
-const CommentCreate = ({ textAreaRef, authUser, comment, setComment, sendComment }) => {
+const CommentCreate = ({ authUser, setTrigger, newsId }) => {
+	const [comment, setComment] = useState('');
+	const textAreaRef = useRef();
+
+	useEffect(() => {
+		autosize(textAreaRef.current);
+	}, []);
+
+	const sendComment = () => {
+		postCommentNews(comment, newsId);
+		setComment('');
+		setTrigger(prev => !prev);
+	};
 	return (
 		<div className={classes.create}>
 			<div className={classes.box__avatar}>
