@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './Comments.module.css';
 
-const Comments = ({ newsOne }) => {
+const Comments = ({ commentsQuantity }) => {
 	return (
 		<div className={classes.box}>
 			<span className={classes.image}>
@@ -23,7 +23,7 @@ const Comments = ({ newsOne }) => {
 					/>
 				</svg>
 			</span>
-			<span>{newsOne.commentsQuantity ? newsOne.commentsQuantity : 0}</span>
+			<span>{commentsQuantity}</span>
 		</div>
 	);
 };
