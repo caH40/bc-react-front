@@ -18,7 +18,10 @@ export async function getTrails(filter, sort, cardsOnPage, page) {
 
 export async function getTrail(trailId, type = 'read') {
 	try {
-		const response = await axios.get(`${server}/api/trail?id=${trailId}&type=${type}`);
+		const response = await myAxios({
+			method: 'GET',
+			url: `${server}/api/trail?id=${trailId}&type=${type}`,
+		});
 		return response.data.trail;
 	} catch (error) {
 		console.log(error);

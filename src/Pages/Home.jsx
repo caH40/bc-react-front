@@ -6,6 +6,7 @@ import HHome from '../Components/Helmets/HHome';
 import News from '../Components/NewsCard/NewsCard';
 import Webcam from '../Components/Webcam/Webcam';
 import { Adaptive } from '../Hoc/Adaptive';
+
 import classes from './PagesCss/Home.module.css';
 
 const Home = () => {

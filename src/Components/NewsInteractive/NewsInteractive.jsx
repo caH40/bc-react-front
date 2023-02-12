@@ -5,24 +5,28 @@ import Comments from '../UI/News/Comments/Comments';
 import Dislike from '../UI/News/Dislike/Dislike';
 import Like from '../UI/News/Like/Like';
 import Share from '../UI/News/Share/Share';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getLikeAction } from '../../redux/features/likesSlice';
+import { getAlert } from '../../redux/features/alertMessageSlice';
 
 const NewsInteractive = ({ newsOne }) => {
+	const authUser = useSelector(state => state.checkAuth.value.user.id);
+
 	const [likeQuantity, setLikeQuantity] = useState(newsOne?.likeQuantity);
-	const [liked, setLiked] = useState(() =>
-		newsOne.kudoses.usersIdLike.includes('6276ae21f8b87f186ffd6c1f')
-	);
+	const [liked, setLiked] = useState(() => newsOne.kudoses.usersIdLike.includes(authUser));
 	const [disliked, setDisliked] = useState(() =>
-		newsOne.kudoses.usersIdDislike.includes('6276ae21f8b87f186ffd6c1f')
+		newsOne.kudoses.usersIdDislike.includes(authUser)
 	);
 
 	const dispatch = useDispatch();
 
 	const getLikes = target => {
-		dispatch(
-			getLikeAction({ action: target, newsId: newsOne._id, userId: '6276ae21f8b87f186ffd6c1f' })
-		);
+		if (!authUser) {
+			return dispatch(
+				getAlert({ message: 'Необходима авторизация!', type: 'warning', isOpened: true })
+			);
+		}
+		dispatch(getLikeAction({ action: target, newsId: newsOne._id, userId: authUser }));
 
 		if (target === 'like') {
 			if (liked) {

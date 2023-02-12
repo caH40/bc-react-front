@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { getNewsOne } from '../api/news';
 import HNewsFull from '../Components/Helmets/HNewsFull';
 import NewsInteractive from '../Components/NewsInteractive/NewsInteractive';
+import CommentBlock from '../Components/UI/CommentBlock/CommentBlock';
+
 import classes from './PagesCss/NewsFull.module.css';
 
 const server = process.env.REACT_APP_SERVER_EXPRESS;
@@ -21,10 +23,11 @@ const NewsFull = () => {
 				<div className={classes.container}>
 					<HNewsFull news={news} />
 					<h1 className={classes.title}>{news.newsTitle}</h1>
-					<div className={classes.date}>{new Date(news.date).toLocaleString()}</div>
+					<div className={classes.date}>{new Date(news.date).toLocaleDateString()}</div>
 					<img className={classes.img} src={`${server}/${news?.image}`} alt={news.newsTitle} />
 					<div className={classes.text} dangerouslySetInnerHTML={{ __html: news.newsText }}></div>
 					<NewsInteractive newsOne={news} />
+					<CommentBlock newsId={newsId} />
 				</div>
 			) : (
 				'Loading...'
