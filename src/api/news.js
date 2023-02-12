@@ -61,3 +61,12 @@ export async function postDeleteNews(newsId) {
 		console.log(error);
 	}
 }
+
+export async function getNewsInteractive(newsId) {
+	try {
+		const response = await myAxios.get(`${server}/api/news-interactive-get/${newsId}`);
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+}

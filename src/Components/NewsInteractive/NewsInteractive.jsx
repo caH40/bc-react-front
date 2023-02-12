@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import classes from './NewsInteractive.module.css';
 import Comments from '../UI/News/Comments/Comments';
@@ -9,15 +9,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getLikeAction } from '../../redux/features/likesSlice';
 import { getAlert } from '../../redux/features/alertMessageSlice';
 import { dateOnly } from '../../utils/date';
+import { getNewsInteractive } from '../../api/news';
 
 const NewsInteractive = ({ newsOne, isVisibleDate }) => {
+	const [interactive, setInteractive] = useState({
+		comments: {
+			quantity: 0,
+		},
+		likes: {
+			quantity: 0,
+			userLiked: false,
+			userDisliked: false,
+		},
+	});
+
 	const authUser = useSelector(state => state.checkAuth.value.user.id);
 
-	const [likeQuantity, setLikeQuantity] = useState(newsOne?.likeQuantity);
-	const [liked, setLiked] = useState(() => newsOne.kudoses.usersIdLike.includes(authUser));
-	const [disliked, setDisliked] = useState(() =>
-		newsOne.kudoses.usersIdDislike.includes(authUser)
-	);
+	useEffect(() => {
+		getNewsInteractive(newsOne._id).then(data => setInteractive(data.data.interactive));
+	}, [newsOne]);
 
 	const dispatch = useDispatch();
 
@@ -28,40 +38,20 @@ const NewsInteractive = ({ newsOne, isVisibleDate }) => {
 			);
 		}
 		dispatch(getLikeAction({ action: target, newsId: newsOne._id, userId: authUser }));
-
-		if (target === 'like') {
-			if (liked) {
-				setLiked(false);
-				setLikeQuantity(prev => prev - 1);
-			} else {
-				setLiked(true);
-				//если данный Юзер ставил дизлайк, то количество лайков изменяется на 2
-				if (disliked) setLikeQuantity(prev => prev + 1);
-				setDisliked(false);
-				setLikeQuantity(prev => prev + 1);
-			}
-		}
-
-		if (target === 'dislike') {
-			if (disliked) {
-				setDisliked(false);
-				setLikeQuantity(prev => prev + 1);
-			} else {
-				setDisliked(true);
-				if (liked) setLikeQuantity(prev => prev - 1);
-				setLiked(false);
-				setLikeQuantity(prev => prev - 1);
-			}
-		}
 	};
 
 	return (
 		<div className={classes.block}>
 			<div className={classes.box}>
-				<Like newsId={newsOne._id} likeQuantity={likeQuantity} liked={liked} getLikes={getLikes} />
-				<Comments newsOne={newsOne} commentsQuantity={newsOne.commentsQuantity} />
+				<Like
+					newsId={newsOne._id}
+					likeQuantity={interactive.likes.quantity}
+					liked={interactive.likes.userLiked}
+					getLikes={getLikes}
+				/>
+				<Comments commentsQuantity={interactive.comments.quantity} />
 				<Share newsId={newsOne._id} />
-				<Dislike newsId={newsOne._id} disliked={disliked} getLikes={getLikes} />
+				<Dislike getLikes={getLikes} disliked={interactive.likes.userDisliked} />
 			</div>
 			{isVisibleDate ? <div className="date">{dateOnly(newsOne.date)}</div> : undefined}
 		</div>
