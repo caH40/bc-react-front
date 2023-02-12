@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getComments, postCommentNews, postCommentDelete } from '../../../api/comment';
+import autosize from 'autosize';
 
 import classes from './CommentBlock.module.css';
 
@@ -9,6 +10,7 @@ const CommentBlock = ({ newsId }) => {
 	const [comments, setComments] = useState([]);
 	const [popupId, setPopupId] = useState('');
 	const [trigger, setTrigger] = useState(false);
+	const textAreaRef = useRef();
 
 	const authUser = useSelector(state => state.checkAuth.value);
 
@@ -33,6 +35,10 @@ const CommentBlock = ({ newsId }) => {
 		});
 	};
 
+	useEffect(() => {
+		autosize(textAreaRef.current);
+	}, []);
+
 	return (
 		<div className={classes.wrapper}>
 			<div className={classes.create}>
@@ -44,6 +50,7 @@ const CommentBlock = ({ newsId }) => {
 					/>
 				</div>
 				<textarea
+					ref={textAreaRef}
 					value={comment}
 					onChange={e => setComment(e.target.value)}
 					className={classes.textarea}
@@ -63,7 +70,7 @@ const CommentBlock = ({ newsId }) => {
 								d="M2 2L25 10.5427L2 19L5.5 10.5427L2 2Z"
 								fill="#FF8C06"
 								stroke="#FF8C06"
-								stroke-width="2"
+								strokeWidth="2"
 							/>
 						</svg>
 					</div>
