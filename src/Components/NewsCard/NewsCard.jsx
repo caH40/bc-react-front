@@ -67,7 +67,7 @@ const News = () => {
 										</Link>
 									</div>
 
-									<NewsInteractive newsOne={newsOne} />
+									<NewsInteractive newsOne={newsOne} isVisibleDate={true} />
 								</div>
 							</div>
 						))}

@@ -17,3 +17,8 @@ export function datePostedComment(date) {
 	});
 	return formatter.format(date);
 }
+
+export function dateOnly(date) {
+	const formatter = Intl.DateTimeFormat('ru');
+	return formatter.format(date);
+}

@@ -8,8 +8,9 @@ import Share from '../UI/News/Share/Share';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLikeAction } from '../../redux/features/likesSlice';
 import { getAlert } from '../../redux/features/alertMessageSlice';
+import { dateOnly } from '../../utils/date';
 
-const NewsInteractive = ({ newsOne }) => {
+const NewsInteractive = ({ newsOne, isVisibleDate }) => {
 	const authUser = useSelector(state => state.checkAuth.value.user.id);
 
 	const [likeQuantity, setLikeQuantity] = useState(newsOne?.likeQuantity);
@@ -62,7 +63,7 @@ const NewsInteractive = ({ newsOne }) => {
 				<Share newsId={newsOne._id} />
 				<Dislike newsId={newsOne._id} disliked={disliked} getLikes={getLikes} />
 			</div>
-			<div className="date">{new Date(newsOne.date).toLocaleDateString()}</div>
+			{isVisibleDate ? <div className="date">{dateOnly(newsOne.date)}</div> : undefined}
 		</div>
 	);
 };
