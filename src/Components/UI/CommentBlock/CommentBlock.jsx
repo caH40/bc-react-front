@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getComments, postCommentDelete } from '../../../api/comment';
 
@@ -27,6 +27,20 @@ const CommentBlock = ({ newsId }) => {
 		});
 	};
 
+	const datePosted = date => {
+		console.log('render datePosted');
+		const formatter = Intl.DateTimeFormat('ru', {
+			day: '2-digit',
+			month: 'short',
+			year: '2-digit',
+			hour: '2-digit',
+			minute: '2-digit',
+		});
+		return formatter.format(date);
+	};
+
+	useMemo(() => datePosted(), []);
+
 	return (
 		<div className={classes.wrapper}>
 			<CommentCreate authUser={authUser} setTrigger={setTrigger} newsId={newsId} />
@@ -46,9 +60,8 @@ const CommentBlock = ({ newsId }) => {
 							<div className={classes.box__avatar}>
 								<img className={classes.avatar} src={userAvatar} alt="avatar" />
 							</div>
-							<p className={classes.name} src="" alt="avatar">
-								{userName}
-							</p>
+							<p className={classes.name}>{userName}</p>
+							<p className={classes.date}>{datePosted(commentOne.date)}</p>
 						</div>
 						<p className={classes.box__text}>{commentOne.text}</p>
 						{isVisibleMenu ? (

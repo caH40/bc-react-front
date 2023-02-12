@@ -74,3 +74,10 @@
 	background-color: #c76c05;
 	transition: ease-in-out 0.3s;
 }
+.name {
+	margin-right: 10px;
+}
+.date {
+	color: #ffffff50;
+	font-size: 11px;
+}
