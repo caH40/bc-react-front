@@ -51,7 +51,21 @@ const CommentBlock = ({ newsId }) => {
 				/>
 				{comment ? (
 					<div onClick={sendComment} className={classes.box__send}>
-						<img className={classes.send} src="/images/icons/arrow-send.svg" alt="arrow-send" />
+						<svg
+							className={classes.send}
+							width="28"
+							height="21"
+							viewBox="0 0 28 21"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M2 2L25 10.5427L2 19L5.5 10.5427L2 2Z"
+								fill="#FF8C06"
+								stroke="#FF8C06"
+								stroke-width="2"
+							/>
+						</svg>
 					</div>
 				) : undefined}
 			</div>
