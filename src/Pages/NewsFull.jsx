@@ -23,7 +23,7 @@ const NewsFull = () => {
 				<div className={classes.container}>
 					<HNewsFull news={news} />
 					<h1 className={classes.title}>{news.newsTitle}</h1>
-					<div className={classes.date}>{new Date(news.date).toLocaleString()}</div>
+					<div className={classes.date}>{new Date(news.date).toLocaleDateString()}</div>
 					<img className={classes.img} src={`${server}/${news?.image}`} alt={news.newsTitle} />
 					<div className={classes.text} dangerouslySetInnerHTML={{ __html: news.newsText }}></div>
 					<NewsInteractive newsOne={news} />

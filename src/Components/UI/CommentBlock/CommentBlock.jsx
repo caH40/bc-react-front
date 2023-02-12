@@ -17,10 +17,9 @@ const CommentBlock = ({ newsId }) => {
 		setComment('');
 		setTrigger(prev => !prev);
 	};
-	console.log(comments);
 
 	useEffect(() => {
-		getComments(newsId).then(data => setComments(data.data.comments));
+		getComments(newsId).then(data => setComments(data?.data?.comments || []));
 	}, [newsId, trigger]);
 
 	const getMenu = newsId => {
@@ -38,7 +37,11 @@ const CommentBlock = ({ newsId }) => {
 		<div className={classes.wrapper}>
 			<div className={classes.create}>
 				<div className={classes.box__avatar}>
-					<img className={classes.avatar} src={authUser.user.photoProfile} alt="avatar" />
+					<img
+						className={classes.avatar}
+						src={authUser.user.photoProfile || '/images/avatar.svg'}
+						alt="avatar"
+					/>
 				</div>
 				<textarea
 					value={comment}
@@ -55,10 +58,13 @@ const CommentBlock = ({ newsId }) => {
 
 			{comments.map(commentOne => {
 				const id = commentOne._id;
-				const userAvatar = commentOne.postedBy?.photoProfile
-					? commentOne.postedBy.photoProfile
-					: '/images/avatar.svg';
-				const userName = commentOne.postedBy?.username ? commentOne.postedBy?.username : 'Гость';
+				const userAvatar = commentOne.postedBy?.photoProfile || '/images/avatar.svg';
+				const userName = commentOne.postedBy?.username || 'Гость';
+				const isVisiblePopupMenu = id === popupId;
+				const isVisibleMenu =
+					commentOne.postedBy?._id === authUser.user.id ||
+					['admin', 'moderator'].includes(authUser.user.role);
+
 				return (
 					<div className={classes.comment} key={id}>
 						<div className={classes.box__user}>
@@ -70,12 +76,12 @@ const CommentBlock = ({ newsId }) => {
 							</p>
 						</div>
 						<p className={classes.box__text}>{commentOne.text}</p>
-						{commentOne.postedBy?._id === authUser.user.id ? (
+						{isVisibleMenu ? (
 							<div className={classes.relative}>
 								<div onMouseEnter={() => getMenu(id)} className={classes.box__menu}>
-									<img className={classes.menu} src="/images/icons/3points.svg" alt="menu" />
+									<img className={classes.menu__img} src="/images/icons/3points.svg" alt="menu" />
 								</div>
-								{id === popupId ? (
+								{isVisiblePopupMenu ? (
 									<div className={classes.popup__menu}>
 										<div className={classes.popup__button} onClick={() => deleteComment(id)}>
 											Удалить
