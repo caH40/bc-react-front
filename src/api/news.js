@@ -70,3 +70,16 @@ export async function getNewsInteractive(newsId) {
 		console.log(error);
 	}
 }
+
+export async function postNewsInteractive(newsId, target) {
+	try {
+		const response = await myAxios({
+			method: 'POST',
+			url: `${server}/api/news-interactive`,
+			data: { newsId, target },
+		});
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+}

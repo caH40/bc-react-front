@@ -6,10 +6,9 @@ import Dislike from '../UI/News/Dislike/Dislike';
 import Like from '../UI/News/Like/Like';
 import Share from '../UI/News/Share/Share';
 import { useDispatch, useSelector } from 'react-redux';
-import { getLikeAction } from '../../redux/features/likesSlice';
 import { getAlert } from '../../redux/features/alertMessageSlice';
 import { dateOnly } from '../../utils/date';
-import { getNewsInteractive } from '../../api/news';
+import { getNewsInteractive, postNewsInteractive } from '../../api/news';
 
 const NewsInteractive = ({ newsOne, isVisibleDate }) => {
 	const [interactive, setInteractive] = useState({
@@ -37,7 +36,9 @@ const NewsInteractive = ({ newsOne, isVisibleDate }) => {
 				getAlert({ message: 'Необходима авторизация!', type: 'warning', isOpened: true })
 			);
 		}
-		dispatch(getLikeAction({ action: target, newsId: newsOne._id, userId: authUser }));
+		postNewsInteractive(newsOne._id, target).then(data => {
+			setInteractive(prev => ({ ...prev, ...data.data.interactive }));
+		});
 	};
 
 	return (
