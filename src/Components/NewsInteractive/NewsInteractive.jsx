@@ -59,7 +59,7 @@ const NewsInteractive = ({ newsOne, isVisibleDate }) => {
 		<div className={classes.block}>
 			<div className={classes.box}>
 				<Like newsId={newsOne._id} likeQuantity={likeQuantity} liked={liked} getLikes={getLikes} />
-				<Comments newsOne={newsOne} />
+				<Comments newsOne={newsOne} commentsQuantity={newsOne.commentsQuantity} />
 				<Share newsId={newsOne._id} />
 				<Dislike newsId={newsOne._id} disliked={disliked} getLikes={getLikes} />
 			</div>
