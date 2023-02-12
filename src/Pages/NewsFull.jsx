@@ -12,6 +12,7 @@ const server = process.env.REACT_APP_SERVER_EXPRESS;
 
 const NewsFull = () => {
 	const [news, setNews] = useState({});
+	const [trigger, setTrigger] = useState(false);
 	const { newsId } = useParams();
 
 	useEffect(() => {
@@ -27,9 +28,9 @@ const NewsFull = () => {
 					<img className={classes.img} src={`${server}/${news?.image}`} alt={news.newsTitle} />
 					<div className={classes.text} dangerouslySetInnerHTML={{ __html: news.newsText }}></div>
 					<div className={classes.box__interactive}>
-						<NewsInteractive newsOne={news} isVisibleDate={false} />
+						<NewsInteractive newsOne={news} isVisibleDate={false} trigger={trigger} />
 					</div>
-					<CommentBlock newsId={newsId} />
+					<CommentBlock newsId={newsId} trigger={trigger} setTrigger={setTrigger} />
 				</div>
 			) : (
 				'Loading...'

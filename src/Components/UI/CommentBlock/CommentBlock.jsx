@@ -6,10 +6,9 @@ import classes from './CommentBlock.module.css';
 import CommentCreate from '../CommentCreate/CommentCreate';
 import { datePostedComment } from '../../../utils/date';
 
-const CommentBlock = ({ newsId }) => {
+const CommentBlock = ({ newsId, trigger, setTrigger }) => {
 	const [comments, setComments] = useState([]);
 	const [popupId, setPopupId] = useState('');
-	const [trigger, setTrigger] = useState(false);
 
 	const authUser = useSelector(state => state.checkAuth.value);
 

@@ -10,7 +10,7 @@ import { getAlert } from '../../redux/features/alertMessageSlice';
 import { dateOnly } from '../../utils/date';
 import { getNewsInteractive, postNewsInteractive } from '../../api/news';
 
-const NewsInteractive = ({ newsOne, isVisibleDate }) => {
+const NewsInteractive = ({ newsOne, isVisibleDate, trigger }) => {
 	const [interactive, setInteractive] = useState({
 		comments: {
 			quantity: 0,
@@ -26,7 +26,7 @@ const NewsInteractive = ({ newsOne, isVisibleDate }) => {
 
 	useEffect(() => {
 		getNewsInteractive(newsOne._id).then(data => setInteractive(data.data.interactive));
-	}, [newsOne]);
+	}, [newsOne, trigger]);
 
 	const dispatch = useDispatch();
 
