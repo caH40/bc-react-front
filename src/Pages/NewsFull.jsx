@@ -26,7 +26,9 @@ const NewsFull = () => {
 					<div className={classes.date}>{new Date(news.date).toLocaleDateString()}</div>
 					<img className={classes.img} src={`${server}/${news?.image}`} alt={news.newsTitle} />
 					<div className={classes.text} dangerouslySetInnerHTML={{ __html: news.newsText }}></div>
-					<NewsInteractive newsOne={news} isVisibleDate={false} />
+					<div className={classes.box__interactive}>
+						<NewsInteractive newsOne={news} isVisibleDate={false} />
+					</div>
 					<CommentBlock newsId={newsId} />
 				</div>
 			) : (
