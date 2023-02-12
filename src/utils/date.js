@@ -7,3 +7,13 @@ export function dateToNumber(date) {
 		console.log(error);
 	}
 }
+export function datePostedComment(date) {
+	const formatter = Intl.DateTimeFormat('ru', {
+		day: '2-digit',
+		month: 'short',
+		year: '2-digit',
+		hour: '2-digit',
+		minute: '2-digit',
+	});
+	return formatter.format(date);
+}
