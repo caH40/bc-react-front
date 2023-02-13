@@ -1,5 +1,10 @@
 .box {
-	width: 21px;
-	height: 28px;
+	cursor: pointer;
+}
+.box > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center center;
 	cursor: pointer;
 }
