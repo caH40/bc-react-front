@@ -28,6 +28,8 @@ import AdminBG from './Pages/Admin/AdminBG';
 import TrailCreate from './Pages/Admin/TrailCreate';
 import TrailAll from './Pages/Admin/TrailAll';
 import TrailEdit from './Pages/Admin/TrailEdit';
+import Profile from './Pages/Profile';
+import ProfileEdit from './Pages/ProfileEdit';
 
 function App() {
 	const dispatch = useDispatch();
@@ -59,6 +61,8 @@ function App() {
 					<Route path="dzhilsu/results/athlete/:athlete" element={<DzhilsuResultsAthlete />} />
 					<Route path="confirm-email/:token" element={<ConfirmEmail />} />
 					<Route path="new-password/:token" element={<NewPassword />} />
+					<Route path="profile" element={<Profile />} />
+					<Route path="profile/edit" element={<ProfileEdit />} />
 					{isModerator ? (
 						<>
 							<Route path="/admin" element={<Admin />}>

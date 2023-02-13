@@ -10,9 +10,12 @@ export async function getResults(eventId) {
 	}
 }
 
-export async function getResultsAthlete(athlete) {
+export async function getResultsAthlete(athlete, userId) {
 	try {
-		const response = await axios.get(`${server}/api/athlete/results?athlete=${athlete}`);
+		const url = athlete
+			? `/api/athlete/results?athlete=${athlete}`
+			: `/api/athlete/results?userId=${userId}`;
+		const response = await axios.get(`${server}${url}`);
 		return response.data.results;
 	} catch (error) {
 		console.log(error);
