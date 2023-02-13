@@ -34,12 +34,15 @@
 }
 @media screen and (max-width: 980px) {
 	.list {
-		display: block;
+		display: flex;
+		flex-direction: column;
+		height: 350px;
+		align-items: flex-start;
+		justify-content: space-between;
 		margin-top: 50px;
 	}
 	.item {
-		margin-left: 30px;
-		margin-bottom: 45px;
+		margin-left: 0px;
 	}
 	.link {
 		font-size: 22px;

@@ -22,7 +22,7 @@ const Header = () => {
 					<div className={classes.navbar}>
 						<Adaptive sizeScreen="lg">
 							<Navbar />
-							<div className={classes.item}>
+							<div className={`${classes.item} ${classes.box__user}`}>
 								<UserAccount isAuth={isAuth} />
 							</div>
 							<div className={classes.item__login}>

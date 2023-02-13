@@ -10,10 +10,10 @@ import classes from './Login.module.css';
 const Login = ({ isAuth }) => {
 	const dispatch = useDispatch();
 
-	const srcIcon = isAuth.status ? '/images/icons/logout.svg' : '/images/icons/login.svg';
+	const srcIcon = isAuth?.status ? '/images/icons/logout.svg' : '/images/icons/login.svg';
 
 	const getClick = () => {
-		if (isAuth.status) {
+		if (isAuth?.status) {
 			dispatch(getModal({ component: '' }));
 			postLogout().then(data => {
 				localStorage.removeItem('accessToken');

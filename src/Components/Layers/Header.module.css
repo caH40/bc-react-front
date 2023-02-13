@@ -19,19 +19,23 @@
 .item {
 	margin-left: 44px;
 }
+.box__user {
+	width: 30px;
+	height: 30px;
+}
 .item__login {
 	margin-left: 25px;
 }
-
 @media screen and (max-width: 1100px) {
 	.item {
 		margin-left: 25px;
 	}
 	.item__login {
+		width: 21px;
+		height: 28px;
 		margin-left: 25px;
 	}
 }
-
 @media screen and (max-width: 980px) {
 	.logo {
 		margin-left: 20px;
