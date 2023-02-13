@@ -36,7 +36,7 @@ const ProfileEdit = () => {
 						setForm={setForm}
 						keyObject="lastName"
 						type="text"
-						boxStyle={{ marginRight: '5px' }}
+						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Имя*"
@@ -44,7 +44,7 @@ const ProfileEdit = () => {
 						setForm={setForm}
 						keyObject="firstName"
 						type="text"
-						boxStyle={{ marginRight: '5px' }}
+						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Отчество"
@@ -52,7 +52,7 @@ const ProfileEdit = () => {
 						setForm={setForm}
 						keyObject="patronymic"
 						type="text"
-						boxStyle={{ marginRight: '5px' }}
+						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Год рождения*"
@@ -60,7 +60,7 @@ const ProfileEdit = () => {
 						setForm={setForm}
 						keyObject="birthday"
 						type="number"
-						boxStyle={{ marginRight: '5px' }}
+						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Пол*"
@@ -68,7 +68,7 @@ const ProfileEdit = () => {
 						setForm={setForm}
 						keyObject="gender"
 						type="text"
-						boxStyle={{ marginRight: '5px' }}
+						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Город"
@@ -76,7 +76,7 @@ const ProfileEdit = () => {
 						setForm={setForm}
 						keyObject="city"
 						type="text"
-						boxStyle={{ marginRight: '5px' }}
+						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Команда"
@@ -84,7 +84,7 @@ const ProfileEdit = () => {
 						setForm={setForm}
 						keyObject="team"
 						type="text"
-						boxStyle={{ marginRight: '5px' }}
+						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Контактный телефон"
@@ -92,7 +92,7 @@ const ProfileEdit = () => {
 						setForm={setForm}
 						keyObject="phone"
 						type="text"
-						boxStyle={{ marginRight: '5px' }}
+						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Адрес электронной почты"
@@ -100,7 +100,7 @@ const ProfileEdit = () => {
 						setForm={setForm}
 						keyObject="email"
 						type="text"
-						boxStyle={{ marginRight: '5px' }}
+						boxClass="mr-10"
 						disabled={true}
 					/>
 				</div>
@@ -110,13 +110,15 @@ const ProfileEdit = () => {
 						form={form}
 						setForm={setForm}
 						keyObject="photoProfile"
-						boxStyle={{ marginRight: '5px' }}
+						boxClass="mr-10"
 					/>
 					<div className={classes.box__avatar}>
 						<ImageAvatarBox form={form} setForm={setForm} keyObject="photoProfile" />
 					</div>
 				</div>
-				<ButtonSendBox title="Сохранение введенных данных" sendForm={sendForm} />
+				<div className={classes.box__button}>
+					<ButtonSendBox title="Сохранение введенных данных" sendForm={sendForm} boxClass="mr-10" />
+				</div>
 			</form>
 			{/* <p>* - Поле обязательно для заполнения</p> */}
 		</section>

@@ -3,13 +3,13 @@ import ButtonClose from '../UI/ButtonClose/ButtonClose';
 
 import classes from './ImageAvatarBox.module.css';
 
-const ImageAvatarBox = ({ form, setForm, keyObject, boxStyle }) => {
+const ImageAvatarBox = ({ form, setForm, keyObject }) => {
 	const closeImage = () => {
 		setForm(prev => ({ ...prev, [keyObject]: {} }));
 	};
 
 	return (
-		<div className={classes.block__picture} style={boxStyle}>
+		<div className={classes.block__picture}>
 			{form[keyObject]?.source ? (
 				<div className={classes.box__img}>
 					<img className={classes.img} src={form[keyObject].source} alt="news" />
