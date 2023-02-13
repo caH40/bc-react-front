@@ -17,6 +17,7 @@
 .block {
 	min-width: 260px;
 	margin-bottom: 30px;
+	letter-spacing: 0.05rem;
 }
 .box__avatar {
 	width: 180px;

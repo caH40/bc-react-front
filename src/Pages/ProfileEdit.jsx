@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { getUser } from '../api/user';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { getUser, postUserData } from '../api/user';
 import ImageAvatarBox from '../Components/ImageAvatarBox/ImageAvatarBox';
 import ButtonSendBox from '../Components/UI/ButtonSendBox/ButtonSendBox';
 import InputBox from '../Components/UI/InputBox/InputBox';
 import InputFileURLBox from '../Components/UI/InputFileURLBox/InputFileURLBox';
+import { getAlert } from '../redux/features/alertMessageSlice';
+import { getAuth } from '../redux/features/authSlice';
 
 import classes from './PagesCss/ProfileEdit.module.css';
-import { resetFormProfile } from './service';
+import { checkUserForm, resetFormProfile } from './service';
 
 const ProfileEdit = () => {
 	const [form, setForm] = useState(() => resetFormProfile);
+
+	const dispatch = useDispatch();
+	const navigation = useNavigate();
 
 	useEffect(() => {
 		getUser().then(data =>
@@ -22,7 +29,21 @@ const ProfileEdit = () => {
 	}, []);
 	const sendForm = e => {
 		e.preventDefault();
-		console.log('Отправить', form);
+		const isFilledFields = checkUserForm(form);
+		if (!isFilledFields) {
+			return dispatch(
+				getAlert({
+					message: 'Необходимо заполнить все поля со звездочкой*',
+					type: 'warning',
+					isOpened: true,
+				})
+			);
+		}
+		postUserData(form).then(data => {
+			setForm(prev => ({ ...prev, ...resetFormProfile }));
+			dispatch(getAuth({ status: true, user: data?.data?.user }));
+			navigation('/profile');
+		});
 	};
 
 	return (
@@ -120,7 +141,6 @@ const ProfileEdit = () => {
 					<ButtonSendBox title="Сохранение введенных данных" sendForm={sendForm} boxClass="mr-10" />
 				</div>
 			</form>
-			{/* <p>* - Поле обязательно для заполнения</p> */}
 		</section>
 	);
 };

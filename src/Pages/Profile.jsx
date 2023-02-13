@@ -29,12 +29,16 @@ const Profile = () => {
 	const editProfile = () => navigate('edit');
 	return (
 		<section className={classes.wrapper}>
-			<h1 className={classes.title}>Профиль пользователя</h1>
+			<h1 className={classes.title}>Профиль пользователя: {user.username}</h1>
 			{user?._id ? (
 				<div className={classes.inner}>
 					<div className={classes.block}>
 						<div className={classes.box__avatar}>
-							<img className={classes.img__avatar} src={authUser.photoProfile} alt="avatar" />
+							<img
+								className={classes.img__avatar}
+								src={authUser.photoProfile || 'images/avatar.svg'}
+								alt="avatar"
+							/>
 						</div>
 						<div className={classes.box__contacts}>
 							<div className={classes.contacts__data}>

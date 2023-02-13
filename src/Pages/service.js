@@ -10,3 +10,12 @@ export const resetFormProfile = {
 	email: '',
 	photoProfile: '',
 };
+
+export function checkUserForm(form) {
+	try {
+		if (!form.firstName || !form.lastName || !form.gender || !form.birthday) return false;
+		return true;
+	} catch (error) {
+		throw error;
+	}
+}

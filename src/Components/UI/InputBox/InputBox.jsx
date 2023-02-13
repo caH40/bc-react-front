@@ -4,7 +4,6 @@ import Checkmark from '../Checkmark/Checkmark';
 import classes from './InputBox.module.css';
 
 const InputBox = ({ title, setForm, form, keyObject, type, boxClass, disabled }) => {
-	console.log('boxClass');
 	return (
 		<div className={[classes.box__input, classes[boxClass]].join(' ')}>
 			<h2 className={classes.box__title}>{title}</h2>
