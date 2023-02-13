@@ -3,7 +3,7 @@ import Checkmark from '../Checkmark/Checkmark';
 
 import classes from './InputBox.module.css';
 
-const InputBox = ({ title, setForm, form, keyObject, type, boxStyle }) => {
+const InputBox = ({ title, setForm, form, keyObject, type, boxStyle, disabled }) => {
 	return (
 		<div className={classes.box__input} style={boxStyle}>
 			<h2 className={classes.box__title}>{title}</h2>
@@ -14,6 +14,7 @@ const InputBox = ({ title, setForm, form, keyObject, type, boxStyle }) => {
 					className={classes.input}
 					type={type}
 					name="title"
+					disabled={disabled}
 				/>
 				<Checkmark isCompleted={form[keyObject]} />
 			</div>

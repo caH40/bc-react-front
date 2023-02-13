@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { getResultsAthlete } from '../api/results';
 import { getUser } from '../api/user';
 
@@ -11,8 +12,10 @@ import classes from './PagesCss/Profile.module.css';
 
 const Profile = () => {
 	const [results, setResults] = useState([]);
-	const [user, setUser] = useState([]);
+	const [user, setUser] = useState({});
 	const authUser = useSelector(state => state.checkAuth.value.user);
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (!authUser.id) return;
@@ -23,68 +26,69 @@ const Profile = () => {
 		getUser().then(data => setUser(data.data.user));
 	}, [authUser]);
 
-	const editProfile = () => {
-		console.log('Редактирование профиля');
-	};
-
+	const editProfile = () => navigate('edit');
 	return (
 		<section className={classes.wrapper}>
 			<h1 className={classes.title}>Профиль пользователя</h1>
-			<div className={classes.inner}>
-				<div className={classes.block}>
-					<div className={classes.box__avatar}>
-						<img className={classes.img__avatar} src={authUser.photoProfile} alt="avatar" />
-					</div>
-					<div className={classes.box__contacts}>
-						<div className={classes.contacts__data}>
-							<p className={classes.contacts__title}>Телефон</p>
-							<p className={classes.contacts__text}>{user.phone}</p>
+			{user?._id ? (
+				<div className={classes.inner}>
+					<div className={classes.block}>
+						<div className={classes.box__avatar}>
+							<img className={classes.img__avatar} src={authUser.photoProfile} alt="avatar" />
 						</div>
-						<div className={classes.contacts__data}>
-							<p className={classes.contacts__title}>E-mail</p>
-							<p className={classes.contacts__text}>{user.email}</p>
-						</div>
-						<Button getClick={editProfile}>Редактировать</Button>
-					</div>
-				</div>
-
-				<div className={classes.block}>
-					<h2 className={classes.title__h2}>
-						{user.lastName} {user.firstName}
-					</h2>
-					<div className={classes.box__bio}>
-						<div className={classes.bio__data}>
-							<span className={classes.bio__title}>Год рождения:</span>
-							<span className={classes.bio__text}>{user.birthday}</span>
-						</div>
-
-						<div className={classes.bio__data}>
-							<span className={classes.bio__title}>Пол:</span>
-							<span className={classes.bio__text}>{user.gender}</span>
-						</div>
-
-						<div className={classes.bio__data}>
-							<span className={classes.bio__title}>Возрастная группа:</span>
-							<span className={classes.bio__text}>{user.birthday}</span>
-						</div>
-
-						<div className={classes.bio__data}>
-							<span className={classes.bio__title}>Город:</span>
-							<span className={classes.bio__text}>{user.city}</span>
-						</div>
-
-						<div className={classes.bio__data}>
-							<span className={classes.bio__title}>Команда:</span>
-							<span className={classes.bio__text}>{user.team}</span>
+						<div className={classes.box__contacts}>
+							<div className={classes.contacts__data}>
+								<p className={classes.contacts__title}>Телефон</p>
+								<p className={classes.contacts__text}>{user.phone}</p>
+							</div>
+							<div className={classes.contacts__data}>
+								<p className={classes.contacts__title}>E-mail</p>
+								<p className={classes.contacts__text}>{user.email}</p>
+							</div>
+							<Button getClick={editProfile}>Редактировать</Button>
 						</div>
 					</div>
-				</div>
 
-				<div className={classes.block}>
-					<h2 className={classes.title__h2}>Участие в соревнованиях:</h2>
-					<TableResultsAthlete results={results} setResults={setResults} />
+					<div className={classes.block}>
+						<h2 className={classes.title__h2}>
+							{user.lastName} {user.firstName}
+						</h2>
+						<div className={classes.box__bio}>
+							<div className={classes.bio__data}>
+								<span className={classes.bio__title}>Год рождения:</span>
+								<span className={classes.bio__text}>{user.birthday}</span>
+							</div>
+
+							<div className={classes.bio__data}>
+								<span className={classes.bio__title}>Пол:</span>
+								<span className={classes.bio__text}>{user.gender}</span>
+							</div>
+
+							<div className={classes.bio__data}>
+								<span className={classes.bio__title}>Возрастная группа:</span>
+								<span className={classes.bio__text}>{user.birthday}</span>
+							</div>
+
+							<div className={classes.bio__data}>
+								<span className={classes.bio__title}>Город:</span>
+								<span className={classes.bio__text}>{user.city}</span>
+							</div>
+
+							<div className={classes.bio__data}>
+								<span className={classes.bio__title}>Команда:</span>
+								<span className={classes.bio__text}>{user.team}</span>
+							</div>
+						</div>
+					</div>
+
+					<div className={classes.block}>
+						<h2 className={classes.title__h2}>Участие в соревнованиях:</h2>
+						<TableResultsAthlete results={results} setResults={setResults} />
+					</div>
 				</div>
-			</div>
+			) : (
+				'Loading...'
+			)}
 		</section>
 	);
 };
