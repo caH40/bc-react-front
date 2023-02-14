@@ -32,7 +32,7 @@ const NavbarMobile = () => {
 				<Navbar isMobile={true} updateMenu={updateMenu} />
 				<div className={classes.auth}>
 					<div className={classes.box__user}>
-						<UserAccount isAuth={isAuth} />
+						<UserAccount isAuth={isAuth} updateMenu={updateMenu} />
 					</div>
 					<div className={classes.box__login}>
 						<Login isAuth={isAuth} />

@@ -11,6 +11,5 @@ export const Adaptive = ({ children, sizeScreen, visible }) => {
 	};
 	//если необходимо показывать элемент visible=true
 	const showElement = visible ? !sizes[sizeScreen] : sizes[sizeScreen];
-
 	return showElement ? children : '';
 };

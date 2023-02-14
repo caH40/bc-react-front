@@ -24,7 +24,7 @@
 	height: 180px;
 	overflow: hidden;
 	border-radius: 50%;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 }
 .img__avatar {
 	width: 100%;
@@ -32,22 +32,7 @@
 	object-fit: cover;
 	object-position: center center;
 }
-.contacts__data {
-	margin-bottom: 20px;
-}
-.contacts__title {
-	font-style: normal;
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 16px;
-	margin-bottom: 10px;
-}
-.contacts__text {
-	font-style: normal;
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 16px;
-}
+
 .title__h2 {
 	font-family: 'Montserrat';
 	font-style: normal;
@@ -75,25 +60,16 @@
 	line-height: 16px;
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1464px) {
 	.inner {
 		justify-content: space-around;
 	}
-}
-@media screen and (max-width: 992px) {
-	.inner {
-		display: block;
-	}
+
 	.block {
-		width: 100%;
 		margin-bottom: 25px;
 	}
 	.title {
 		text-align: center;
-		margin-bottom: 30px;
-	}
-	.box__avatar {
-		margin: 0 auto;
 		margin-bottom: 30px;
 	}
 }

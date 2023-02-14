@@ -40,17 +40,7 @@ const Profile = () => {
 								alt="avatar"
 							/>
 						</div>
-						<div className={classes.box__contacts}>
-							<div className={classes.contacts__data}>
-								<p className={classes.contacts__title}>Телефон</p>
-								<p className={classes.contacts__text}>{user.phone}</p>
-							</div>
-							<div className={classes.contacts__data}>
-								<p className={classes.contacts__title}>E-mail</p>
-								<p className={classes.contacts__text}>{user.email}</p>
-							</div>
-							<Button getClick={editProfile}>Редактировать</Button>
-						</div>
+						<Button getClick={editProfile}>Редактировать</Button>
 					</div>
 
 					<div className={classes.block}>
@@ -81,6 +71,14 @@ const Profile = () => {
 							<div className={classes.bio__data}>
 								<span className={classes.bio__title}>Команда:</span>
 								<span className={classes.bio__text}>{user.team}</span>
+							</div>
+							<div className={classes.bio__data}>
+								<span className={classes.bio__title}>Телефон:</span>
+								<span className={classes.bio__text}>{user.phone}</span>
+							</div>
+							<div className={classes.bio__data}>
+								<span className={classes.bio__title}>E-mail:</span>
+								<span className={classes.bio__text}>{user.email}</span>
 							</div>
 						</div>
 					</div>
