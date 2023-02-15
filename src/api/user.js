@@ -8,6 +8,14 @@ export async function getUser() {
 		console.log(error);
 	}
 }
+export async function getUserForModerate(userId) {
+	try {
+		const response = await myAxios({ url: `/api/user/${userId}` });
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+}
 export async function getUsers() {
 	try {
 		const response = await myAxios({ url: `/api/users` });
@@ -20,6 +28,19 @@ export async function getUsers() {
 export async function postUserData(formUser) {
 	try {
 		const response = await myAxios({ method: 'POST', url: `/api/user-post`, data: { formUser } });
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+export async function moderateUserData(formUser, userId) {
+	try {
+		const response = await myAxios({
+			method: 'POST',
+			url: `/api/user-moderate`,
+			data: { formUser, userId },
+		});
 		return response;
 	} catch (error) {
 		console.log(error);

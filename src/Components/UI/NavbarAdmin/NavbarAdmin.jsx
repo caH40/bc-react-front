@@ -50,7 +50,7 @@ const NavbarAdmin = () => {
 			<ul className={classes.list}>
 				<li className={classes.item}>
 					<NavLink to="users" className={liClass}>
-						-Управление правами
+						-Управление пользователями
 					</NavLink>
 				</li>
 			</ul>

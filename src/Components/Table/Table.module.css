@@ -72,3 +72,6 @@ tbody tr:hover {
 	object-fit: cover;
 	object-fit: center center;
 }
+.text__12 {
+	font-size: 12px;
+}

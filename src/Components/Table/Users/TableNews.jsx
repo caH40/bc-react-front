@@ -22,19 +22,18 @@ const TableUsers = ({ users, setUsers, deleteNews }) => {
 					<th>firstName</th>
 					<th>lastName</th>
 					<th>firstName</th>
-					<th>patronymic</th>
 					<th>gender</th>
-					<th>birthday</th>
+					<th>birth</th>
 					<th>city</th>
 					<th>team</th>
 					<th>role</th>
-					<th>photo</th>
+					<th>Редактировать</th>
 					<th>Удалить акк.</th>
 				</tr>
 			</thead>
 			<tbody>
 				{users.map((user, index) => (
-					<tr key={user._id}>
+					<tr key={user._id} className={classes.text__13}>
 						<td>{index + 1}</td>
 						<td>{formatDate(user.date, '2-digit')}</td>
 						<td>{user.username}</td>
@@ -43,13 +42,16 @@ const TableUsers = ({ users, setUsers, deleteNews }) => {
 						<td>{user.firstName}</td>
 						<td>{user.lastName}</td>
 						<td>{user.firstName}</td>
-						<td>{user.patronymic}</td>
 						<td>{user.gender}</td>
 						<td>{user.birthday}</td>
 						<td>{user.city}</td>
 						<td>{user.team}</td>
 						<td>{user.role}</td>
-						<td>{user.photo}</td>
+						<td>
+							<Button getClick={() => navigate(user._id)} addClass="link__btn__sm">
+								Редактировать
+							</Button>
+						</td>
 						<td>
 							<Button
 								getClick={() => deleteNews(user._id)}
