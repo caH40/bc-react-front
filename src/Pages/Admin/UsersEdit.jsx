@@ -6,10 +6,21 @@ import ImageAvatarBox from '../../Components/ImageAvatarBox/ImageAvatarBox';
 import ButtonSendBox from '../../Components/UI/ButtonSendBox/ButtonSendBox';
 import InputBox from '../../Components/UI/InputBox/InputBox';
 import InputFileURLBox from '../../Components/UI/InputFileURLBox/InputFileURLBox';
+import SelectBox from '../../Components/UI/SelectBox/SelectBox';
 import { getAlert } from '../../redux/features/alertMessageSlice';
 
 import classes from '../PagesCss/UsersEdit.module.css';
 import { checkUserForm, resetFormProfile } from '../service';
+
+const valuesGender = [
+	{ id: 1, name: 'мужской' },
+	{ id: 2, name: 'женский' },
+];
+const valuesRole = [
+	{ id: 1, name: 'user' },
+	{ id: 2, name: 'moderate' },
+	{ id: 3, name: 'admin' },
+];
 
 const UsersEdit = () => {
 	const [form, setForm] = useState(() => resetFormProfile);
@@ -58,12 +69,13 @@ const UsersEdit = () => {
 						boxClass="mr-10"
 						disabled={true}
 					/>
-					<InputBox
-						title="role"
+					<SelectBox
+						title="role*"
 						form={form}
 						setForm={setForm}
 						keyObject="role"
 						type="text"
+						values={valuesRole}
 						boxClass="mr-10"
 					/>
 					<InputBox
@@ -98,12 +110,13 @@ const UsersEdit = () => {
 						type="number"
 						boxClass="mr-10"
 					/>
-					<InputBox
+					<SelectBox
 						title="Пол*"
 						form={form}
 						setForm={setForm}
 						keyObject="gender"
 						type="text"
+						values={valuesGender}
 						boxClass="mr-10"
 					/>
 					<InputBox

@@ -33,3 +33,11 @@
 .select:focus {
 	box-shadow: 0 0 5px 4px #44bb3d;
 }
+.mr-10 {
+	margin-right: 10px;
+}
+@media screen and (max-width: 447px) {
+	.mr-10 {
+		margin-right: 0;
+	}
+}
