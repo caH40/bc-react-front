@@ -20,8 +20,16 @@
 .file {
 	display: inline-block;
 	white-space: nowrap;
-	font-size: 11px;
-	width: 148px;
+	font-size: 10px;
+	width: 140px;
 	padding: 0px 15px;
 	overflow: hidden;
+}
+.mr-10 {
+	margin-right: 10px;
+}
+@media screen and (max-width: 447px) {
+	.mr-10 {
+		margin-right: 0;
+	}
 }

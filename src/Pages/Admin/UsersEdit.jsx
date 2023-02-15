@@ -1,31 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+
 import { getUserForModerate, moderateUserData } from '../../api/user';
 import ImageAvatarBox from '../../Components/ImageAvatarBox/ImageAvatarBox';
 import ButtonSendBox from '../../Components/UI/ButtonSendBox/ButtonSendBox';
 import InputBox from '../../Components/UI/InputBox/InputBox';
 import InputFileURLBox from '../../Components/UI/InputFileURLBox/InputFileURLBox';
 import SelectBox from '../../Components/UI/SelectBox/SelectBox';
-import { getAlert } from '../../redux/features/alertMessageSlice';
+import { resetUserForm, valuesGender, valuesRole } from '../../utils/variables';
 
 import classes from '../PagesCss/UsersEdit.module.css';
-import { checkUserForm, resetFormProfile } from '../service';
-
-const valuesGender = [
-	{ id: 1, name: 'мужской' },
-	{ id: 2, name: 'женский' },
-];
-const valuesRole = [
-	{ id: 1, name: 'user' },
-	{ id: 2, name: 'moderate' },
-	{ id: 3, name: 'admin' },
-];
 
 const UsersEdit = () => {
-	const [form, setForm] = useState(() => resetFormProfile);
+	const [form, setForm] = useState(() => resetUserForm);
 	const { userId } = useParams();
-	const dispatch = useDispatch();
 	const navigation = useNavigate();
 
 	useEffect(() => {
@@ -40,18 +28,8 @@ const UsersEdit = () => {
 
 	const sendForm = e => {
 		e.preventDefault();
-		const isFilledFields = checkUserForm(form);
-		if (!isFilledFields) {
-			return dispatch(
-				getAlert({
-					message: 'Необходимо заполнить все поля со звездочкой*',
-					type: 'warning',
-					isOpened: true,
-				})
-			);
-		}
 		moderateUserData(form, userId).then(data => {
-			setForm(prev => ({ ...prev, ...resetFormProfile }));
+			setForm(prev => ({ ...prev, ...resetUserForm }));
 			navigation('/admin/users');
 		});
 	};

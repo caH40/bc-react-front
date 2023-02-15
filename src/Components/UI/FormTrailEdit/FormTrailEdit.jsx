@@ -78,7 +78,7 @@ const FormTrailEdit = ({ trail, type }) => {
 						{ id: 4, name: 'Северная Осетия' },
 						{ id: 5, name: 'Адыгея' },
 					]}
-					boxStyle={{ marginRight: '15px' }}
+					boxClass="mr-10"
 				/>
 				<SelectBox
 					form={form}
@@ -90,7 +90,7 @@ const FormTrailEdit = ({ trail, type }) => {
 						{ id: 1, name: 'Шоссейный' },
 						{ id: 2, name: 'Горный' },
 					]}
-					boxStyle={{ marginRight: '15px' }}
+					boxClass="mr-10"
 				/>
 				<InputBox
 					form={form}
@@ -98,7 +98,7 @@ const FormTrailEdit = ({ trail, type }) => {
 					keyObject="nameRoute"
 					title="Название маршрута:"
 					type="text"
-					boxStyle={{ marginRight: '15px' }}
+					boxClass="mr-10"
 				/>
 				<InputBox
 					form={form}
@@ -106,7 +106,7 @@ const FormTrailEdit = ({ trail, type }) => {
 					keyObject="start"
 					title="Место старта маршрута:"
 					type="text"
-					boxStyle={{ marginRight: '15px' }}
+					boxClass="mr-10"
 				/>
 				<InputBox
 					form={form}
@@ -114,7 +114,7 @@ const FormTrailEdit = ({ trail, type }) => {
 					keyObject="turn"
 					title="Место разворота:"
 					type="text"
-					boxStyle={{ marginRight: '15px' }}
+					boxClass="mr-10"
 				/>
 				<InputBox
 					form={form}
@@ -122,7 +122,7 @@ const FormTrailEdit = ({ trail, type }) => {
 					keyObject="finish"
 					title="Место финиша маршрута:"
 					type="text"
-					boxStyle={{ marginRight: '15px' }}
+					boxClass="mr-10"
 				/>
 				<InputBox
 					form={form}
@@ -130,7 +130,7 @@ const FormTrailEdit = ({ trail, type }) => {
 					keyObject="distance"
 					title="Длина маршрута в километрах:"
 					type="number"
-					boxStyle={{ marginRight: '15px' }}
+					boxClass="mr-10"
 				/>
 				<InputBox
 					form={form}
@@ -138,7 +138,7 @@ const FormTrailEdit = ({ trail, type }) => {
 					keyObject="ascent"
 					title="Общий набор в метрах на маршруте:"
 					type="number"
-					boxStyle={{ marginRight: '15px' }}
+					boxClass="mr-10"
 				/>
 				<InputBox
 					form={form}
@@ -146,7 +146,7 @@ const FormTrailEdit = ({ trail, type }) => {
 					keyObject="urlTrekGConnect"
 					title="Ссылка на маршрут в GConnect:"
 					type="text"
-					boxStyle={{ marginRight: '15px' }}
+					boxClass="mr-10"
 				/>
 				<InputBox
 					form={form}
@@ -154,21 +154,21 @@ const FormTrailEdit = ({ trail, type }) => {
 					keyObject="urlVideo"
 					title="Ссылка на видео с маршрута:"
 					type="text"
-					boxStyle={{ marginRight: '15px' }}
+					boxClass="mr-10"
 				/>
 				<InputFileTrekBox
 					fileRef={fileTrek}
 					keyObject="fileTrekName"
 					setForm={setForm}
 					title="Трек в формате FIT/GPX/TCX:"
-					boxStyle={{ marginRight: '15px' }}
+					boxClass="mr-10"
 				/>
 				<TextArea
 					form={form}
 					setForm={setForm}
 					title="Блок подробного описание маршрута. Особенности, детали, достопримечательности, важные моменты на маршруте."
 					keyObject="descriptionArea"
-					boxStyle={{ marginRight: '15px' }}
+					boxClass="mr-10"
 				/>
 			</div>
 
@@ -178,7 +178,7 @@ const FormTrailEdit = ({ trail, type }) => {
 					setForm={setForm}
 					title="Картинка для карточки:"
 					keyObject="cardPhoto"
-					boxStyle={{ marginRight: '15px' }}
+					boxClass="mr-10"
 				/>
 				<ImageURLBox form={form} setForm={setForm} keyObject="cardPhoto" />
 			</div>
@@ -186,9 +186,9 @@ const FormTrailEdit = ({ trail, type }) => {
 				form={form}
 				setForm={setForm}
 				title="Картинки для описания:"
-				boxStyle={{ marginRight: '15px' }}
+				boxClass="mr-10"
 			/>
-			<ImagesURLBox form={form} setForm={setForm} boxStyle={{ marginRight: '15px' }} />
+			<ImagesURLBox form={form} setForm={setForm} boxClass="mr-10" />
 			<ButtonSendBox sendForm={sendForm} title="Отправка формы на сервер!" />
 		</form>
 	);
