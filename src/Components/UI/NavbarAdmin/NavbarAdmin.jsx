@@ -33,16 +33,16 @@ const NavbarAdmin = () => {
 					</NavLink>
 				</li>
 			</ul>
-			<h2 className={classes.title__list}>Результаты соревнований</h2>
+			<h2 className={classes.title__list}>Соревнования</h2>
 			<ul className={classes.list}>
 				<li className={classes.item}>
-					<NavLink to="/events-load" className={liClass}>
+					<NavLink to="events/load" className={liClass}>
 						-Загрузка результатов
 					</NavLink>
 				</li>
 				<li className={classes.item}>
-					<NavLink to="/events-edit" className={liClass}>
-						-Редактирование результатов
+					<NavLink to="events/edit" className={liClass}>
+						-Редактирование
 					</NavLink>
 				</li>
 			</ul>
@@ -50,7 +50,7 @@ const NavbarAdmin = () => {
 			<ul className={classes.list}>
 				<li className={classes.item}>
 					<NavLink to="users" className={liClass}>
-						-Управление пользователями
+						-Управление
 					</NavLink>
 				</li>
 			</ul>

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Adaptive } from '../../../Hoc/Adaptive';
 import classes from '../Table.module.css';
-import ThSort from '../ThSort';
+import ThSort from '../EventsModerate/ThSort';
 
 const TableResults = ({ results, setResults }) => {
 	const [sort, setSort] = useState({
