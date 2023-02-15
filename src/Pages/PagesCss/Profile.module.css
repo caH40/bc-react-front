@@ -60,7 +60,7 @@
 	line-height: 16px;
 }
 
-@media screen and (max-width: 1464px) {
+@media screen and (max-width: 1527px) {
 	.inner {
 		justify-content: space-around;
 	}
