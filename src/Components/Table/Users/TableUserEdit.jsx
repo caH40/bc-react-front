@@ -5,9 +5,7 @@ import { formatDate } from '../../../utils/date';
 import Button from '../../UI/Button/Button';
 import classes from '../Table.module.css';
 
-const server = process.env.REACT_APP_SERVER_EXPRESS;
-
-const TableUsers = ({ users, setUsers, deleteNews }) => {
+const TableUserEdit = ({ users, deleteUser }) => {
 	const navigate = useNavigate();
 
 	return (
@@ -54,7 +52,7 @@ const TableUsers = ({ users, setUsers, deleteNews }) => {
 						</td>
 						<td>
 							<Button
-								getClick={() => deleteNews(user._id)}
+								getClick={() => deleteUser(user._id)}
 								targetClass="warning"
 								addClass="link__btn__sm"
 							>
@@ -68,4 +66,4 @@ const TableUsers = ({ users, setUsers, deleteNews }) => {
 	);
 };
 
-export default TableUsers;
+export default TableUserEdit;

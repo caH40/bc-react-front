@@ -46,3 +46,16 @@ export async function moderateUserData(formUser, userId) {
 		console.log(error);
 	}
 }
+
+export async function postDeleteUser(userId) {
+	try {
+		const response = await myAxios({
+			method: 'DELETE',
+			url: `/api/user-delete`,
+			data: { userId },
+		});
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+}
