@@ -7,7 +7,7 @@ import Like from '../UI/News/Like/Like';
 import Share from '../UI/News/Share/Share';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAlert } from '../../redux/features/alertMessageSlice';
-import { dateOnly } from '../../utils/date';
+import { formatDate } from '../../utils/date';
 import { getNewsInteractive, postNewsInteractive } from '../../api/news';
 
 const NewsInteractive = ({ newsOne, isVisibleDate, trigger }) => {
@@ -54,7 +54,7 @@ const NewsInteractive = ({ newsOne, isVisibleDate, trigger }) => {
 				<Share newsId={newsOne._id} />
 				<Dislike getLikes={getLikes} disliked={interactive.likes.userDisliked} />
 			</div>
-			{isVisibleDate ? <div className="date">{dateOnly(newsOne.date)}</div> : undefined}
+			{isVisibleDate ? <div className="date">{formatDate(newsOne.date)}</div> : undefined}
 		</div>
 	);
 };

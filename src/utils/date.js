@@ -18,7 +18,12 @@ export function datePostedComment(date) {
 	return formatter.format(date);
 }
 
-export function dateOnly(date) {
-	const formatter = Intl.DateTimeFormat('ru');
+export function formatDate(date, year) {
+	if (!date) return '';
+	const formatter = Intl.DateTimeFormat('ru', {
+		day: 'numeric',
+		month: 'numeric',
+		year: year ?? 'numeric',
+	});
 	return formatter.format(date);
 }
