@@ -1,6 +1,6 @@
 import React from 'react';
 import { Adaptive } from '../../Hoc/Adaptive';
-import { dateOnly } from '../../utils/date';
+import { formatDate } from '../../utils/date';
 import classes from './TrailTotal.module.css';
 
 const server = process.env.REACT_APP_SERVER_EXPRESS;
@@ -53,7 +53,7 @@ const TrailTotal = ({ trail }) => {
 				<li className={classes.item}>
 					Создан:
 					<span>
-						{trail.postedBy?.username}, {dateOnly(trail.date)}
+						{trail.postedBy?.username}, {formatDate(trail.date)}
 					</span>
 				</li>
 			</ul>

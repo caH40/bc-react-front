@@ -33,11 +33,24 @@ const NavbarAdmin = () => {
 					</NavLink>
 				</li>
 			</ul>
+			<h2 className={classes.title__list}>Результаты соревнований</h2>
+			<ul className={classes.list}>
+				<li className={classes.item}>
+					<NavLink to="/events-load" className={liClass}>
+						-Загрузка результатов
+					</NavLink>
+				</li>
+				<li className={classes.item}>
+					<NavLink to="/events-edit" className={liClass}>
+						-Редактирование результатов
+					</NavLink>
+				</li>
+			</ul>
 			<h2 className={classes.title__list}>Пользователи</h2>
 			<ul className={classes.list}>
 				<li className={classes.item}>
-					<NavLink to="/" className={liClass}>
-						-Управление правами
+					<NavLink to="users" className={liClass}>
+						-Управление пользователями
 					</NavLink>
 				</li>
 			</ul>

@@ -3,9 +3,9 @@ import Checkmark from '../Checkmark/Checkmark';
 
 import classes from './SelectBox.module.css';
 
-const SelectBox = ({ title, setForm, form, keyObject, values, boxStyle }) => {
+const SelectBox = ({ title, setForm, form, keyObject, values, boxClass }) => {
 	return (
-		<div className={classes.box__input} style={boxStyle}>
+		<div className={`${classes.box__input} ${classes[boxClass]}`}>
 			<h2 className={classes.box__title}>{title}</h2>
 			<div className={classes.box__interactive}>
 				<select

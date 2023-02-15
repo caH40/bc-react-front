@@ -9,6 +9,8 @@ export const resetFormProfile = {
 	team: '',
 	email: '',
 	photoProfile: '',
+	username: '',
+	role: '',
 };
 
 export function checkUserForm(form) {

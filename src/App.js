@@ -30,6 +30,8 @@ import TrailAll from './Pages/Admin/TrailAll';
 import TrailEdit from './Pages/Admin/TrailEdit';
 import Profile from './Pages/Profile';
 import ProfileEdit from './Pages/ProfileEdit';
+import Users from './Pages/Admin/Users';
+import UsersEdit from './Pages/Admin/UsersEdit';
 
 function App() {
 	const dispatch = useDispatch();
@@ -73,6 +75,8 @@ function App() {
 								<Route path="create-trail" element={<TrailCreate />} />
 								<Route path="edit-trail" element={<TrailAll />} />
 								<Route path="edit-trail/:trailId" element={<TrailEdit />} />
+								<Route path="users" element={<Users />} />
+								<Route path="users/:userId" element={<UsersEdit />} />
 							</Route>
 						</>
 					) : (

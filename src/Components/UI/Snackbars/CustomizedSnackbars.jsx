@@ -26,7 +26,7 @@ export default function CustomizedSnackbars({ children }) {
 		<>
 			<Snackbar
 				open={snackbar.isOpened}
-				autoHideDuration={2000}
+				autoHideDuration={3000}
 				onClose={handleClose}
 				anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
 				key={Date.now()}
