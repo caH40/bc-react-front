@@ -7,6 +7,7 @@ const ButtonInput = ({
 	children,
 	multiple = false,
 	accept = '.jpg, .jpeg, .png, .webp',
+	resetRef,
 }) => {
 	const refInput = useRef('');
 
@@ -19,6 +20,7 @@ const ButtonInput = ({
 				type="file"
 				multiple={multiple}
 				accept={accept}
+				value={resetRef?.current}
 			/>
 			<button
 				className={classes.button}

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getEvents } from '../../api/events';
 import HDzhilsu from '../../Components/Helmets/HDzhilsu';
-import TableDzhiliSuEvents from '../../Components/Table/DzhiliSuEvents/TableDzhiliSuEvents';
+import TableDzhiliSuEvents from '../../Components/Table/EventUpdate/TableEvent';
 import { getAuth } from '../../redux/features/authSlice';
 
 import { mySort } from '../../utils/mysort';

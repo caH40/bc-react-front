@@ -32,6 +32,8 @@ import Profile from './Pages/Profile';
 import ProfileEdit from './Pages/ProfileEdit';
 import Users from './Pages/Admin/Users';
 import UsersEdit from './Pages/Admin/UsersEdit';
+import { Events } from './Pages/Admin/Events';
+import { EventsEdit } from './Pages/Admin/EventsEdit';
 
 function App() {
 	const dispatch = useDispatch();
@@ -77,6 +79,8 @@ function App() {
 								<Route path="edit-trail/:trailId" element={<TrailEdit />} />
 								<Route path="users" element={<Users />} />
 								<Route path="users/:userId" element={<UsersEdit />} />
+								<Route path="events/load" element={<Events />} />
+								<Route path="events/edit" element={<EventsEdit />} />
 							</Route>
 						</>
 					) : (

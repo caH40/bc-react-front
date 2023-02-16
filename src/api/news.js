@@ -12,7 +12,7 @@ export async function getNews(page, newsOnPage) {
 }
 export async function getNewsOne(newsId) {
 	try {
-		const response = await axios.get(`${server}/api/newsone/${newsId}`);
+		const response = await axios.put(`${server}/api/newsone/${newsId}`);
 		return response.data.newsOne;
 	} catch (error) {
 		console.log(error);
