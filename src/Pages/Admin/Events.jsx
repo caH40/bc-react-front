@@ -21,26 +21,29 @@ export const Events = () => {
 	const dispatch = useDispatch();
 
 	const saveResults = () => {
-		postResults(results, event).then(data => {
-			if (data.status === 201) {
+		postResults(results, event)
+			.then(data => {
+				if (data.status === 201) {
+					dispatch(
+						getAlert({
+							message: 'Протокол соревнований сохранен на сервере!',
+							type: 'success',
+							isOpened: true,
+						})
+					);
+					navigate('/admin/events/edit');
+					return;
+				}
+			})
+			.catch(error => {
 				dispatch(
 					getAlert({
-						message: 'Протокол соревнований сохранен на сервере!',
-						type: 'success',
+						message: 'Ошибка при сохранении протокола нас сервере!',
+						type: 'error',
 						isOpened: true,
 					})
 				);
-				navigate('/admin/events/edit');
-				return;
-			}
-		});
-		dispatch(
-			getAlert({
-				message: 'Ошибка при сохранении протокола нас сервере!',
-				type: 'error',
-				isOpened: true,
-			})
-		);
+			});
 	};
 
 	const clearStates = () => {
