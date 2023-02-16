@@ -12,3 +12,12 @@ export async function postResults(results, event) {
 		console.log(error);
 	}
 }
+
+export async function postDeleteEvent(eventId) {
+	try {
+		const response = await myAxios({ method: 'DELETE', url: `/api/event`, data: { eventId } });
+		return response;
+	} catch (error) {
+		throw error;
+	}
+}

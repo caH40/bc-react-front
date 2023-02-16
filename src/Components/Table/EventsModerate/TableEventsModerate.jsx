@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getEvents } from '../../../api/events';
+import { postDeleteEvent } from '../../../api/protocol';
 import { Adaptive } from '../../../Hoc/Adaptive';
-import { getAuth } from '../../../redux/features/authSlice';
+import { getAlert } from '../../../redux/features/alertMessageSlice';
 import { mySort } from '../../../utils/mysort';
 import Button from '../../UI/Button/Button';
 import classes from '../Table.module.css';
@@ -14,27 +15,39 @@ const TableEventsModerate = () => {
 		sortDirection: 'up',
 		sortField: 'eventDate',
 	});
-	const navigate = useNavigate();
-
 	const [events, setEvents] = useState([]);
+	const [trigger, setTrigger] = useState(false);
+
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
+
+	const deleteEvent = (eventId, eventName) => {
+		const isConfirmed = window.confirm(
+			`Вы действительно хотите удалить протокол соревнования "${eventName}"`
+		);
+		if (!isConfirmed)
+			return dispatch(
+				getAlert({
+					message: 'Отмена удаления протокола соревнования',
+					type: 'warning',
+					isOpened: true,
+				})
+			);
+		postDeleteEvent(eventId).then(data => {
+			dispatch(getAlert({ message: data.data.message, type: 'success', isOpened: true }));
+			setTrigger(prev => !prev);
+		});
+	};
+
 	useEffect(() => {
-		getEvents()
-			.then(data => {
-				if (!data) return;
-				const dataSorted = mySort(data, 'eventDate', 'up');
-				setEvents(dataSorted);
-			})
-			.catch(error => {
-				if (error.response.status === 401) {
-					dispatch(getAuth({ state: false }));
-				}
-			});
-	}, [dispatch]);
+		getEvents().then(data => {
+			if (!data) return;
+			const dataSorted = mySort(data, 'eventDate', 'up');
+			setEvents(dataSorted);
+		});
+	}, [dispatch, trigger]);
 
-	const deleteEvent = () => {};
-
-	const toLink = eventId => navigate(`results/${eventId}`);
+	// const toLink = eventId => navigate(`results/${eventId}`);
 	return (
 		<table>
 			<thead>
@@ -71,7 +84,7 @@ const TableEventsModerate = () => {
 			</thead>
 			<tbody>
 				{events.map((event, index) => (
-					<tr key={event._id} onClick={() => toLink(event.eventId)}>
+					<tr key={event._id}>
 						<td>{index + 1}</td>
 						<td>{event.eventDate}</td>
 						<td className={classes.align__left}>{event.eventName}</td>
@@ -98,7 +111,7 @@ const TableEventsModerate = () => {
 						</td>
 						<td>
 							<Button
-								getClick={() => deleteEvent(event._id)}
+								getClick={() => deleteEvent(event._id, event.eventName)}
 								targetClass="warning"
 								addClass="link__btn__sm"
 							>
