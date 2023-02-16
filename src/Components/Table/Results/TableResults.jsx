@@ -101,8 +101,8 @@ const TableResults = ({ results, setResults }) => {
 					</tr>
 				</thead>
 				<tbody>
-					{results.map(result => (
-						<tr key={result._id} onClick={() => toLink(result.athlete)}>
+					{results.map((result, index) => (
+						<tr key={result.id} onClick={() => toLink(result.athlete)}>
 							<td>{result.place}</td>
 							<Adaptive sizeScreen="lg">
 								<td>{result.number}</td>

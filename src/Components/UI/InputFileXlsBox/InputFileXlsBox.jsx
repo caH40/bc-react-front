@@ -1,18 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
+import * as XLSX from 'xlsx';
+import { changeTitlesEvent, changeTitlesResults } from '../../../utils/titles';
+
 import ButtonInput from '../ButtonInput/ButtonInput';
 import Checkmark from '../Checkmark/Checkmark';
 
 import classes from './InputFileXlsBox.module.css';
 
-export const InputFileXlsBox = ({ file, setFile, title, boxClass, keyObject, accept }) => {
+export const InputFileXlsBox = ({
+	results,
+	setResults,
+	setEvent,
+	event,
+	title,
+	boxClass,
+	keyObject,
+	accept,
+}) => {
+	const [file, setFile] = useState({});
+
 	const getFile = event => {
-		file = { source: event.target.files[0] };
+		const fileRow = event.target.files[0];
+		setFile(fileRow);
 		const reader = new FileReader();
-		reader.readAsArrayBuffer(file);
+		reader.onload = function (e) {
+			const data = e.target.result;
+			const book = XLSX.read(data, { type: 'binary' });
+			const resultsRow = book.Sheets['Результаты'];
+			const eventRow = book.Sheets['Описание'];
 
-		setFile(prev => ({ ...prev, [keyObject]: event.target.files[0].name }));
+			const resultsJSON = XLSX.utils.sheet_to_json(resultsRow, { range: 0, raw: false });
+			const eventJSON = XLSX.utils.sheet_to_json(eventRow, { range: 0, raw: false });
+
+			setResults(changeTitlesResults(resultsJSON));
+			setEvent(changeTitlesEvent(eventJSON));
+		};
+		reader.readAsBinaryString(fileRow);
 	};
-
+	console.log('================', changeTitlesResults(results));
 	return (
 		<div className={`${classes.box__input} ${classes[boxClass]}`}>
 			<h2 className={classes.box__title}>{title}</h2>
@@ -23,7 +48,7 @@ export const InputFileXlsBox = ({ file, setFile, title, boxClass, keyObject, acc
 					</ButtonInput>
 					<span className={classes.file}>{file.name}</span>
 				</div>
-				<Checkmark isCompleted={file} />
+				<Checkmark isCompleted={results} />
 			</div>
 		</div>
 	);
