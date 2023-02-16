@@ -14,7 +14,7 @@ export function changeTitlesResults(data) {
 	const results = [];
 	data.forEach(result => {
 		const interim = {};
-		interim.id = uuidv4();
+		interim._id = uuidv4();
 		interim.place = result?.['Место'];
 		interim.number = result?.['Номер'];
 		interim.athlete = result?.['ФИО'];

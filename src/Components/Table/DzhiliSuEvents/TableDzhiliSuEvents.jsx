@@ -46,7 +46,7 @@ const TableDzhiliSuEvents = ({ events, setEvents }) => {
 			</thead>
 			<tbody>
 				{events.map((event, index) => (
-					<tr key={event._id} onClick={() => toLink(event.eventId)}>
+					<tr key={event._id} onClick={() => toLink(event._id)}>
 						<td>{index + 1}</td>
 						<td>{event.eventDate}</td>
 						<td className={classes.align__left}>{event.eventName}</td>
