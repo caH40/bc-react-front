@@ -7,6 +7,7 @@ export function changeTitlesEvent(data) {
 		distance: data[0]?.['Дистанция'],
 		type: data[0]?.['Тип заезда'],
 		eventCity: data[0]?.['Место старта'],
+		segmentStrava: data[0]?.['Сегмент в Страве'],
 	};
 }
 export function changeTitlesResults(data) {

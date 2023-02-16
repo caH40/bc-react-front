@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as XLSX from 'xlsx';
 import { changeTitlesEvent, changeTitlesResults } from '../../../utils/titles';
 
@@ -8,17 +8,16 @@ import Checkmark from '../Checkmark/Checkmark';
 import classes from './InputFileXlsBox.module.css';
 
 export const InputFileXlsBox = ({
-	results,
 	setResults,
 	setEvent,
-	event,
 	title,
 	boxClass,
 	keyObject,
 	accept,
+	file,
+	setFile,
+	resetRef,
 }) => {
-	const [file, setFile] = useState({});
-
 	const getFile = event => {
 		const fileRow = event.target.files[0];
 		setFile(fileRow);
@@ -42,12 +41,12 @@ export const InputFileXlsBox = ({
 			<h2 className={classes.box__title}>{title}</h2>
 			<div className={classes.box__interactive}>
 				<div>
-					<ButtonInput getClick={getFile} accept={accept}>
+					<ButtonInput getClick={getFile} accept={accept} resetRef={resetRef}>
 						Выбрать файл
 					</ButtonInput>
 					<span className={classes.file}>{file.name}</span>
 				</div>
-				<Checkmark isCompleted={results} />
+				<Checkmark isCompleted={file.name} />
 			</div>
 		</div>
 	);

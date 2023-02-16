@@ -9,15 +9,17 @@ const TableEvent = ({ event }) => {
 				<table>
 					<thead>
 						<tr>
-							<th scope="col">#</th>
+							<th>#</th>
 							<th>Дата</th>
-							<th scope="col">Соревнование</th>
+							<th>Соревнование</th>
 							<Adaptive sizeScreen="lg">
-								<th scope="col">Город</th>
+								<th>Город</th>
 							</Adaptive>
-							<th scope="col">Участ.</th>
+							<th>Дистанция</th>
+							<th>Тип</th>
+							<th>Участ.</th>
 							<Adaptive sizeScreen="sm">
-								<th scope="col">Сегмент в Страве</th>
+								<th>Сегмент в Страве</th>
 							</Adaptive>
 						</tr>
 					</thead>
@@ -29,12 +31,14 @@ const TableEvent = ({ event }) => {
 							<Adaptive sizeScreen="lg">
 								<td>{event.eventCity}</td>
 							</Adaptive>
+							<td>{event.distance}</td>
+							<td>{event.type}</td>
 							<td>{event.quantityRiders}</td>
 							<Adaptive sizeScreen="sm">
 								<td>
 									<a
 										className={classes.link__btn}
-										href={event.segmentStrava}
+										href={`https://${event.segmentStrava}`}
 										target="_blank"
 										rel="noreferrer"
 									>
