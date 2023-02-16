@@ -2,11 +2,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 export function changeTitlesEvent(data) {
 	return {
-		eventDate: data?.['Дата'],
-		eventName: data?.['Название'],
-		distance: data?.['Дистанция'],
-		type: data?.['Тип заезда'],
-		eventCity: data?.['Место старта'],
+		eventDate: data[0]?.['Дата'],
+		eventName: data[0]?.['Название'],
+		distance: data[0]?.['Дистанция'],
+		type: data[0]?.['Тип заезда'],
+		eventCity: data[0]?.['Место старта'],
 	};
 }
 export function changeTitlesResults(data) {

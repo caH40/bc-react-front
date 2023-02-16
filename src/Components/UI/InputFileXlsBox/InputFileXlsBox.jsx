@@ -37,7 +37,6 @@ export const InputFileXlsBox = ({
 		};
 		reader.readAsBinaryString(fileRow);
 	};
-	console.log('================', changeTitlesResults(results));
 	return (
 		<div className={`${classes.box__input} ${classes[boxClass]}`}>
 			<h2 className={classes.box__title}>{title}</h2>
