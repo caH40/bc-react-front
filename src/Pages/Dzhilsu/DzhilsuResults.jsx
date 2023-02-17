@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getResult } from '../../api/results';
+import { getResults } from '../../api/results';
 import HDzhilsuResults from '../../Components/Helmets/HDzhilsuResults';
 import TableResults from '../../Components/Table/Results/TableResults';
 import Button from '../../Components/UI/Button/Button';
@@ -11,7 +11,7 @@ const DzhilsuResults = () => {
 	const { eventId } = useParams();
 
 	useEffect(() => {
-		getResult(eventId).then(data => {
+		getResults(eventId).then(data => {
 			const dataSorted = mySort(data, 'place', 'down');
 			setResults(dataSorted);
 		});

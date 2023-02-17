@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-import { getResult } from '../../api/results';
-import TableResults from '../../Components/Table/Results/TableResults';
+import { getResults } from '../../api/results';
+
+import { TableResultsEdit } from '../../Components/Table/ResultsEdit/TableResultsEdit';
 
 import classes from '../PagesCss/EventResultsEdit.module.css';
 
@@ -10,19 +11,20 @@ export const EventResultsEdit = () => {
 	const [results, setResults] = useState([]);
 
 	const { eventId } = useParams();
+	const navigate = useNavigate();
 
 	useEffect(() => {
-		getResult(eventId).then(data => setResults(data));
+		getResults(eventId).then(data => setResults(data));
 	}, [eventId]);
 
-	console.log(results);
-
-	const sendForm = e => {};
+	const editResult = resultId => {
+		navigate(`/admin/events/edit/result/${resultId}`);
+	};
 
 	return (
 		<section className={classes.wrapper}>
 			<h2 className={classes.title}>Редактирование результатов соревнования</h2>
-			<TableResults results={results} setResults={setResults} link={'link'} />
+			<TableResultsEdit results={results} setResults={setResults} getClick={editResult} />
 		</section>
 	);
 };

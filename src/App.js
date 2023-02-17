@@ -86,7 +86,7 @@ function App() {
 								<Route path="events/edit" element={<EventsEdit />} />
 								<Route path="events/edit/:eventId" element={<EventEdit />} />
 								<Route path="events/edit/results/:eventId" element={<EventResultsEdit />} />
-								<Route path="events/edit/result/:eventId" element={<EventResultEdit />} />
+								<Route path="events/edit/result/:resultId" element={<EventResultEdit />} />
 							</Route>
 						</>
 					) : (
