@@ -9,7 +9,7 @@ const InputBox = ({ title, setForm, form, keyObject, type, boxClass, disabled })
 			<h2 className={classes.box__title}>{title}</h2>
 			<div className={classes.box__interactive}>
 				<input
-					value={form[keyObject]}
+					value={form[keyObject] || ''}
 					onChange={e => setForm(prev => ({ ...prev, [keyObject]: e.target.value }))}
 					className={classes.input}
 					type={type}

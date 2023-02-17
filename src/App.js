@@ -34,6 +34,10 @@ import Users from './Pages/Admin/Users';
 import UsersEdit from './Pages/Admin/UsersEdit';
 import { Events } from './Pages/Admin/Events';
 import { EventsEdit } from './Pages/Admin/EventsEdit';
+import { EventEdit } from './Pages/Admin/EventEdit';
+import { EventResultEdit } from './Pages/Admin/EventResultEdit';
+import { EventResultsEdit } from './Pages/Admin/EventResultsEdit';
+import { EventResultAdd } from './Pages/Admin/EventResultAdd';
 
 function App() {
 	const dispatch = useDispatch();
@@ -81,6 +85,10 @@ function App() {
 								<Route path="users/:userId" element={<UsersEdit />} />
 								<Route path="events/load" element={<Events />} />
 								<Route path="events/edit" element={<EventsEdit />} />
+								<Route path="events/edit/:eventId" element={<EventEdit />} />
+								<Route path="events/edit/results/:eventId" element={<EventResultsEdit />} />
+								<Route path="events/edit/result/:resultId" element={<EventResultEdit />} />
+								<Route path="events/edit/result/add/:eventId" element={<EventResultAdd />} />
 							</Route>
 						</>
 					) : (

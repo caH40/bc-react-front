@@ -6,7 +6,7 @@ import classes from '../PagesCss/EventsEdit.module.css';
 export const EventsEdit = () => {
 	return (
 		<section className={classes.wrapper}>
-			<h2 className={classes.title}>Загрузка протоколов соревнований</h2>
+			<h2 className={classes.title}>Соревнования для редактирования</h2>
 			<TableEventsModerate />
 		</section>
 	);

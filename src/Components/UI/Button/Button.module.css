@@ -20,7 +20,7 @@
 	background: #ec9c07;
 }
 .warning {
-	background-color: rgb(179, 0, 0);
+	background-color: rgb(136, 0, 0);
 }
 .warning:hover {
 	background-color: rgb(255, 0, 0);
