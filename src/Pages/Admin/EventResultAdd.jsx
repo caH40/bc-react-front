@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { getResult, postResult } from '../../api/results';
+import { postAddResult } from '../../api/results';
 import Button from '../../Components/UI/Button/Button';
 import ButtonSendBox from '../../Components/UI/ButtonSendBox/ButtonSendBox';
 import InputBox from '../../Components/UI/InputBox/InputBox';
@@ -11,30 +11,20 @@ import { getAlert } from '../../redux/features/alertMessageSlice';
 
 import classes from '../PagesCss/EventResultEdit.module.css';
 
-export const EventResultEdit = () => {
+export const EventResultAdd = () => {
 	const [resultForm, setResultForm] = useState({});
 
-	const { resultId } = useParams();
+	const { eventId } = useParams();
+	useEffect(() => {
+		setResultForm(prev => ({ ...prev, eventId }));
+	}, [eventId]);
+
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	useEffect(() => {
-		getResult(resultId)
-			.then(data => setResultForm(data.data.result))
-			.catch(error => {
-				dispatch(
-					getAlert({
-						message: 'Ошибка при запросе результата!',
-						type: 'error',
-						isOpened: true,
-					})
-				);
-			});
-	}, [resultId, dispatch]);
-
 	const sendForm = e => {
 		e.preventDefault();
-		postResult(resultForm)
+		postAddResult(resultForm)
 			.then(data => {
 				if (data?.status === 200) {
 					dispatch(
@@ -61,14 +51,14 @@ export const EventResultEdit = () => {
 
 	return (
 		<section className={classes.wrapper}>
-			<h2 className={classes.title}>Редактирование результата спортсмена</h2>
+			<h2 className={classes.title}>Добавление результата спортсмена</h2>
 			<form className={classes.form}>
 				<div className={classes.block}>
 					<InputBox
-						title="Id пользователя в БД"
+						title="Id соревнования (event) в БД"
 						form={resultForm}
 						setForm={setResultForm}
-						keyObject="userId"
+						keyObject="eventId"
 						type="text"
 						boxClass="mr-10"
 						disabled={true}
@@ -94,7 +84,7 @@ export const EventResultEdit = () => {
 						form={resultForm}
 						setForm={setResultForm}
 						keyObject="number"
-						type="text"
+						type="number"
 						boxClass="mr-10"
 					/>
 					<InputBox

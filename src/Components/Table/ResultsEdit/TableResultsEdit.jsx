@@ -3,8 +3,15 @@ import React, { useState } from 'react';
 import { Adaptive } from '../../../Hoc/Adaptive';
 import classes from '../Table.module.css';
 import ThSort from '../EventsModerate/ThSort';
+import Button from '../../UI/Button/Button';
 
-export const TableResultsEdit = ({ results, setResults, getClick, removeLink }) => {
+export const TableResultsEdit = ({
+	results,
+	setResults,
+	getClick,
+	removeLink,
+	deleteResult,
+}) => {
 	const [sort, setSort] = useState({
 		sortDirection: 'down',
 		sortField: 'place',
@@ -85,9 +92,9 @@ export const TableResultsEdit = ({ results, setResults, getClick, removeLink }) 
 							>
 								Время
 							</ThSort>
-
 							<th>Год рождения</th>
-							<th scope="col">userId</th>
+							<th>userId</th>
+							{/* <th>Удаление результата</th> */}
 						</tr>
 					</thead>
 					<tbody>
@@ -113,6 +120,15 @@ export const TableResultsEdit = ({ results, setResults, getClick, removeLink }) 
 
 								<td>{result.birthday}</td>
 								<td>{result.userId}</td>
+								{/* <td>
+									<Button
+										getClick={() => deleteResult(result._id)}
+										targetClass="link__btn__sm"
+										addClass="warning"
+									>
+										Удалить
+									</Button>
+								</td> */}
 							</tr>
 						))}
 					</tbody>

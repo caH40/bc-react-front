@@ -105,7 +105,9 @@ export const EventEdit = () => {
 					</div>
 				</div>
 			</form>
-			<Button getClick={() => navigate(-1)}>Назад</Button>
+			<Button getClick={() => navigate(-1)} addClass="warning">
+				Назад
+			</Button>
 		</section>
 	);
 };
