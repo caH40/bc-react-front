@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { getResult } from '../../api/results';
+import { getResult, postResult } from '../../api/results';
 import Button from '../../Components/UI/Button/Button';
 import ButtonSendBox from '../../Components/UI/ButtonSendBox/ButtonSendBox';
 import InputBox from '../../Components/UI/InputBox/InputBox';
+import SelectBox from '../../Components/UI/SelectBox/SelectBox';
 import { getAlert } from '../../redux/features/alertMessageSlice';
 
 import classes from '../PagesCss/EventResultEdit.module.css';
 
 export const EventResultEdit = () => {
-	const [resultsForm, setResultsForm] = useState({});
+	const [resultForm, setResultForm] = useState({});
 
 	const { resultId } = useParams();
 	const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export const EventResultEdit = () => {
 
 	useEffect(() => {
 		getResult(resultId)
-			.then(data => setResultsForm(data.data.result))
+			.then(data => setResultForm(data.data.result))
 			.catch(error => {
 				dispatch(
 					getAlert({
@@ -33,7 +34,29 @@ export const EventResultEdit = () => {
 
 	const sendForm = e => {
 		e.preventDefault();
-		console.log(resultsForm);
+		postResult(resultForm)
+			.then(data => {
+				if (data?.status === 200) {
+					dispatch(
+						getAlert({
+							message: data.data.message,
+							type: 'success',
+							isOpened: true,
+						})
+					);
+					navigate(-1);
+					return;
+				}
+			})
+			.catch(error => {
+				dispatch(
+					getAlert({
+						message: 'Ошибка при сохранении изменений!',
+						type: 'error',
+						isOpened: true,
+					})
+				);
+			});
 	};
 
 	return (
@@ -43,8 +66,8 @@ export const EventResultEdit = () => {
 				<div className={classes.block}>
 					<InputBox
 						title="Id пользователя в БД"
-						form={resultsForm}
-						setForm={setResultsForm}
+						form={resultForm}
+						setForm={setResultForm}
 						keyObject="userId"
 						type="text"
 						boxClass="mr-10"
@@ -52,73 +75,77 @@ export const EventResultEdit = () => {
 					/>
 					<InputBox
 						title="ФИО (через пробел 'Ф И О')"
-						form={resultsForm}
-						setForm={setResultsForm}
+						form={resultForm}
+						setForm={setResultForm}
 						keyObject="athlete"
 						type="text"
 						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Место в финишном протоколе"
-						form={resultsForm}
-						setForm={setResultsForm}
+						form={resultForm}
+						setForm={setResultForm}
 						keyObject="place"
-						type="text"
+						type="number"
 						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Номер спортсмена"
-						form={resultsForm}
-						setForm={setResultsForm}
+						form={resultForm}
+						setForm={setResultForm}
 						keyObject="number"
 						type="text"
 						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Город спортсмена"
-						form={resultsForm}
-						setForm={setResultsForm}
+						form={resultForm}
+						setForm={setResultForm}
 						keyObject="athleteCity"
 						type="text"
 						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Команда"
-						form={resultsForm}
-						setForm={setResultsForm}
+						form={resultForm}
+						setForm={setResultForm}
 						keyObject="athleteTeam"
 						type="text"
 						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Дистанция заезда"
-						form={resultsForm}
-						setForm={setResultsForm}
+						form={resultForm}
+						setForm={setResultForm}
 						keyObject="distance"
-						type="text"
+						type="number"
 						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Общее время (чч:мм:сс)"
-						form={resultsForm}
-						setForm={setResultsForm}
+						form={resultForm}
+						setForm={setResultForm}
 						keyObject="timeTotal"
 						type="text"
 						boxClass="mr-10"
 					/>
 					<InputBox
 						title="Год рождения"
-						form={resultsForm}
-						setForm={setResultsForm}
+						form={resultForm}
+						setForm={setResultForm}
 						keyObject="birthday"
-						type="text"
+						type="number"
 						boxClass="mr-10"
 					/>
-					<InputBox
+					<SelectBox
 						title="Пол"
-						form={resultsForm}
-						setForm={setResultsForm}
+						form={resultForm}
+						setForm={setResultForm}
 						keyObject="gender"
+						values={[
+							{ id: 1, name: 'мужской' },
+							{ id: 2, name: 'женский' },
+						]}
 						type="text"
 						boxClass="mr-10"
 					/>

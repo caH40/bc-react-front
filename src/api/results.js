@@ -4,7 +4,6 @@ const server = process.env.REACT_APP_SERVER_EXPRESS;
 export async function getResults(eventId) {
 	try {
 		const response = await axios.get(`${server}/api/results/${eventId}`);
-		console.log(response);
 		return response.data.results;
 	} catch (error) {
 		console.log(error);
@@ -14,6 +13,19 @@ export async function getResults(eventId) {
 export async function getResult(resultId) {
 	try {
 		const response = await axios.get(`${server}/api/result/${resultId}`);
+		return response;
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+export async function postResult(resultForm) {
+	try {
+		const response = await axios({
+			method: 'POST',
+			url: `${server}/api/result`,
+			data: { resultForm },
+		});
 		return response;
 	} catch (error) {
 		console.log(error);
