@@ -78,7 +78,8 @@ const TableEventsModerate = () => {
 					<Adaptive sizeScreen="sm">
 						<th scope="col">Сегмент в Страве</th>
 					</Adaptive>
-					<th>Редактирование</th>
+					<th>Редактирование описания</th>
+					<th>Редактирование результатов</th>
 					<th>Удаление</th>
 				</tr>
 			</thead>
@@ -106,6 +107,11 @@ const TableEventsModerate = () => {
 						</Adaptive>
 						<td>
 							<Button getClick={() => navigate(event._id)} addClass="link__btn__sm">
+								Редактировать
+							</Button>
+						</td>
+						<td>
+							<Button getClick={() => navigate(`result/${event._id}`)} addClass="link__btn__sm">
 								Редактировать
 							</Button>
 						</td>

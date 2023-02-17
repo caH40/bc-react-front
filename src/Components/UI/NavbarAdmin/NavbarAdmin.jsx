@@ -42,12 +42,7 @@ const NavbarAdmin = () => {
 				</li>
 				<li className={classes.item}>
 					<NavLink to="events/edit" className={liClass}>
-						-Редактирование описания
-					</NavLink>
-				</li>
-				<li className={classes.item}>
-					<NavLink to="events/edit--results" className={liClass}>
-						-Редактирование результатов
+						-Редактирование
 					</NavLink>
 				</li>
 			</ul>
