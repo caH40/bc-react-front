@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { getResult } from '../../api/results';
+import Button from '../../Components/UI/Button/Button';
 import ButtonSendBox from '../../Components/UI/ButtonSendBox/ButtonSendBox';
 import InputBox from '../../Components/UI/InputBox/InputBox';
 import { getAlert } from '../../redux/features/alertMessageSlice';
@@ -14,6 +15,7 @@ export const EventResultEdit = () => {
 
 	const { resultId } = useParams();
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		getResult(resultId)
@@ -31,6 +33,7 @@ export const EventResultEdit = () => {
 
 	const sendForm = e => {
 		e.preventDefault();
+		console.log(resultsForm);
 	};
 
 	return (
@@ -124,6 +127,7 @@ export const EventResultEdit = () => {
 					</div>
 				</div>
 			</form>
+			<Button getClick={() => navigate(-1)}>Назад</Button>
 		</section>
 	);
 };

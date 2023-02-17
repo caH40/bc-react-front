@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getResults } from '../../api/results';
 
 import { TableResultsEdit } from '../../Components/Table/ResultsEdit/TableResultsEdit';
+import Button from '../../Components/UI/Button/Button';
 
 import classes from '../PagesCss/EventResultsEdit.module.css';
 
@@ -25,6 +26,7 @@ export const EventResultsEdit = () => {
 		<section className={classes.wrapper}>
 			<h2 className={classes.title}>Редактирование результатов соревнования</h2>
 			<TableResultsEdit results={results} setResults={setResults} getClick={editResult} />
+			<Button getClick={() => navigate(-1)}>Назад</Button>
 		</section>
 	);
 };

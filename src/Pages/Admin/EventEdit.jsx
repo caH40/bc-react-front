@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { getEvent, postEvent } from '../../api/events';
+import Button from '../../Components/UI/Button/Button';
 import ButtonSendBox from '../../Components/UI/ButtonSendBox/ButtonSendBox';
 import InputBox from '../../Components/UI/InputBox/InputBox';
 import { getAlert } from '../../redux/features/alertMessageSlice';
@@ -104,6 +105,7 @@ export const EventEdit = () => {
 					</div>
 				</div>
 			</form>
+			<Button getClick={() => navigate(-1)}>Назад</Button>
 		</section>
 	);
 };
