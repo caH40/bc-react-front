@@ -34,6 +34,7 @@ import Users from './Pages/Admin/Users';
 import UsersEdit from './Pages/Admin/UsersEdit';
 import { Events } from './Pages/Admin/Events';
 import { EventsEdit } from './Pages/Admin/EventsEdit';
+import { EventEdit } from './Pages/Admin/EventEdit';
 
 function App() {
 	const dispatch = useDispatch();
@@ -81,6 +82,7 @@ function App() {
 								<Route path="users/:userId" element={<UsersEdit />} />
 								<Route path="events/load" element={<Events />} />
 								<Route path="events/edit" element={<EventsEdit />} />
+								<Route path="events/edit/:eventId" element={<EventEdit />} />
 							</Route>
 						</>
 					) : (
