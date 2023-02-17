@@ -4,9 +4,9 @@ import { useParams } from 'react-router-dom';
 import { getResult } from '../../api/results';
 import TableResults from '../../Components/Table/Results/TableResults';
 
-import classes from '../PagesCss/EventResultEdit.module.css';
+import classes from '../PagesCss/EventResultsEdit.module.css';
 
-export const EventResultEdit = () => {
+export const EventResultsEdit = () => {
 	const [results, setResults] = useState([]);
 
 	const { eventId } = useParams();
@@ -21,7 +21,8 @@ export const EventResultEdit = () => {
 
 	return (
 		<section className={classes.wrapper}>
-			<h2 className={classes.title}>Редактирование результата спортсмена</h2>
+			<h2 className={classes.title}>Редактирование результатов соревнования</h2>
+			<TableResults results={results} setResults={setResults} link={'link'} />
 		</section>
 	);
 };

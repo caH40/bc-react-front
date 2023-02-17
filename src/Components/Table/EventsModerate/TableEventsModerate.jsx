@@ -111,7 +111,7 @@ const TableEventsModerate = () => {
 							</Button>
 						</td>
 						<td>
-							<Button getClick={() => navigate(`result/${event._id}`)} addClass="link__btn__sm">
+							<Button getClick={() => navigate(`results/${event._id}`)} addClass="link__btn__sm">
 								Редактировать
 							</Button>
 						</td>

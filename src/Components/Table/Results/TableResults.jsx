@@ -6,7 +6,6 @@ import classes from '../Table.module.css';
 import ThSort from '../EventsModerate/ThSort';
 
 const TableResults = ({ results, setResults, removeLink }) => {
-	console.log({ results });
 	const [sort, setSort] = useState({
 		sortDirection: 'down',
 		sortField: 'place',
