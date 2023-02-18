@@ -28,8 +28,7 @@ export const TableResultsEdit = ({
 								setSort={setSort}
 								data={results}
 								setData={setResults}
-								field={'place'}
-							>
+								field={'place'}>
 								#
 							</ThSort>
 							<Adaptive sizeScreen="lg">
@@ -38,8 +37,7 @@ export const TableResultsEdit = ({
 									setSort={setSort}
 									data={results}
 									setData={setResults}
-									field={'number'}
-								>
+									field={'number'}>
 									Номер
 								</ThSort>
 							</Adaptive>
@@ -48,8 +46,7 @@ export const TableResultsEdit = ({
 								setSort={setSort}
 								data={results}
 								setData={setResults}
-								field={'athlete'}
-							>
+								field={'athlete'}>
 								Участник
 							</ThSort>
 							<Adaptive sizeScreen="sm">
@@ -58,8 +55,7 @@ export const TableResultsEdit = ({
 									setSort={setSort}
 									data={results}
 									setData={setResults}
-									field={'athleteCity'}
-								>
+									field={'athleteCity'}>
 									Город
 								</ThSort>
 							</Adaptive>
@@ -69,8 +65,7 @@ export const TableResultsEdit = ({
 									setSort={setSort}
 									data={results}
 									setData={setResults}
-									field={'athleteTeam'}
-								>
+									field={'athleteTeam'}>
 									Команда
 								</ThSort>
 								<ThSort
@@ -78,8 +73,7 @@ export const TableResultsEdit = ({
 									setSort={setSort}
 									data={results}
 									setData={setResults}
-									field={'distance'}
-								>
+									field={'distance'}>
 									Дистанция
 								</ThSort>
 							</Adaptive>
@@ -88,13 +82,12 @@ export const TableResultsEdit = ({
 								setSort={setSort}
 								data={results}
 								setData={setResults}
-								field={'timeTotal'}
-							>
+								field={'timeTotal'}>
 								Время
 							</ThSort>
 							<th>Год рождения</th>
 							<th>userId</th>
-							{/* <th>Удаление результата</th> */}
+							<th>Удаление результата</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -102,8 +95,7 @@ export const TableResultsEdit = ({
 							<tr
 								key={result._id}
 								onClick={() => (removeLink ? '' : getClick(result._id))}
-								className={classes.pointer}
-							>
+								className={classes.pointer}>
 								<td>{result.place}</td>
 								<Adaptive sizeScreen="lg">
 									<td>{result.number}</td>
@@ -120,15 +112,14 @@ export const TableResultsEdit = ({
 
 								<td>{result.birthday}</td>
 								<td>{result.userId}</td>
-								{/* <td>
+								<td>
 									<Button
 										getClick={() => deleteResult(result._id)}
 										targetClass="link__btn__sm"
-										addClass="warning"
-									>
+										addClass="warning">
 										Удалить
 									</Button>
-								</td> */}
+								</td>
 							</tr>
 						))}
 					</tbody>

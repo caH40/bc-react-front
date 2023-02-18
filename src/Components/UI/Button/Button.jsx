@@ -5,7 +5,13 @@ const Button = ({ getClick, children, type, targetClass, addClass }) => {
 	let buttonClass = targetClass ? `${classes.button} ${classes[targetClass]}` : classes.button;
 	buttonClass = addClass ? `${buttonClass} ${classes[addClass]}` : buttonClass;
 	return (
-		<button className={buttonClass} onClick={e => getClick(e)} type={type}>
+		<button
+			className={buttonClass}
+			onClick={e => {
+				e.stopPropagation();
+				getClick(e);
+			}}
+			type={type}>
 			{children}
 		</button>
 	);
