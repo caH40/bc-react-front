@@ -1,12 +1,16 @@
 import React from 'react';
 import classes from './Button.module.css';
 
-const Button = ({ getClick, children, type, targetClass, addClass }) => {
-	let buttonClass = targetClass ? `${classes.button} ${classes[targetClass]}` : classes.button;
-	buttonClass = addClass ? `${buttonClass} ${classes[addClass]}` : buttonClass;
+const Button = ({ getClick, children, type, additionalClasses }) => {
+	additionalClasses += ' button';
+	const propsClasses = additionalClasses
+		?.split(' ')
+		.map(propsClass => classes[propsClass])
+		.join(' ');
+
 	return (
 		<button
-			className={buttonClass}
+			className={propsClasses}
 			onClick={e => {
 				e.stopPropagation();
 				getClick(e);

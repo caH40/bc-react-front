@@ -25,8 +25,7 @@ const TableResults = ({ results, setResults, removeLink }) => {
 								setSort={setSort}
 								data={results}
 								setData={setResults}
-								field={'place'}
-							>
+								field={'place'}>
 								#
 							</ThSort>
 							<Adaptive sizeScreen="lg">
@@ -35,8 +34,7 @@ const TableResults = ({ results, setResults, removeLink }) => {
 									setSort={setSort}
 									data={results}
 									setData={setResults}
-									field={'number'}
-								>
+									field={'number'}>
 									Номер
 								</ThSort>
 							</Adaptive>
@@ -45,8 +43,7 @@ const TableResults = ({ results, setResults, removeLink }) => {
 								setSort={setSort}
 								data={results}
 								setData={setResults}
-								field={'athlete'}
-							>
+								field={'athlete'}>
 								Участник
 							</ThSort>
 							<Adaptive sizeScreen="sm">
@@ -55,8 +52,7 @@ const TableResults = ({ results, setResults, removeLink }) => {
 									setSort={setSort}
 									data={results}
 									setData={setResults}
-									field={'athleteCity'}
-								>
+									field={'athleteCity'}>
 									Город
 								</ThSort>
 							</Adaptive>
@@ -66,8 +62,7 @@ const TableResults = ({ results, setResults, removeLink }) => {
 									setSort={setSort}
 									data={results}
 									setData={setResults}
-									field={'athleteTeam'}
-								>
+									field={'athleteTeam'}>
 									Команда
 								</ThSort>
 								<ThSort
@@ -75,8 +70,7 @@ const TableResults = ({ results, setResults, removeLink }) => {
 									setSort={setSort}
 									data={results}
 									setData={setResults}
-									field={'distance'}
-								>
+									field={'distance'}>
 									Дистанция
 								</ThSort>
 							</Adaptive>
@@ -85,8 +79,7 @@ const TableResults = ({ results, setResults, removeLink }) => {
 								setSort={setSort}
 								data={results}
 								setData={setResults}
-								field={'timeTotal'}
-							>
+								field={'timeTotal'}>
 								Время
 							</ThSort>
 							<th scope="col">Отс.лид.</th>
@@ -99,8 +92,7 @@ const TableResults = ({ results, setResults, removeLink }) => {
 									setSort={setSort}
 									data={results}
 									setData={setResults}
-									field={'birthday'}
-								>
+									field={'birthday'}>
 									Возр. гр.
 								</ThSort>
 								<th scope="col">Место гр</th>
@@ -109,7 +101,10 @@ const TableResults = ({ results, setResults, removeLink }) => {
 					</thead>
 					<tbody>
 						{results.map(result => (
-							<tr key={result._id} onClick={() => (removeLink ? '' : toLink(result.athlete))}>
+							<tr
+								key={result._id}
+								onClick={() => (removeLink ? '' : toLink(result.athlete))}
+								className={classes.pointer}>
 								<td>{result.place}</td>
 								<Adaptive sizeScreen="lg">
 									<td>{result.number}</td>

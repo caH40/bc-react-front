@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Adaptive } from '../../../Hoc/Adaptive';
 import classes from '../Table.module.css';
 import ThSort from '../EventsModerate/ThSort';
+import Button from '../../UI/Button/Button';
 
 const TableDzhiliSuEvents = ({ events, setEvents }) => {
 	const [sort, setSort] = useState({
@@ -22,8 +23,7 @@ const TableDzhiliSuEvents = ({ events, setEvents }) => {
 						setSort={setSort}
 						data={events}
 						setData={setEvents}
-						field={'eventDate'}
-					>
+						field={'eventDate'}>
 						Дата
 					</ThSort>
 					<th scope="col">Соревнование</th>
@@ -35,8 +35,7 @@ const TableDzhiliSuEvents = ({ events, setEvents }) => {
 						setSort={setSort}
 						data={events}
 						setData={setEvents}
-						field={'quantityRiders'}
-					>
+						field={'quantityRiders'}>
 						Участ.
 					</ThSort>
 					<Adaptive sizeScreen="sm">
@@ -46,7 +45,7 @@ const TableDzhiliSuEvents = ({ events, setEvents }) => {
 			</thead>
 			<tbody>
 				{events.map((event, index) => (
-					<tr key={event._id} onClick={() => toLink(event._id)}>
+					<tr key={event._id} onClick={() => toLink(event._id)} className={classes.pointer}>
 						<td>{index + 1}</td>
 						<td>{event.eventDate}</td>
 						<td className={classes.align__left}>{event.eventName}</td>
@@ -56,14 +55,11 @@ const TableDzhiliSuEvents = ({ events, setEvents }) => {
 						<td>{event.quantityRiders}</td>
 						<Adaptive sizeScreen="sm">
 							<td>
-								<a
-									className={classes.link__btn}
-									href={event.segmentStrava}
-									target="_blank"
-									rel="noreferrer"
-								>
+								<Button
+									additionalClasses="td__link strava"
+									getClick={() => window.open(event.segmentStrava)}>
 									Strava
-								</a>
+								</Button>
 							</td>
 						</Adaptive>
 					</tr>

@@ -89,7 +89,7 @@ export const EventEdit = () => {
 						form={eventForm}
 						setForm={setEventForm}
 						keyObject="distance"
-						type="text"
+						type="number"
 						boxClass="mr-10"
 					/>
 					<InputBox
@@ -105,7 +105,7 @@ export const EventEdit = () => {
 					</div>
 				</div>
 			</form>
-			<Button getClick={() => navigate(-1)} addClass="warning">
+			<Button getClick={() => navigate(-1)} additionalClasses="warning">
 				Назад
 			</Button>
 		</section>

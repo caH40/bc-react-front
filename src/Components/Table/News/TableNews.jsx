@@ -37,7 +37,7 @@ const TableNews = ({ news, deleteNews }) => {
 						<td className={classes.align__left}>{newsOne.newsTitle}</td>
 						<td>{newsOne.postedBy.username}</td>
 						<td>
-							<Button getClick={() => navigate(newsOne._id)} addClass="link__btn__sm">
+							<Button getClick={() => navigate(newsOne._id)} additionalClasses="td__link">
 								Редактировать
 							</Button>
 						</td>
@@ -45,7 +45,7 @@ const TableNews = ({ news, deleteNews }) => {
 							<Button
 								getClick={() => deleteNews(newsOne._id)}
 								targetClass="warning"
-								addClass="link__btn__sm"
+								additionalClasses="td__link"
 							>
 								Удалить
 							</Button>

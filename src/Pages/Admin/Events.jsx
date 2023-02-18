@@ -71,10 +71,10 @@ export const Events = () => {
 			<TableResults results={results} setResults={setResults} removeLink={true} />
 			{results.length ? (
 				<>
-					<Button getClick={saveResults} addClass="mr-20">
+					<Button getClick={saveResults} additionalClasses="mr-20">
 						Сохранить
 					</Button>
-					<Button getClick={clearStates} addClass="mr-20">
+					<Button getClick={clearStates} additionalClasses="mr-20">
 						Отменить
 					</Button>
 				</>

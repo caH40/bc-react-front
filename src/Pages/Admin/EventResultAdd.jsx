@@ -144,7 +144,7 @@ export const EventResultAdd = () => {
 					<ButtonSendBox title="Сохранение введенных данных" sendForm={sendForm} boxClass="mr-10" />
 				</div>
 			</form>
-			<Button getClick={() => navigate(-1)} addClass="warning">
+			<Button getClick={() => navigate(-1)} additionalClasses="warning">
 				Назад
 			</Button>
 		</section>

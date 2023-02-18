@@ -65,10 +65,10 @@ export const EventResultsEdit = () => {
 				getClick={editResult}
 				deleteResult={deleteResult}
 			/>
-			<Button getClick={addResult} addClass="mr-20">
+			<Button getClick={addResult} additionalClasses="mr-20">
 				Добавить результат
 			</Button>
-			<Button getClick={() => navigate(-1)} addClass="warning">
+			<Button getClick={() => navigate(-1)} additionalClasses="warning">
 				Назад
 			</Button>
 		</section>

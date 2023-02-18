@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Adaptive } from '../../../Hoc/Adaptive';
 import classes from '../Table.module.css';
 import ThSort from '../EventsModerate/ThSort';
+import Button from '../../UI/Button/Button';
 
 const TableResultsAthlete = ({ results, setResults }) => {
 	const [sort, setSort] = useState({
@@ -22,8 +23,7 @@ const TableResultsAthlete = ({ results, setResults }) => {
 						setSort={setSort}
 						data={results}
 						setData={setResults}
-						field={'eventDate'}
-					>
+						field={'eventDate'}>
 						Дата
 					</ThSort>
 					<th scope="col">Соревнование</th>
@@ -33,8 +33,7 @@ const TableResultsAthlete = ({ results, setResults }) => {
 							setSort={setSort}
 							data={results}
 							setData={setResults}
-							field={'distance'}
-						>
+							field={'distance'}>
 							Дистанция
 						</ThSort>
 					</Adaptive>
@@ -47,8 +46,7 @@ const TableResultsAthlete = ({ results, setResults }) => {
 							setSort={setSort}
 							data={results}
 							setData={setResults}
-							field={'timeTotal'}
-						>
+							field={'timeTotal'}>
 							Время
 						</ThSort>
 
@@ -58,7 +56,10 @@ const TableResultsAthlete = ({ results, setResults }) => {
 			</thead>
 			<tbody>
 				{results.map(result => (
-					<tr key={result._id} onClick={() => toLink(result.eventId, result.eventName)}>
+					<tr
+						key={result._id}
+						onClick={() => toLink(result.eventId, result.eventName)}
+						className={classes.pointer}>
 						<td>{result.eventDate}</td>
 						<td className={classes.align__left}>{result.eventName}</td>
 						<Adaptive sizeScreen="lg">
@@ -68,14 +69,11 @@ const TableResultsAthlete = ({ results, setResults }) => {
 						<Adaptive sizeScreen="sm">
 							<td>{result.timeTotal}</td>
 							<td>
-								<a
-									className={classes.link__btn}
-									href={result.segmentStrava}
-									target="_blank"
-									rel="noreferrer"
-								>
+								<Button
+									additionalClasses="td__link strava"
+									getClick={() => window.open(result.segmentStrava)}>
 									Strava
-								</a>
+								</Button>
 							</td>
 						</Adaptive>
 					</tr>

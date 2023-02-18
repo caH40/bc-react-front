@@ -113,10 +113,7 @@ export const TableResultsEdit = ({
 								<td>{result.birthday}</td>
 								<td>{result.userId}</td>
 								<td>
-									<Button
-										getClick={() => deleteResult(result._id)}
-										targetClass="link__btn__sm"
-										addClass="warning">
+									<Button getClick={() => deleteResult(result._id)} additionalClasses="warning td__link">
 										Удалить
 									</Button>
 								</td>

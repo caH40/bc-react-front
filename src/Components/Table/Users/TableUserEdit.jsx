@@ -46,7 +46,7 @@ const TableUserEdit = ({ users, deleteUser }) => {
 						<td>{user.team}</td>
 						<td>{user.role}</td>
 						<td>
-							<Button getClick={() => navigate(user._id)} addClass="link__btn__sm">
+							<Button getClick={() => navigate(user._id)} additionalClasses="td__link">
 								Редактировать
 							</Button>
 						</td>
@@ -54,8 +54,7 @@ const TableUserEdit = ({ users, deleteUser }) => {
 							<Button
 								getClick={() => deleteUser(user._id)}
 								targetClass="warning"
-								addClass="link__btn__sm"
-							>
+								additionalClasses="td__link">
 								Удалить
 							</Button>
 						</td>

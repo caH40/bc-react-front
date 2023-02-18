@@ -58,8 +58,7 @@ const TableEventsModerate = () => {
 						setSort={setSort}
 						data={events}
 						setData={setEvents}
-						field={'eventDate'}
-					>
+						field={'eventDate'}>
 						Дата
 					</ThSort>
 					<th scope="col">Соревнование</th>
@@ -71,8 +70,7 @@ const TableEventsModerate = () => {
 						setSort={setSort}
 						data={events}
 						setData={setEvents}
-						field={'quantityRiders'}
-					>
+						field={'quantityRiders'}>
 						Участ.
 					</ThSort>
 					<Adaptive sizeScreen="sm">
@@ -99,19 +97,18 @@ const TableEventsModerate = () => {
 									className={classes.link__btn}
 									href={event.segmentStrava}
 									target="_blank"
-									rel="noreferrer"
-								>
+									rel="noreferrer">
 									Strava
 								</a>
 							</td>
 						</Adaptive>
 						<td>
-							<Button getClick={() => navigate(event._id)} addClass="link__btn__sm">
+							<Button getClick={() => navigate(event._id)} additionalClasses="td__link">
 								Редактировать
 							</Button>
 						</td>
 						<td>
-							<Button getClick={() => navigate(`results/${event._id}`)} addClass="link__btn__sm">
+							<Button getClick={() => navigate(`results/${event._id}`)} additionalClasses="td__link">
 								Редактировать
 							</Button>
 						</td>
@@ -119,8 +116,7 @@ const TableEventsModerate = () => {
 							<Button
 								getClick={() => deleteEvent(event._id, event.eventName)}
 								targetClass="warning"
-								addClass="link__btn__sm"
-							>
+								additionalClasses="td__link">
 								Удалить
 							</Button>
 						</td>

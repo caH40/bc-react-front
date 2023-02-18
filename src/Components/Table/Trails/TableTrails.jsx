@@ -31,7 +31,7 @@ const TableTrails = ({ trails, deleteTrail }) => {
 						<td className={classes.align__left}>{trail.nameRoute}</td>
 						<td>{trail.postedBy?.username}</td>
 						<td>
-							<Button getClick={() => navigate(trail._id)} addClass="link__btn__sm">
+							<Button getClick={() => navigate(trail._id)} additionalClasses="td__link">
 								Редактировать
 							</Button>
 						</td>
@@ -39,8 +39,7 @@ const TableTrails = ({ trails, deleteTrail }) => {
 							<Button
 								getClick={() => deleteTrail(trail._id)}
 								targetClass="warning"
-								addClass="link__btn__sm"
-							>
+								additionalClasses="td__link">
 								Удалить
 							</Button>
 						</td>
