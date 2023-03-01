@@ -8,6 +8,7 @@ import HTrails from '../../Components/Helmets/HTrails';
 import Pagination from '../../Components/UI/Pagination/Pagination';
 import SortFilterTrails from '../../Components/UI/SortFilterTrails/SortFilterTrails';
 import { filterStart, sortStart } from './service';
+import classes from '../PagesCss/Trails.module.css';
 
 const cardsOnPage = 10;
 
@@ -60,9 +61,9 @@ const Trails = () => {
 	}, [filter, sort, page]);
 
 	return (
-		<section className="trails__body">
+		<section>
 			<HTrails />
-			<h1 className="title__page title__page__trails">Велосипедные маршруты</h1>
+			<h1 className={classes.title}>Велосипедные маршруты</h1>
 			<SortFilterTrails
 				sort={sort}
 				getSorting={getSorting}
@@ -74,7 +75,7 @@ const Trails = () => {
 
 			{trails.length ? (
 				<>
-					<div className="trails__cards">
+					<div className={classes.inner}>
 						{trails.map(trail => (
 							<Card trail={trail} key={trail._id} />
 						))}

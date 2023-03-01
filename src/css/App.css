@@ -80,13 +80,6 @@ a {
 	text-transform: uppercase;
 }
 
-.trails__cards {
-	display: flex;
-	justify-content: flex-start;
-	flex-wrap: wrap;
-	padding-bottom: 30px;
-}
-
 /* ======================================================= */
 .trail__body {
 	max-width: 1280px;
@@ -99,10 +92,6 @@ a {
 .box__align-right {
 	text-align: right;
 	margin-bottom: 15px;
-}
-
-.title__page__trails {
-	margin-bottom: 0;
 }
 .align__center {
 	text-align: center;
