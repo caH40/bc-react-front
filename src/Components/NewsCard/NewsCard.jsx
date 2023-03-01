@@ -52,7 +52,10 @@ const News = () => {
 					<div className={classes.content}>
 						{news.map(newsOne => (
 							<div className={classes.block} key={newsOne._id}>
-								<img className={classes.img} src={`${server}/${newsOne?.image}`} alt="news" />
+								<div className={classes.image}>
+									<img className={classes.img} src={`${server}/${newsOne?.image}`} alt="news" />
+								</div>
+
 								<div className={classes.box__news}>
 									<div className={classes.box__text}>
 										<div className={classes.truncate}>
