@@ -1,10 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from '../Components/UI/Button/Button';
 import { useFancy } from '../hooks/use-fancy';
 
 import classes from './PagesCss/Album.module.css';
 const server = process.env.REACT_APP_SERVER_EXPRESS;
 
 const Album = () => {
+	const navigate = useNavigate();
+	const getBack = () => navigate(-1);
 	useFancy();
 	return (
 		<div className={classes.wrapper}>
@@ -44,6 +48,7 @@ const Album = () => {
 					/>
 				</a>
 			</div>
+			<Button getClick={getBack}>Назад</Button>
 		</div>
 	);
 };
