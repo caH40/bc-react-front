@@ -29,6 +29,22 @@ const Gallery = () => {
 					/>
 					<h2 className={classes.description__title}>Заезды на МТБ</h2>
 				</Link>
+				<Link className={classes.card__link} to={`albums/${idAlbums}`}>
+					<img
+						className={classes.img}
+						src={`${server}/images/gallery/test/4-normal.jpg`}
+						alt="RaceDzhiliSu"
+					/>
+					<h2 className={classes.description__title}>Заезды на МТБ</h2>
+				</Link>
+				<Link className={classes.card__link} to={`albums/${idAlbums}`}>
+					<img
+						className={classes.img}
+						src={`${server}/images/gallery/test/4-normal.jpg`}
+						alt="RaceDzhiliSu"
+					/>
+					<h2 className={classes.description__title}>Заезды на МТБ</h2>
+				</Link>
 			</section>
 		</div>
 	);

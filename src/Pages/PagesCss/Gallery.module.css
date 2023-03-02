@@ -5,7 +5,7 @@
 	font-size: 22px;
 	letter-spacing: 0.05em;
 	padding-top: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 	text-align: left;
 }
 .category {
@@ -15,8 +15,9 @@
 }
 .card__link {
 	position: relative;
-	flex: 1 1 330px;
+	flex: 1 1 30%;
 	min-width: 330px;
+	overflow: hidden;
 	aspect-ratio: 3/2;
 }
 .img {
@@ -44,8 +45,13 @@
 	border-radius: 10px;
 }
 .card__link:hover .description__title {
-	background-color: #00000067;
+	background-color: #00000000;
 	transition: ease 0.7s;
+}
+@media screen and (max-width: 711px) {
+	.card__link {
+		max-width: 100%;
+	}
 }
 @media screen and (max-width: 575px) {
 	.description__title {

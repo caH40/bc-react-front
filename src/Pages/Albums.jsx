@@ -41,6 +41,28 @@ const Albums = () => {
 						Большой и Малый Бермамыт. Сборник фотографий с поездок на МТБ в разные годы.
 					</div>
 				</Link>
+				<Link className={classes.card__link} to="album">
+					<img
+						className={classes.img}
+						src={`${server}/images/gallery/test/test-layout.jpg`}
+						alt="layout"
+					/>
+					<h2 className={classes.description__title}>Джилы-Су</h2>
+					<div className={classes.description}>
+						Большой и Малый Бермамыт. Сборник фотографий с поездок на МТБ в разные годы.
+					</div>
+				</Link>
+				<Link className={classes.card__link} to="album">
+					<img
+						className={classes.img}
+						src={`${server}/images/gallery/test/test-layout.jpg`}
+						alt="layout"
+					/>
+					<h2 className={classes.description__title}>Джилы-Су</h2>
+					<div className={classes.description}>
+						Большой и Малый Бермамыт. Сборник фотографий с поездок на МТБ в разные годы.
+					</div>
+				</Link>
 			</section>
 			<Button getClick={getBack}>Назад</Button>
 		</div>
