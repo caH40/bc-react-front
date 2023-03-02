@@ -38,6 +38,7 @@ import { EventEdit } from './Pages/Admin/EventEdit';
 import { EventResultEdit } from './Pages/Admin/EventResultEdit';
 import { EventResultsEdit } from './Pages/Admin/EventResultsEdit';
 import { EventResultAdd } from './Pages/Admin/EventResultAdd';
+import Album from './Pages/Album';
 
 function App() {
 	const dispatch = useDispatch();
@@ -64,6 +65,7 @@ function App() {
 					<Route path="trails" element={<Trails />} />
 					<Route path="trails/:trailId" element={<Trail />} />
 					<Route path="gallery" element={<Gallery />} />
+					<Route path="gallery/album" element={<Album />} />
 					<Route path="dzhilsu" element={<Dzhilsu />} />
 					<Route path="dzhilsu/results/:eventId" element={<DzhilsuResults />} />
 					<Route path="dzhilsu/results/athlete/:athlete" element={<DzhilsuResultsAthlete />} />
