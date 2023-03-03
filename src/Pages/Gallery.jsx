@@ -11,7 +11,7 @@ const Gallery = () => {
 	return (
 		<div>
 			<HGallery />
-			<h1 className={classes.title}>Gallery</h1>
+			<h1 className={classes.title}>Галерея фотографий</h1>
 			<section className={classes.category}>
 				<Link className={classes.card__link} to={`albums/${idAlbums}`}>
 					<img
@@ -20,30 +20,6 @@ const Gallery = () => {
 						alt="RaceDzhiliSu"
 					/>
 					<h2 className={classes.description__title}>Высокогорная велогонка Джилы-Су</h2>
-				</Link>
-				<Link className={classes.card__link} to={`albums/${idAlbums}`}>
-					<img
-						className={classes.img}
-						src={`${server}/images/gallery/test/4-normal.jpg`}
-						alt="RaceDzhiliSu"
-					/>
-					<h2 className={classes.description__title}>Заезды на МТБ</h2>
-				</Link>
-				<Link className={classes.card__link} to={`albums/${idAlbums}`}>
-					<img
-						className={classes.img}
-						src={`${server}/images/gallery/test/4-normal.jpg`}
-						alt="RaceDzhiliSu"
-					/>
-					<h2 className={classes.description__title}>Заезды на МТБ</h2>
-				</Link>
-				<Link className={classes.card__link} to={`albums/${idAlbums}`}>
-					<img
-						className={classes.img}
-						src={`${server}/images/gallery/test/4-normal.jpg`}
-						alt="RaceDzhiliSu"
-					/>
-					<h2 className={classes.description__title}>Заезды на МТБ</h2>
 				</Link>
 			</section>
 		</div>
