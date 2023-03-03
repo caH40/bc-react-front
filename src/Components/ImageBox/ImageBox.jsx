@@ -10,7 +10,7 @@ const ImageBox = ({ pictureUrl, pictureSource, setPictureSource }) => {
 		pictureUrl.current = '';
 	};
 
-	const picture = pictureUrl.current ? `${server}/${pictureUrl.current}` : pictureSource.source;
+	const picture = pictureUrl?.current ? `${server}/${pictureUrl.current}` : pictureSource.source;
 
 	return (
 		<div className={classes.block__picture}>
