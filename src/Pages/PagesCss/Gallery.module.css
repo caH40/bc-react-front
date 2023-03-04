@@ -50,13 +50,13 @@
 	background-color: #00000000;
 	transition: ease 0.7s;
 }
+@media screen and (max-width: 991px) {
+	.description__title {
+		font-size: 28px;
+	}
+}
 @media screen and (max-width: 711px) {
 	.card__link {
 		max-width: 100%;
-	}
-}
-@media screen and (max-width: 575px) {
-	.description__title {
-		font-size: 28px;
 	}
 }
