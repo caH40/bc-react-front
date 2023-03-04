@@ -12,11 +12,9 @@ const Gallery = () => {
 
 	useEffect(() => {
 		getGalleries().then(data => {
-			console.log(data);
 			setGalleries(data.data.galleries);
 		});
 	}, []);
-	console.log(galleries);
 	return (
 		<div>
 			<HGallery />

@@ -16,3 +16,14 @@ export async function postGallery(form) {
 		throw error;
 	}
 }
+export async function postAlbum(form) {
+	try {
+		const response = await myAxios(`api/gallery/album/create`, {
+			method: 'POST',
+			data: { form },
+		});
+		return response;
+	} catch (error) {
+		throw error;
+	}
+}
