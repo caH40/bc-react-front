@@ -43,7 +43,10 @@ const TableAlbums = ({ albums, deleteTrail }) => {
 							</Button>
 						</td>
 						<td>
-							<Button getClick={() => navigate(`album-add/${album._id}`)} additionalClasses="td__link">
+							<Button
+								getClick={() => navigate(`photos-add/${album._id}`)}
+								additionalClasses="td__link"
+							>
 								Добавить
 							</Button>
 						</td>

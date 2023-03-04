@@ -59,21 +59,6 @@ const NavbarAdmin = () => {
 						-Редактирование галереи
 					</NavLink>
 				</li>
-				<li className={classes.item}>
-					<NavLink to="gallery/album/edit" className={liClass}>
-						-Редактирование альбома
-					</NavLink>
-				</li>
-				<li className={classes.item}>
-					<NavLink to="gallery/album/photo-add" className={liClass}>
-						-Добавление фотографий
-					</NavLink>
-				</li>
-				<li className={classes.item}>
-					<NavLink to="gallery/album/photo-edit" className={liClass}>
-						-Удаление фотографий
-					</NavLink>
-				</li>
 			</ul>
 			<h2 className={classes.title__list}>Пользователи</h2>
 			<ul className={classes.list}>
