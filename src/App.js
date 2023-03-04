@@ -43,6 +43,7 @@ import Albums from './Pages/Albums';
 import GalleryCreate from './Pages/Admin/GalleryCreate';
 import AlbumCreate from './Pages/Admin/AlbumCreate';
 import GalleryEdit from './Pages/Admin/GalleryEdit';
+import AlbumsEdit from './Pages/Admin/AlbumsEdit';
 
 function App() {
 	const dispatch = useDispatch();
@@ -98,7 +99,8 @@ function App() {
 								<Route path="events/edit/result/add/:eventId" element={<EventResultAdd />} />
 								<Route path="gallery/create" element={<GalleryCreate />} />
 								<Route path="gallery/edit" element={<GalleryEdit />} />
-								<Route path="gallery/edit/album-add/:galleryId" element={<AlbumCreate />} />
+								<Route path="gallery/edit/albums/:galleryId/add" element={<AlbumCreate />} />
+								<Route path="gallery/edit/albums/:galleryId" element={<AlbumsEdit />} />
 							</Route>
 						</>
 					) : (

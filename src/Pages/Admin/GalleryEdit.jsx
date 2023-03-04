@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getGalleries } from '../../api/gallery';
-import TableAlbums from '../../Components/Table/Albums/TableAlbums';
+import TableGallery from '../../Components/Table/Gallery/TableGallery';
 
 import classes from '../PagesCss/NewsCreate.module.css';
 
@@ -16,7 +16,7 @@ const GalleryEdit = () => {
 	return (
 		<section className={classes.wrapper}>
 			<h2 className={classes.title}>Редактирование галереи</h2>
-			<TableAlbums galleries={galleries} />
+			<TableGallery galleries={galleries} />
 		</section>
 	);
 };
