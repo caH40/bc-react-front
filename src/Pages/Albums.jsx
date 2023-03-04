@@ -1,69 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { getAlums } from '../api/gallery';
 import Button from '../Components/UI/Button/Button';
 
 import classes from './PagesCss/Albums.module.css';
 const server = process.env.REACT_APP_SERVER_EXPRESS;
 
 const Albums = () => {
-	const [albums, setAlbums] = useState();
+	const [albums, setAlbums] = useState([]);
 	const { idAlbums } = useParams();
 
 	const navigate = useNavigate();
 	const getBack = () => navigate(-1);
 
 	useEffect(() => {
-		// getAlums(idAlbums).then(data => setAlbums(data?.data?.albums));
+		getAlums(idAlbums).then(data => setAlbums(data?.data?.albums));
 	}, [idAlbums]);
+
+	const nameGallery = albums[0] ? albums[0]?.galleryId.name : '';
 	return (
 		<div>
-			<h1 className={classes.title}>{`Альбомы Джилы-Су`}</h1>
-			<section className={classes.albums}>
-				<Link className={classes.card__link} to="album">
-					<img
-						className={classes.img}
-						src={`${server}/images/gallery/test/test-layout.jpg`}
-						alt="layout"
-					/>
-					<h2 className={classes.description__title}>Джилы-Су</h2>
-					<div className={classes.description}>
-						Большой и Малый Бермамыт. Сборник фотографий с поездок на МТБ в разные годы.
-					</div>
-				</Link>
-				<Link className={classes.card__link} to="album">
-					<img
-						className={classes.img}
-						src={`${server}/images/gallery/test/test-layout.jpg`}
-						alt="layout"
-					/>
-					<h2 className={classes.description__title}>Джилы-Су</h2>
-					<div className={classes.description}>
-						Большой и Малый Бермамыт. Сборник фотографий с поездок на МТБ в разные годы.
-					</div>
-				</Link>
-				<Link className={classes.card__link} to="album">
-					<img
-						className={classes.img}
-						src={`${server}/images/gallery/test/test-layout.jpg`}
-						alt="layout"
-					/>
-					<h2 className={classes.description__title}>Джилы-Су</h2>
-					<div className={classes.description}>
-						Большой и Малый Бермамыт. Сборник фотографий с поездок на МТБ в разные годы.
-					</div>
-				</Link>
-				<Link className={classes.card__link} to="album">
-					<img
-						className={classes.img}
-						src={`${server}/images/gallery/test/test-layout.jpg`}
-						alt="layout"
-					/>
-					<h2 className={classes.description__title}>Джилы-Су</h2>
-					<div className={classes.description}>
-						Большой и Малый Бермамыт. Сборник фотографий с поездок на МТБ в разные годы.
-					</div>
-				</Link>
-			</section>
+			<h1 className={classes.title}>{`Альбомы "${nameGallery}"`}</h1>
+			{albums?.length ? (
+				<section className={classes.albums}>
+					{albums.map(album => (
+						<Link className={classes.card__link} to="album" key={album._id}>
+							<img className={classes.img} src={`${server}/${album.urlCover}`} alt="layout" />
+							<h2 className={classes.description__title}>{album.name}</h2>
+							<div className={classes.description}>{album.description}</div>
+						</Link>
+					))}
+				</section>
+			) : (
+				'Loading...'
+			)}
 			<Button getClick={getBack}>Назад</Button>
 		</div>
 	);

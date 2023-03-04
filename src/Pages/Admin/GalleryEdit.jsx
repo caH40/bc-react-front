@@ -12,7 +12,7 @@ const GalleryEdit = () => {
 			setGalleries(data.data.galleries);
 		});
 	}, []);
-	console.log(galleries);
+
 	return (
 		<section className={classes.wrapper}>
 			<h2 className={classes.title}>Редактирование галереи</h2>
