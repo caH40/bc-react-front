@@ -22,7 +22,7 @@ const Gallery = () => {
 			{galleries.length ? (
 				<section className={classes.category}>
 					{galleries.map(gallery => (
-						<Link className={classes.card__link} to={`albums/${gallery._id}`} key={gallery._id}>
+						<Link className={classes.card__link} to={`${gallery._id}/albums`} key={gallery._id}>
 							<img className={classes.img} src={`${server}/${gallery.urlCover}`} alt="RaceDzhiliSu" />
 							<h2 className={classes.description__title}>{gallery.name}</h2>
 						</Link>

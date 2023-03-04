@@ -69,7 +69,7 @@ function App() {
 					<Route path="trails" element={<Trails />} />
 					<Route path="trails/:trailId" element={<Trail />} />
 					<Route path="gallery" element={<Gallery />} />
-					<Route path="gallery/albums/:idAlbums" element={<Albums />} />
+					<Route path="gallery/:galleryId/albums/" element={<Albums />} />
 					<Route path="gallery/albums/:idAlbums/:idAlbum" element={<Album />} />
 					<Route path="dzhilsu" element={<Dzhilsu />} />
 					<Route path="dzhilsu/results/:eventId" element={<DzhilsuResults />} />

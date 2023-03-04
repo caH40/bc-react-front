@@ -8,14 +8,14 @@ const server = process.env.REACT_APP_SERVER_EXPRESS;
 
 const Albums = () => {
 	const [albums, setAlbums] = useState([]);
-	const { idAlbums } = useParams();
+	const { galleryId } = useParams();
 
 	const navigate = useNavigate();
 	const getBack = () => navigate(-1);
 
 	useEffect(() => {
-		getAlums(idAlbums).then(data => setAlbums(data?.data?.albums));
-	}, [idAlbums]);
+		getAlums(galleryId).then(data => setAlbums(data?.data?.albums));
+	}, [galleryId]);
 
 	const nameGallery = albums[0] ? albums[0]?.galleryId.name : '';
 	return (
