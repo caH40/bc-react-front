@@ -21,6 +21,7 @@ const TableAlbums = ({ albums, deleteAlbum }) => {
 					<th>Изменение альбома</th>
 					<th>Добавление фотографий</th>
 					<th>Удаление альбома</th>
+					<th>Удаление фотографий</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -53,6 +54,14 @@ const TableAlbums = ({ albums, deleteAlbum }) => {
 						<td>
 							<Button
 								getClick={() => deleteAlbum(album._id, album.name)}
+								additionalClasses="td__link warning"
+							>
+								Удалить
+							</Button>
+						</td>
+						<td>
+							<Button
+								getClick={() => navigate(`photos-delete/${album._id}`)}
 								additionalClasses="td__link warning"
 							>
 								Удалить
