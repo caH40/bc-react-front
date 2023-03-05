@@ -6,7 +6,7 @@ import classes from '../Table.module.css';
 
 const server = process.env.REACT_APP_SERVER_EXPRESS;
 
-const TableGallery = ({ galleries, deleteTrail }) => {
+const TableGallery = ({ galleries, deleteGallery }) => {
 	const navigate = useNavigate();
 
 	return (
@@ -48,7 +48,10 @@ const TableGallery = ({ galleries, deleteTrail }) => {
 							</Button>
 						</td>
 						<td>
-							<Button getClick={() => deleteTrail(gallery._id)} additionalClasses="td__link warning">
+							<Button
+								getClick={() => deleteGallery(gallery._id, gallery.name)}
+								additionalClasses="td__link warning"
+							>
 								Удалить
 							</Button>
 						</td>

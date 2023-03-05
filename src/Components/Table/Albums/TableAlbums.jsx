@@ -6,7 +6,7 @@ import classes from '../Table.module.css';
 
 const server = process.env.REACT_APP_SERVER_EXPRESS;
 
-const TableAlbums = ({ albums, deleteTrail }) => {
+const TableAlbums = ({ albums, deleteAlbum }) => {
 	const navigate = useNavigate();
 
 	return (
@@ -21,6 +21,7 @@ const TableAlbums = ({ albums, deleteTrail }) => {
 					<th>Изменение альбома</th>
 					<th>Добавление фотографий</th>
 					<th>Удаление альбома</th>
+					<th>Удаление фотографий</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -51,7 +52,18 @@ const TableAlbums = ({ albums, deleteTrail }) => {
 							</Button>
 						</td>
 						<td>
-							<Button getClick={() => deleteTrail(album._id)} additionalClasses="td__link warning">
+							<Button
+								getClick={() => deleteAlbum(album._id, album.name)}
+								additionalClasses="td__link warning"
+							>
+								Удалить
+							</Button>
+						</td>
+						<td>
+							<Button
+								getClick={() => navigate(`photos-delete/${album._id}`)}
+								additionalClasses="td__link warning"
+							>
 								Удалить
 							</Button>
 						</td>

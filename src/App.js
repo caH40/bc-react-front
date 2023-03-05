@@ -45,6 +45,7 @@ import AlbumCreate from './Pages/Admin/AlbumCreate';
 import GalleryEdit from './Pages/Admin/GalleryEdit';
 import AlbumsEdit from './Pages/Admin/AlbumsEdit';
 import AlbumAddPhotos from './Pages/Admin/AlbumAddPhotos';
+import { PhotosDelete } from './Pages/Admin/PhotosDelete/PhotosDelete';
 
 function App() {
 	const dispatch = useDispatch();
@@ -102,6 +103,10 @@ function App() {
 								<Route path="gallery/edit" element={<GalleryEdit />} />
 								<Route path="gallery/edit/albums/:galleryId/add" element={<AlbumCreate />} />
 								<Route path="gallery/edit/albums/:galleryId" element={<AlbumsEdit />} />
+								<Route
+									path="gallery/edit/albums/:galleryId/photos-delete/:albumId"
+									element={<PhotosDelete />}
+								/>
 								<Route
 									path="gallery/edit/albums/:galleryId/photos-add/:albumId"
 									element={<AlbumAddPhotos />}

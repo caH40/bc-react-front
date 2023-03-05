@@ -16,7 +16,7 @@ const Album = () => {
 	useEffect(() => {
 		getPhotos(albumId).then(data => setPhotos(data.data.photos));
 	}, [albumId]);
-	console.log(photos);
+
 	const getBack = () => navigate(-1);
 	useFancy();
 	const nameAlbum = photos[0] ? photos[0]?.albumId.name : '';
