@@ -26,3 +26,5 @@ yarn-error.log*
 .env.production
 public/images/news/*
 !public/images/news/.gitkeep
+public/images/gallery/*
+!public/images/gallery/.gitkeep

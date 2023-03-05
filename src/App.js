@@ -38,6 +38,13 @@ import { EventEdit } from './Pages/Admin/EventEdit';
 import { EventResultEdit } from './Pages/Admin/EventResultEdit';
 import { EventResultsEdit } from './Pages/Admin/EventResultsEdit';
 import { EventResultAdd } from './Pages/Admin/EventResultAdd';
+import Album from './Pages/Album';
+import Albums from './Pages/Albums';
+import GalleryCreate from './Pages/Admin/GalleryCreate';
+import AlbumCreate from './Pages/Admin/AlbumCreate';
+import GalleryEdit from './Pages/Admin/GalleryEdit';
+import AlbumsEdit from './Pages/Admin/AlbumsEdit';
+import AlbumAddPhotos from './Pages/Admin/AlbumAddPhotos';
 
 function App() {
 	const dispatch = useDispatch();
@@ -64,6 +71,8 @@ function App() {
 					<Route path="trails" element={<Trails />} />
 					<Route path="trails/:trailId" element={<Trail />} />
 					<Route path="gallery" element={<Gallery />} />
+					<Route path="gallery/:galleryId/albums/" element={<Albums />} />
+					<Route path="gallery/:galleryId/albums/:albumId" element={<Album />} />
 					<Route path="dzhilsu" element={<Dzhilsu />} />
 					<Route path="dzhilsu/results/:eventId" element={<DzhilsuResults />} />
 					<Route path="dzhilsu/results/athlete/:athlete" element={<DzhilsuResultsAthlete />} />
@@ -89,6 +98,14 @@ function App() {
 								<Route path="events/edit/results/:eventId" element={<EventResultsEdit />} />
 								<Route path="events/edit/result/:resultId" element={<EventResultEdit />} />
 								<Route path="events/edit/result/add/:eventId" element={<EventResultAdd />} />
+								<Route path="gallery/create" element={<GalleryCreate />} />
+								<Route path="gallery/edit" element={<GalleryEdit />} />
+								<Route path="gallery/edit/albums/:galleryId/add" element={<AlbumCreate />} />
+								<Route path="gallery/edit/albums/:galleryId" element={<AlbumsEdit />} />
+								<Route
+									path="gallery/edit/albums/:galleryId/photos-add/:albumId"
+									element={<AlbumAddPhotos />}
+								/>
 							</Route>
 						</>
 					) : (

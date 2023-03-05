@@ -46,6 +46,20 @@ const NavbarAdmin = () => {
 					</NavLink>
 				</li>
 			</ul>
+
+			<h2 className={classes.title__list}>Галерея</h2>
+			<ul className={classes.list}>
+				<li className={classes.item}>
+					<NavLink to="gallery/create" className={liClass}>
+						-Создание галереи
+					</NavLink>
+				</li>
+				<li className={classes.item}>
+					<NavLink to="gallery/edit" className={liClass}>
+						-Редактирование галереи
+					</NavLink>
+				</li>
+			</ul>
 			<h2 className={classes.title__list}>Пользователи</h2>
 			<ul className={classes.list}>
 				<li className={classes.item}>

@@ -11,3 +11,9 @@
 	margin-bottom: 10px;
 	text-align: left;
 }
+.box__buttons {
+	margin-top: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
