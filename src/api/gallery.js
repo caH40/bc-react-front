@@ -46,3 +46,11 @@ export async function postPhotos(form) {
 		throw error;
 	}
 }
+export async function getPhotos(albumId) {
+	try {
+		const response = await myAxios(`api/gallery/photos/${albumId}`);
+		return response;
+	} catch (error) {
+		throw error;
+	}
+}

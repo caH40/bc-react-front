@@ -24,7 +24,7 @@ const Albums = () => {
 			{albums?.length ? (
 				<section className={classes.albums}>
 					{albums.map(album => (
-						<Link className={classes.card__link} to="album" key={album._id}>
+						<Link className={classes.card__link} to={album._id} key={album._id}>
 							<img className={classes.img} src={`${server}/${album.urlCover}`} alt="layout" />
 							<h2 className={classes.description__title}>{album.name}</h2>
 							<div className={classes.description}>{album.description}</div>
