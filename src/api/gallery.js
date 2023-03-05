@@ -54,3 +54,11 @@ export async function getPhotos(albumId) {
 		throw error;
 	}
 }
+export async function postDeleteGallery(galleryId) {
+	try {
+		const response = await myAxios(`api/gallery`, { method: 'DELETE', data: { galleryId } });
+		return response;
+	} catch (error) {
+		throw error;
+	}
+}

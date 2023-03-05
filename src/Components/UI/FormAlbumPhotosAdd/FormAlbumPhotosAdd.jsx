@@ -16,7 +16,7 @@ const FormAlbumPhotosAdd = ({ galleryId, albumId }) => {
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	console.log('render');
+
 	const sendForm = event => {
 		event.preventDefault();
 

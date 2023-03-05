@@ -47,7 +47,7 @@ export const EventResultsEdit = () => {
 			.catch(error => {
 				dispatch(
 					getAlert({
-						message: 'Ошибка при удалении результата нас сервере!',
+						message: 'Ошибка при удалении результата на сервере!',
 						type: 'error',
 						isOpened: true,
 					})
