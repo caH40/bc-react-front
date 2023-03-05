@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getGalleries, postDeleteGallery } from '../../api/gallery';
+import { getGalleries, postDeleteGallery, postDeletePhoto } from '../../api/gallery';
 import TableGallery from '../../Components/Table/Gallery/TableGallery';
 import { getAlert } from '../../redux/features/alertMessageSlice';
 
@@ -46,10 +46,40 @@ const GalleryEdit = () => {
 			.finally(() => setTrigger(prev => !prev));
 	};
 
+	const deletePhoto = photoId => {
+		const confirm = window.confirm(`Вы действительно хотите удалить фотографию?`);
+		if (!confirm)
+			return dispatch(
+				getAlert({
+					message: `Отмена удаления фотографии`,
+					type: 'warning',
+					isOpened: true,
+				})
+			);
+		postDeletePhoto(photoId)
+			.then(data => {
+				dispatch(getAlert({ message: data.data?.message, type: 'success', isOpened: true }));
+			})
+			.catch(error => {
+				dispatch(
+					getAlert({
+						message: 'Ошибка при удалении фотографии на сервере!',
+						type: 'error',
+						isOpened: true,
+					})
+				);
+			})
+			.finally(() => setTrigger(prev => !prev));
+	};
+
 	return (
 		<section className={classes.wrapper}>
 			<h2 className={classes.title}>Редактирование галереи</h2>
-			<TableGallery galleries={galleries} deleteGallery={deleteGallery} />
+			<TableGallery
+				galleries={galleries}
+				deleteGallery={deleteGallery}
+				deletePhoto={deletePhoto}
+			/>
 		</section>
 	);
 };
